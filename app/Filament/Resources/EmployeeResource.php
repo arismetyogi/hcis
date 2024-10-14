@@ -17,153 +17,203 @@ class EmployeeResource extends Resource
 {
   protected static ?string $model = Employee::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
   public static function form(Form $form): Form
   {
     return $form
       ->schema([
-        Forms\Components\Section::make('Location')
-          ->description('Select Corresponding User Location')
+        Forms\Components\Grid::make()
+          ->columns([
+            'default' => 2,
+            'md' => 3,
+            'lg' => 3,
+          ])
           ->schema([
-            Forms\Components\TextInput::make('country_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('state_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('city_id')
-              ->required()
-              ->numeric(),
-          ]),
-        Forms\Components\Section::make('Employees\' Personal Information')
-          ->schema([
-            Forms\Components\TextInput::make('NIK')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('first_name')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('middle_name')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('last_name')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('city_of_birth')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\DatePicker::make('date_of_birth')
-              ->required(),
-            Forms\Components\TextInput::make('phone_no')
-              ->tel()
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('sex')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('address')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('zip_code')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('npwp')
-              ->required()
-              ->maxLength(255),
-          ])->columns(3),
-        Forms\Components\Section::make('Employees\' Job Information')
-          ->schema([
-            Forms\Components\TextInput::make('department_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('payroll_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('employee_status')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('title_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('subtitle_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('band')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('outlet_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('npp')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('gradeeselon_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('area_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('emplevel_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('saptitle_id')
-              ->required()
-              ->numeric(),
-            Forms\Components\DatePicker::make('date_hired')
-              ->required(),
-            Forms\Components\DatePicker::make('date_promoted')
-              ->required(),
-            Forms\Components\DatePicker::make('date_last_mutated')
-              ->required(),
-            Forms\Components\TextInput::make('descstatus_id')
-              ->required()
-              ->numeric(),
-          ])->columns(3),
-        Forms\Components\Section::make('Section Name')
-          ->description('Section descriptions')
-          ->schema([
-            Forms\Components\TextInput::make('bpjs_id')
-              ->required()
-              ->maxLength(255),
-            Forms\Components\TextInput::make('insured_member_count')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('bpjs_class')
-              ->required()
-              ->numeric(),
-            Forms\Components\TextInput::make('bpjstk_id')
-              ->required()
-              ->numeric(),
-          ])->columns(3),
-        Forms\Components\TextInput::make('contract_id')
-          ->required()
-          ->numeric(),
-        Forms\Components\TextInput::make('tax_id')
-          ->required()
-          ->numeric(),
-        Forms\Components\TextInput::make('honorarium')
-          ->required()
-          ->numeric(),
-        Forms\Components\TextInput::make('rekening_no')
-          ->required()
-          ->maxLength(255),
-        Forms\Components\TextInput::make('rekening_name')
-          ->required()
-          ->maxLength(255),
-        Forms\Components\TextInput::make('bank_id')
-          ->required()
-          ->numeric(),
-        Forms\Components\TextInput::make('recruitment_id')
-          ->required()
-          ->numeric(),
-        Forms\Components\TextInput::make('pants_size')
-          ->required()
-          ->maxLength(255),
-        Forms\Components\TextInput::make('shirt_size')
-          ->required()
-          ->maxLength(255),
-      ])->columns(3);
+            Forms\Components\Section::make('Location')
+              ->description('Select Corresponding User Location')
+              ->schema([
+                Forms\Components\Grid::make()
+                  ->columns([
+                    'default' => 2,
+                    'md' => 3,
+                    'lg' => 3,
+                  ])
+                  ->schema([
+                    Forms\Components\TextInput::make('country_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('state_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('city_id')
+                      ->required()
+                      ->numeric(),
+                  ])
+              ]),
+            Forms\Components\Section::make('Employees\' Personal Information')
+              ->schema([
+                Forms\Components\Grid::make()
+                  ->columns([
+                    'default' => 2,
+                    'md' => 3,
+                    'lg' => 3,
+                  ])
+                  ->schema([
+                    Forms\Components\TextInput::make('NIK')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('first_name')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('middle_name')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('last_name')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('city_of_birth')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\DatePicker::make('date_of_birth')
+                      ->required(),
+                    Forms\Components\TextInput::make('phone_no')
+                      ->tel()
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('sex')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('address')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('zip_code')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('npwp')
+                      ->required()
+                      ->maxLength(255),
+                  ])
+              ]),
+            Forms\Components\Section::make('Employees\' Job Information')
+              ->schema([
+                Forms\Components\Grid::make()
+                  ->columns([
+                    'default' => 2,
+                    'md' => 3,
+                    'lg' => 3,
+                  ])
+                  ->schema([
+                    Forms\Components\TextInput::make('department_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('payroll_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('employee_status')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('title_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('subtitle_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('band')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('outlet_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('npp')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('gradeeselon_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('area_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('emplevel_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('saptitle_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\DatePicker::make('date_hired')
+                      ->required(),
+                    Forms\Components\DatePicker::make('date_promoted')
+                      ->required(),
+                    Forms\Components\DatePicker::make('date_last_mutated')
+                      ->required(),
+                    Forms\Components\TextInput::make('descstatus_id')
+                      ->required()
+                      ->numeric(),
+                  ])
+              ]),
+            Forms\Components\Section::make('Insurance Information')
+              ->schema([
+                Forms\Components\Grid::make()
+                  ->columns([
+                    'default' => 2,
+                    'md' => 3,
+                    'lg' => 3,
+                  ])
+                  ->schema([
+                    Forms\Components\TextInput::make('bpjs_id')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('insured_member_count')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('bpjs_class')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('bpjstk_id')
+                      ->required()
+                      ->numeric(),
+                  ])
+              ]),
+            Forms\Components\Section::make()
+              ->schema([
+                Forms\Components\Grid::make()
+                  ->columns([
+                    'default' => 2,
+                    'md' => 3,
+                    'lg' => 3,
+                  ])
+                  ->schema([
+                    Forms\Components\TextInput::make('contract_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('tax_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('honorarium')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('rekening_no')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('rekening_name')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('bank_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('recruitment_id')
+                      ->required()
+                      ->numeric(),
+                    Forms\Components\TextInput::make('pants_size')
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('shirt_size')
+                      ->required()
+                      ->maxLength(255),
+                  ])
+              ])
+          ])
+      ]);
   }
 
   public static function table(Table $table): Table
