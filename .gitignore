@@ -18,7 +18,7 @@ Homestead.json
 /.vagrant
 
 # Composer and Node dependencies
-composer.lock
+# composer.lock
 npm-debug.log
 yarn-error.log
 yarn.lock
