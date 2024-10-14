@@ -1,0 +1,49 @@
+# Laravel specific
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+/storage/app/public
+/.env
+.phpunit.result.cache
+/.phpunit.result.cache
+
+# Laravel Nginx logs
+/storage/logs/*.log
+
+# Laravel configuration files
+/.env.*
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+# Composer and Node dependencies
+composer.lock
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# IDEs and Editors
+/.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# MacOS files
+*.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Application Cache
+/bootstrap/cache/*.php
+
+# IDE config files
+.idea/
+
+# SFTP config file
+.sftp-config.json
