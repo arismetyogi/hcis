@@ -12,7 +12,7 @@
 /storage/logs/*.log
 
 # Laravel configuration files
-/.env.*
+/.env.production
 Homestead.yaml
 Homestead.json
 /.vagrant
