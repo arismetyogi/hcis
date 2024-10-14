@@ -4,7 +4,7 @@
 /public/storage
 /storage/*.key
 /storage/app/public
-/.env
+# /.env
 .phpunit.result.cache
 /.phpunit.result.cache
 
@@ -12,7 +12,7 @@
 /storage/logs/*.log
 
 # Laravel configuration files
-/.env.production
+/.env.*
 Homestead.yaml
 Homestead.json
 /.vagrant
