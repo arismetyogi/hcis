@@ -30,27 +30,6 @@ class EmployeeResource extends Resource
             'lg' => 3,
           ])
           ->schema([
-            Forms\Components\Section::make('Location')
-              ->description('Select Corresponding User Location')
-              ->schema([
-                Forms\Components\Grid::make()
-                  ->columns([
-                    'default' => 2,
-                    'md' => 3,
-                    'lg' => 3,
-                  ])
-                  ->schema([
-                    Forms\Components\TextInput::make('country_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('state_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('city_id')
-                      ->required()
-                      ->numeric(),
-                  ])
-              ]),
             Forms\Components\Section::make('Employees\' Personal Information')
               ->schema([
                 Forms\Components\Grid::make()
@@ -220,23 +199,6 @@ class EmployeeResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('country_id')
-          ->numeric()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('state_id')
-          ->numeric()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('city_id')
-          ->numeric()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('department_id')
-          ->numeric()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('payroll_id')
-          ->numeric()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('NIK')
-          ->searchable(),
         Tables\Columns\TextColumn::make('first_name')
           ->searchable(),
         Tables\Columns\TextColumn::make('middle_name')
@@ -255,6 +217,14 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('address')
           ->searchable(),
         Tables\Columns\TextColumn::make('zip_code')
+          ->searchable(),
+        Tables\Columns\TextColumn::make('department_id')
+          ->numeric()
+          ->sortable(),
+        Tables\Columns\TextColumn::make('payroll_id')
+          ->numeric()
+          ->sortable(),
+        Tables\Columns\TextColumn::make('NIK')
           ->searchable(),
         Tables\Columns\TextColumn::make('npwp')
           ->searchable(),

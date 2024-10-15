@@ -17,12 +17,7 @@ class DatabaseSeeder extends Seeder
     // User::factory(10)->create();
     $this->call(UserSeeder::class);
     // to use custom seeder
-    $this->call(CountrySeeder::class);
-    $this->call(StateSeeder::class);
-    $this->call(CitiesTableChunkOneSeeder::class);
-    $this->call(CitiesTableChunkTwoSeeder::class);
-    $this->call(CitiesTableChunkThreeSeeder::class);
-    $this->call(CitiesTableChunkFourSeeder::class);
-    $this->call(CitiesTableChunkFiveSeeder::class);
+    $this->call(ProvinceSeeder::class);
+    $this->call(PostcodeSeeder::class);
   }
 }
