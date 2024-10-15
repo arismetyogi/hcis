@@ -13,6 +13,7 @@ return new class extends Migration
   {
     Schema::create('payrolls', function (Blueprint $table) {
       $table->id();
+      $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
       $table->float('1050_honorarium');
       $table->float('uang_saku_mb');
       $table->float('3000_lembur');

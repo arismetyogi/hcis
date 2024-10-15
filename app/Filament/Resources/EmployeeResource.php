@@ -41,7 +41,7 @@ class EmployeeResource extends Resource
                   ->schema([
                     Forms\Components\TextInput::make('NIK')
                       ->required()
-                      ->maxLength(255),
+                      ->maxLength(16),
                     Forms\Components\TextInput::make('first_name')
                       ->required()
                       ->maxLength(255),
@@ -60,15 +60,16 @@ class EmployeeResource extends Resource
                       ->tel()
                       ->required()
                       ->maxLength(255),
-                    Forms\Components\TextInput::make('sex')
-                      ->required()
-                      ->maxLength(255),
+                    Forms\Components\Select::make('sex')
+                      ->options(['Laki-Laki', 'Perempuan']),
                     Forms\Components\TextInput::make('address')
                       ->required()
-                      ->maxLength(255),
-                    Forms\Components\TextInput::make('zip_code')
+                      ->maxLength(255)
+                      ->label('alamat'),
+                    Forms\Components\Select::make('postcode_id')
+                      ->relationship('postcodes', 'subdistrict')
                       ->required()
-                      ->maxLength(255),
+                      ->label('kelurahan'),
                     Forms\Components\TextInput::make('npwp')
                       ->required()
                       ->maxLength(255),
@@ -83,51 +84,51 @@ class EmployeeResource extends Resource
                     'lg' => 3,
                   ])
                   ->schema([
-                    Forms\Components\TextInput::make('department_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('payroll_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('employee_status')
-                      ->required()
-                      ->maxLength(255),
-                    Forms\Components\TextInput::make('title_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('subtitle_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('band')
-                      ->required()
-                      ->maxLength(255),
-                    Forms\Components\TextInput::make('outlet_id')
-                      ->required()
-                      ->numeric(),
+                    Forms\Components\Select::make('department_id')
+                      ->relationship('department', 'name')
+                      ->searchable()
+                      ->preload(),
+                    Forms\Components\Select::make('employee_status_id')
+                      ->relationship('employee_statuses', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('title_id')
+                      ->relationship('titles', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('subtitle_id')
+                      ->relationship('subtitles', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('band')
+                      ->relationship('bands', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('outlet_id')
+                      ->relationship('outlet', 'name')
+                      ->required(),
                     Forms\Components\TextInput::make('npp')
                       ->required()
                       ->maxLength(255),
-                    Forms\Components\TextInput::make('gradeeselon_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('area_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('emplevel_id')
-                      ->required()
-                      ->numeric(),
+                    Forms\Components\Select::make('gradeeselon_id')
+                      ->relationship('gradeeselon', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('area_id')
+                      ->relationship('area', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('emplevel_id')
+                      ->relationship('emplevel', 'name')
+                      ->required(),
                     Forms\Components\TextInput::make('saptitle_id')
+                      ->required(),
+                    Forms\Components\TextInput::make('saptitle_name')
                       ->required()
-                      ->numeric(),
+                      ->maxLength(255),
                     Forms\Components\DatePicker::make('date_hired')
                       ->required(),
                     Forms\Components\DatePicker::make('date_promoted')
                       ->required(),
                     Forms\Components\DatePicker::make('date_last_mutated')
                       ->required(),
-                    Forms\Components\TextInput::make('descstatus_id')
-                      ->required()
-                      ->numeric(),
+                    Forms\Components\Select::make('descstatus_id')
+                      ->relationship('descstatus', 'name')
+                      ->required(),
                   ])
               ]),
             Forms\Components\Section::make('Insurance Information')
