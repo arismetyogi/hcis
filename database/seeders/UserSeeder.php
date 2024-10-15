@@ -9,18 +9,19 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        User::create([
-            'name' => 'Yogi Arismet',
-            'email' => 'arism@email.com',
-            'password' => Hash::make('123'),
-            'is_admin' => true,
-        ]);
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    User::create([
+      'name' => 'Yogi Arismet',
+      'email' => 'arism@email.com',
+      'password' => Hash::make('123'),
+      'is_admin' => true,
+      'outlet_id' => 1,
+    ]);
 
-        User::factory()->count(9)->create();
-    }
+    User::factory()->count(9)->create();
+  }
 }

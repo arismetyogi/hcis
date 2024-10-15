@@ -23,6 +23,9 @@ class UserResource extends Resource
   {
     return $form
       ->schema([
+        Forms\Components\Select::make('outlet_id')
+          ->relationship('outlets', 'name')
+          ->required(),
         Forms\Components\TextInput::make('name')
           ->required()
           ->maxLength(255),

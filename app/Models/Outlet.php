@@ -10,10 +10,14 @@ class Outlet extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name'];
+  protected $guarded = [''];
 
   public function employees(): HasMany
   {
     return $this->hasMany(Employee::class);
+  }
+  public function users(): HasMany
+  {
+    return $this->hasMany(User::class);
   }
 }

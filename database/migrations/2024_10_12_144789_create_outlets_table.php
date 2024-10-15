@@ -15,8 +15,18 @@ return new class extends Migration
       $table->id();
       $table->string('name');
       $table->char('branch_id');
-      $table->char('branch_name');
+      $table->string('branch_name');
       $table->char('outlet_sap_id');
+      $table->string('store_type');
+      $table->date('operational_date')->default(null);
+      $table->string('address');
+      $table->char('post_code');
+      $table->string('district_name');
+      $table->foreignId('city_id')->constrained()->cascadeOnDelete();
+      $table->foreignId('state_id')->constrained()->cascadeOnDelete();
+      $table->float('latitude');
+      $table->float('longitude');
+      $table->tel('phone_no');
       $table->timestamps();
     });
   }
