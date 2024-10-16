@@ -2,9 +2,15 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\FemalePantsSizeEnums;
+use App\Enums\MalePantsSizeEnums;
+use App\Enums\StatusPasanganEnums;
 use App\Filament\Resources\EmployeeResource\Pages;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
+use App\Models\Department;
 use App\Models\Employee;
+use App\Models\Gradeeselon;
+use App\Models\Postcode;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -39,37 +45,70 @@ class EmployeeResource extends Resource
                     'lg' => 3,
                   ])
                   ->schema([
-                    Forms\Components\TextInput::make('NIK')
-                      ->required()
-                      ->maxLength(255),
                     Forms\Components\TextInput::make('first_name')
+                      ->label('Nama Depan')
                       ->required()
                       ->maxLength(255),
                     Forms\Components\TextInput::make('middle_name')
-                      ->required()
+                      ->label('Nama Tengah')
                       ->maxLength(255),
                     Forms\Components\TextInput::make('last_name')
+                      ->label('Nama Belakang')
                       ->required()
                       ->maxLength(255),
-                    Forms\Components\TextInput::make('city_of_birth')
+                    Forms\Components\TextInput::make('nik')
+                      ->label('NIK')
                       ->required()
                       ->maxLength(255),
                     Forms\Components\DatePicker::make('date_of_birth')
+                      ->label('Tanggal Lahir')
                       ->required(),
                     Forms\Components\TextInput::make('phone_no')
+                      ->label('No Telp.')
                       ->tel()
                       ->required()
-                      ->maxLength(255),
-                    Forms\Components\TextInput::make('sex')
+                      ->maxLength(15),
+                    Forms\Components\Select::make('sex')
+                      ->label('Jenis Kelamin')
+                      ->options([
+                        'male' => 'Laki-laki',
+                        'female' => 'Perempuan',
+                      ])
                       ->required()
-                      ->maxLength(255),
+                      ->afterStateUpdated(function ($set, $state) {
+                        // Reset the 'pants_size' field when 'sex' changes
+                        $set('pants_size', null);
+                      }),
                     Forms\Components\TextInput::make('address')
+                      ->label('Alamat')
                       ->required()
                       ->maxLength(255),
-                    Forms\Components\TextInput::make('zip_code')
-                      ->required()
-                      ->maxLength(255),
+                    Forms\Components\Select::make('postcode_id')
+                      ->label('Kode Pos')
+                      ->relationship('postcode', 'postal_code')
+                      ->getSearchResultsUsing(function (string $search) {
+                        return Postcode::query()
+                          ->where('postal_code', 'like', "%{$search}%")
+                          ->orWhere('urban', 'like', "%{$search}%")
+                          ->orWhere('subdistrict', 'like', "%{$search}%")
+                          ->limit(50) // Limit the number of results to avoid performance issues
+                          // ->pluck('postal_code', 'id');
+                          ->get()
+                          ->mapWithKeys(function ($postcode) {
+                            return [
+                              $postcode->id => "{$postcode->postal_code} - {$postcode->urban} - {$postcode->subdistrict}",
+                            ];
+                          });
+                      })
+                      ->getOptionLabelUsing(
+                        fn($value) => optional(Postcode::find($value))
+                          ->postal_code . ' - ' . optional(Postcode::find($value))
+                          ->urban . ' - ' . optional(Postcode::find($value))
+                          ->subdistrict
+                      )
+                      ->searchable(),
                     Forms\Components\TextInput::make('npwp')
+                      ->label('NPWP')
                       ->required()
                       ->maxLength(255),
                   ])
@@ -83,51 +122,97 @@ class EmployeeResource extends Resource
                     'lg' => 3,
                   ])
                   ->schema([
-                    Forms\Components\TextInput::make('department_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('payroll_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('employee_status')
-                      ->required()
-                      ->maxLength(255),
-                    Forms\Components\TextInput::make('title_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('subtitle_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('band')
-                      ->required()
-                      ->maxLength(255),
-                    Forms\Components\TextInput::make('outlet_id')
-                      ->required()
-                      ->numeric(),
+                    Forms\Components\Select::make('department_id')
+                      ->label('Unit Kerja - UB')
+                      ->relationship('department', 'name')
+                      ->getSearchResultsUsing(function (string $search) {
+                        return Department::query()
+                          ->where('name', 'like', "%{$search}%")
+                          ->limit(50) // Limit the number of results to avoid performance issues
+                          ->get()
+                          ->mapWithKeys(function ($department) {
+                            return [
+                              $department->id => "{$department->name}",
+                            ];
+                          });
+                      })
+                      ->getOptionLabelUsing(
+                        fn($value) => optional(Department::find($value))->name
+                      )
+                      ->searchable()
+                      ->required(),
+                    Forms\Components\Select::make('outlet_id')
+                      ->label('Nama Outlet')
+                      ->relationship('outlet', 'name')
+                      ->required(),
                     Forms\Components\TextInput::make('npp')
+                      ->label('NPP')
                       ->required()
                       ->maxLength(255),
-                    Forms\Components\TextInput::make('gradeeselon_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('area_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('emplevel_id')
-                      ->required()
-                      ->numeric(),
+                    Forms\Components\Select::make('employee_status_id')
+                      ->label('Status Pegawai')
+                      ->relationship('employee_status', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('title_id')
+                      ->label('Nama Jabatan')
+                      ->relationship('title', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('subtitle_id')
+                      ->label('Nama SubJabatan')
+                      ->relationship('subtitle', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('band')
+                      ->label('Nama Band')
+                      ->relationship('band', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('gradeeselon_id')
+                      ->label('Grade Eselon')
+                      ->relationship('gradeeselon', 'id')
+                      ->getSearchResultsUsing(function (string $search) {
+                        return Gradeeselon::query()
+                          ->where('grade', 'like', "%{$search}%")
+                          ->orWhere('eselon', 'like', "%{$search}%")
+                          ->limit(10) // Limit the number of results to avoid performance issues
+                          ->get()
+                          ->mapWithKeys(function ($grade) {
+                            return [
+                              $grade->id => "{$grade->grade} - {$grade->eselon}"
+                            ];
+                          });
+                      })
+                      ->getOptionLabelUsing(
+                        fn($value) => optional(Gradeeselon::find($value))->grade . ' - ' . optional(value: Gradeeselon::find($value))->eselon
+                      )
+                      ->required(),
+                    Forms\Components\Select::make('area_id')
+                      ->label('Area')
+                      ->relationship('area', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('emplevel_id')
+                      ->label('Level Pegawai')
+                      ->relationship('emplevel', 'name')
+                      ->required(),
                     Forms\Components\TextInput::make('saptitle_id')
+                      ->label('ID Jab SAP')
                       ->required()
                       ->numeric(),
+                    Forms\Components\TextInput::make('saptitle_name')
+                      ->label('Nama Jab SAP')
+                      ->required()
+                      ->maxLength(255),
                     Forms\Components\DatePicker::make('date_hired')
+                      ->label('Tanggal Diterima')
                       ->required(),
                     Forms\Components\DatePicker::make('date_promoted')
+                      ->label('Tanggal Diangkat')
                       ->required(),
                     Forms\Components\DatePicker::make('date_last_mutated')
+                      ->label('Tanggal Mutasi Terakhir')
                       ->required(),
-                    Forms\Components\TextInput::make('descstatus_id')
-                      ->required()
-                      ->numeric(),
+                    Forms\Components\Select::make('descstatus_id')
+                      ->label('Deskripsi Status')
+                      ->relationship('descstatus', 'name')
+                      ->required(),
                   ])
               ]),
             Forms\Components\Section::make('Insurance Information')
@@ -140,20 +225,28 @@ class EmployeeResource extends Resource
                   ])
                   ->schema([
                     Forms\Components\TextInput::make('bpjs_id')
+                      ->label('No BPJS')
                       ->required()
                       ->maxLength(255),
                     Forms\Components\TextInput::make('insured_member_count')
+                      ->label('Jumlah Tanggungan')
+                      ->minValue(0)
+                      ->maxValue(4)
                       ->required()
-                      ->numeric(),
+                      ->rules(['integer', 'min:0', 'max:4']),
                     Forms\Components\TextInput::make('bpjs_class')
+                      ->label('Kelas BPJS')
+                      ->minValue(0)
+                      ->maxValue(3)
                       ->required()
-                      ->numeric(),
+                      ->rules(['integer', 'min:0', 'max:3']),
                     Forms\Components\TextInput::make('bpjstk_id')
+                      ->label('No BPJSTK')
                       ->required()
                       ->numeric(),
                   ])
               ]),
-            Forms\Components\Section::make()
+            Forms\Components\Section::make('Contract Info')
               ->schema([
                 Forms\Components\Grid::make()
                   ->columns([
@@ -163,34 +256,82 @@ class EmployeeResource extends Resource
                   ])
                   ->schema([
                     Forms\Components\TextInput::make('contract_id')
+                      ->label('No Kontrak')
+                      ->maxLength(50),
+                    Forms\Components\TextInput::make('contract_sequence_no')
+                      ->label('Kontrak Ke-')
+                      ->minValue(0)
+                      ->maxValue(3)
+                      ->rules(['integer', 'min:0', 'max:3']),
+                    Forms\Components\TextInput::make('contract_term')
+                      ->label('Masa Kontrak')
+                      ->minValue(0)
+                      ->maxValue(5)
+                      ->rules(['integer', 'min:0', 'max:5']),
+                    Forms\Components\DatePicker::make('contract_start')
+                      ->label('Tanggal Mulai'),
+                    Forms\Components\DatePicker::make('contract_end')
+                      ->label('Tanggal Berakhir'),
+
+                  ])
+              ]),
+            Forms\Components\Section::make('Tax & Honorary Info')
+              ->schema([
+                Forms\Components\Grid::make()
+                  ->columns([
+                    'default' => 2,
+                    'md' => 3,
+                    'lg' => 3,
+                  ])
+                  ->schema([
+                    Forms\Components\Select::make('status_pasangan')
+                      ->label('Status Pasangan')
+                      ->options(StatusPasanganEnums::options())
+                      ->required(),
+                    Forms\Components\TextInput::make('jumlah_tanggungan')
+                      ->label('Jumlah Tanggungan')
+                      ->integer()
+                      ->minValue(0)
+                      ->maxValue(3)
                       ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('tax_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('honorarium')
-                      ->required()
-                      ->numeric(),
+                      ->rules(['integer', 'min:0', 'max:3']),
+                    Forms\Components\Select::make('pasangan_ditanggung_pajak')
+                      ->label('Pasangan Ditanggung Pajak')
+                      ->boolean()
+                      ->required(),
                     Forms\Components\TextInput::make('rekening_no')
+                      ->label('No. Rekening Payroll')
                       ->required()
                       ->maxLength(255),
                     Forms\Components\TextInput::make('rekening_name')
+                      ->label('Nama Pemilik Rekening')
                       ->required()
                       ->maxLength(255),
-                    Forms\Components\TextInput::make('bank_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('recruitment_id')
-                      ->required()
-                      ->numeric(),
-                    Forms\Components\TextInput::make('pants_size')
-                      ->required()
-                      ->maxLength(255),
+                    Forms\Components\Select::make('bank_id')
+                      ->relationship('bank', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('recruitment_id')
+                      ->relationship('recruitment', 'name')
+                      ->required(),
+                    Forms\Components\Select::make('pants_size')
+                      ->label('Ukuran Celana')
+                      ->options(function (callable $get) {
+                        $sex = $get('sex');
+                        // Return different options based on the selected sex
+                        if ($sex === 'male') {
+                          return MalePantsSizeEnums::options();
+                        }
+                        if ($sex === 'female') {
+                          return FemalePantsSizeEnums::cases();
+                        }
+                        return [];
+                      })
+                      ->reactive(),
                     Forms\Components\TextInput::make('shirt_size')
                       ->required()
                       ->maxLength(255),
                   ])
-              ])
+              ]),
           ])
       ]);
   }
