@@ -19,15 +19,9 @@ class PostcodeResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-<<<<<<< HEAD
-  protected static ?string $navigationLabel = 'Kode Pos';
-
-  protected static ?string $modelLabel = 'Kode Pos';
-=======
   protected static ?string $navigationLabel = 'Post Code';
 
   protected static ?string $modelLabel = 'Post Codes';
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
 
   protected static ?string $navigationGroup = 'System Configs';
 
@@ -42,11 +36,7 @@ class PostcodeResource extends Resource
         Forms\Components\TextInput::make('urban')
           ->required()
           ->maxLength(255),
-<<<<<<< HEAD
-        Forms\Components\TextInput::make('district')
-=======
         Forms\Components\TextInput::make('subdistrict')
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
           ->required()
           ->maxLength(255),
         Forms\Components\TextInput::make('city')
@@ -54,13 +44,9 @@ class PostcodeResource extends Resource
           ->maxLength(255),
         Forms\Components\Select::make('province_id')
           ->relationship('province', 'name')
-<<<<<<< HEAD
-          ->required(),
-=======
           ->required()
           ->searchable()
           ->preload(),
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
       ]);
   }
 
@@ -68,26 +54,17 @@ class PostcodeResource extends Resource
   {
     return $table
       ->columns([
-<<<<<<< HEAD
-        Tables\Columns\TextColumn::make('urban')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('district')
-=======
 
         Tables\Columns\TextColumn::make('urban')
           ->searchable(),
         Tables\Columns\TextColumn::make('subdistrict')
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
           ->searchable(),
         Tables\Columns\TextColumn::make('city')
           ->searchable(),
         Tables\Columns\TextColumn::make('province.name')
           ->numeric()
           ->sortable(),
-<<<<<<< HEAD
-=======
         Tables\Columns\TextColumn::make('postal_code'),
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
           ->sortable()

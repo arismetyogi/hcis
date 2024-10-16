@@ -319,10 +319,14 @@ class EmployeeResource extends Resource
                         $sex = $get('sex');
                         // Return different options based on the selected sex
                         if ($sex === 'male') {
-                          return MalePantsSizeEnums::options();
+                          return collect(MalePantsSizeEnums::cases())
+                            ->mapWithKeys(fn($size) => [$size->value => $size->label()])
+                            ->toArray();
                         }
                         if ($sex === 'female') {
-                          return FemalePantsSizeEnums::cases();
+                          return collect(FemalePantsSizeEnums::cases())
+                            ->mapWithKeys(fn($size) => [$size->value => $size->label()])
+                            ->toArray();
                         }
                         return [];
                       })
