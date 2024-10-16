@@ -19,10 +19,18 @@ class PayrollResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+  protected static ?string $navigationLabel = 'Payroll';
+
+  protected static ?string $modelLabel = 'Payroll';
+
+  protected static ?string $slug = 'employees-payrolls';
+
   public static function form(Form $form): Form
   {
     return $form
       ->schema([
+        Forms\Components\Select::make('employee_id')
+          ->relationship('employees', 'npp'),
         Forms\Components\TextInput::make('1050_honorarium')
           ->required()
           ->numeric(),

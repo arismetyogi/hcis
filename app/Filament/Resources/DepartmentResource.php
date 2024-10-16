@@ -27,7 +27,11 @@ class DepartmentResource extends Resource
 
   protected static ?string $slug = 'employees-departments';
 
+<<<<<<< HEAD
   protected static ?int $navigationSort = 3;
+=======
+  protected static ?int $navigationSort = 2;
+>>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
 
   public static function form(Form $form): Form
   {
