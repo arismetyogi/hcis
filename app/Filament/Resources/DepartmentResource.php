@@ -34,8 +34,17 @@ class DepartmentResource extends Resource
     return $form
       ->schema([
         Forms\Components\TextInput::make('name')
+          ->label('Department')
+          ->unique()
           ->required()
           ->maxLength(255),
+        Forms\Components\TextInput::make('branch_id')
+          ->label('Kode BM')
+          ->unique()
+          ->required(),
+        Forms\Components\TextInput::make('branch_name')
+          ->label('Nama BM')
+          ->required(),
       ]);
   }
 
@@ -44,6 +53,13 @@ class DepartmentResource extends Resource
     return $table
       ->columns([
         Tables\Columns\TextColumn::make('name')
+          ->label('Department')
+          ->searchable(),
+        Tables\Columns\TextColumn::make('branch_id')
+          ->label('Kode BM')
+          ->searchable(),
+        Tables\Columns\TextColumn::make('branch_name')
+          ->label('Nama BM')
           ->searchable(),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()

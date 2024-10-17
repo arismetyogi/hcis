@@ -58,6 +58,12 @@ class EmployeeResource extends Resource
                       ->maxLength(255),
                     Forms\Components\TextInput::make('nik')
                       ->label('NIK')
+                      ->unique()
+                      ->required()
+                      ->maxLength(255),
+                    Forms\Components\TextInput::make('npwp')
+                      ->label('NPWP')
+                      ->unique()
                       ->required()
                       ->maxLength(255),
                     Forms\Components\DatePicker::make('date_of_birth')
@@ -75,6 +81,7 @@ class EmployeeResource extends Resource
                         'female' => 'Perempuan',
                       ])
                       ->required()
+                      ->live()
                       ->afterStateUpdated(function ($set, $state) {
                         // Reset the 'pants_size' field when 'sex' changes
                         $set('pants_size', null);
@@ -82,7 +89,8 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('address')
                       ->label('Alamat')
                       ->required()
-                      ->maxLength(255),
+                      ->maxLength(255)
+                      ->columnSpan(2),
                     Forms\Components\Select::make('postcode_id')
                       ->label('Kode Pos')
                       ->relationship('postcode', 'postal_code')
@@ -107,10 +115,6 @@ class EmployeeResource extends Resource
                           ->subdistrict
                       )
                       ->searchable(),
-                    Forms\Components\TextInput::make('npwp')
-                      ->label('NPWP')
-                      ->required()
-                      ->maxLength(255),
                   ])
               ]),
             Forms\Components\Section::make('Employees\' Job Information')
@@ -147,6 +151,7 @@ class EmployeeResource extends Resource
                       ->required(),
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
+                      ->unique()
                       ->required()
                       ->maxLength(255),
                     Forms\Components\Select::make('employee_status_id')
@@ -194,6 +199,7 @@ class EmployeeResource extends Resource
                       ->required(),
                     Forms\Components\TextInput::make('saptitle_id')
                       ->label('ID Jab SAP')
+                      ->unique()
                       ->required()
                       ->numeric(),
                     Forms\Components\TextInput::make('saptitle_name')
@@ -226,6 +232,7 @@ class EmployeeResource extends Resource
                   ->schema([
                     Forms\Components\TextInput::make('bpjs_id')
                       ->label('No BPJS')
+                      ->unique()
                       ->required()
                       ->maxLength(255),
                     Forms\Components\TextInput::make('insured_member_count')
@@ -233,6 +240,7 @@ class EmployeeResource extends Resource
                       ->minValue(0)
                       ->maxValue(4)
                       ->required()
+                      ->default(0)
                       ->rules(['integer', 'min:0', 'max:4']),
                     Forms\Components\TextInput::make('bpjs_class')
                       ->label('Kelas BPJS')
@@ -242,6 +250,7 @@ class EmployeeResource extends Resource
                       ->rules(['integer', 'min:0', 'max:3']),
                     Forms\Components\TextInput::make('bpjstk_id')
                       ->label('No BPJSTK')
+                      ->unique()
                       ->required()
                       ->numeric(),
                   ])
@@ -257,6 +266,7 @@ class EmployeeResource extends Resource
                   ->schema([
                     Forms\Components\TextInput::make('contract_id')
                       ->label('No Kontrak')
+                      ->unique()
                       ->maxLength(50),
                     Forms\Components\TextInput::make('contract_sequence_no')
                       ->label('Kontrak Ke-')
@@ -299,17 +309,22 @@ class EmployeeResource extends Resource
                       ->label('Pasangan Ditanggung Pajak')
                       ->boolean()
                       ->required(),
+                    Forms\Components\Select::make('bank_id')
+                      ->label('Nama Bank')
+                      ->relationship('bank', 'name')
+                      ->required(),
                     Forms\Components\TextInput::make('rekening_no')
                       ->label('No. Rekening Payroll')
+                      ->unique()
                       ->required()
-                      ->maxLength(255),
+                      ->type('text')
+                      ->maxLength(10)
+                      ->placeholder('Masukkan No. Rekening')
+                      ->rule(['regex:/^[0-9]+$/', 'max:10']),
                     Forms\Components\TextInput::make('rekening_name')
                       ->label('Nama Pemilik Rekening')
                       ->required()
                       ->maxLength(255),
-                    Forms\Components\Select::make('bank_id')
-                      ->relationship('bank', 'name')
-                      ->required(),
                     Forms\Components\Select::make('recruitment_id')
                       ->relationship('recruitment', 'name')
                       ->required(),
@@ -317,23 +332,28 @@ class EmployeeResource extends Resource
                       ->label('Ukuran Celana')
                       ->options(function (callable $get) {
                         $sex = $get('sex');
+
+                        $options = [];
                         // Return different options based on the selected sex
                         if ($sex === 'male') {
-                          return collect(MalePantsSizeEnums::cases())
-                            ->mapWithKeys(fn($size) => [$size->value => $size->label()])
-                            ->toArray();
+                          // Generate options for male (e.g., 28 - 40 inches)
+                          for ($i = 28; $i <= 45; $i += 1) {
+                            $options[$i] = "{$i} Inch           ";
+                          }
+                        } elseif ($sex === 'female') {
+                          // Generate options for female (e.g., UK sizes 6 - 18)
+                          for ($i = 6; $i <= 20; $i += 1) {
+                            $options[$i] = "UK {$i}";
+                          }
                         }
-                        if ($sex === 'female') {
-                          return collect(FemalePantsSizeEnums::cases())
-                            ->mapWithKeys(fn($size) => [$size->value => $size->label()])
-                            ->toArray();
-                        }
-                        return [];
+
+                        return $options;
                       })
                       ->reactive(),
-                    Forms\Components\TextInput::make('shirt_size')
-                      ->required()
-                      ->maxLength(255),
+                    Forms\Components\Select::make('shirt_size')
+                      ->label('Ukuran Baju')
+                      ->options(['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL+'])
+                      ->required(),
                   ])
               ]),
           ])

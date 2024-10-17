@@ -13,13 +13,9 @@ return new class extends Migration
   {
     Schema::create('payrolls', function (Blueprint $table) {
       $table->id();
-<<<<<<<< HEAD:database/migrations/2024_10_15_144779_create_payrolls_table.php
       $table->foreignId('employee_id')
         ->constrained('employees')
         ->cascadeOnDelete();
-========
-      $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
->>>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb:database/migrations/2024_10_13_144779_create_payrolls_table.php
       $table->float('1050_honorarium');
       $table->float('uang_saku_mb');
       $table->float('3000_lembur');

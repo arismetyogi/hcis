@@ -13,17 +13,17 @@ return new class extends Migration
   {
     Schema::create('outlets', function (Blueprint $table) {
       $table->id();
-      $table->string('name');
-      $table->char('branch_id');
-      $table->string('branch_name');
       $table->char('outlet_sap_id');
-      $table->string('store_type');
-      $table->date('operational_date')->default(null);
-      $table->string('address');
-      $table->foreignId('postcode_id')->constrained()->cascadeOnDelete();
-      $table->float('latitude');
-      $table->float('longitude');
-      $table->char('phone_no');
+      $table->string('name');
+      $table->string('branch_id');
+      $table->string('branch_name');
+      $table->string('store_type')->nullable();
+      $table->date('operational_date')->nullable();
+      $table->string('address')->nullable();
+      $table->foreignId('postcode_id')->nullable()->constrained('postcodes');
+      $table->float('latitude')->nullable();
+      $table->float('longitude')->nullable();
+      $table->char('phone')->nullable();
       $table->timestamps();
     });
   }

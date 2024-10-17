@@ -19,5 +19,8 @@ class DatabaseSeeder extends Seeder
     // to use custom seeder
     $this->call(ProvinceSeeder::class);
     $this->call(PostcodeSeeder::class);
+    $this->call(BankSeeder::class);
+    $this->call(DepartmentSeeder::class);
+    $this->call(OutletSeeder::class);
   }
 }

@@ -13,15 +13,10 @@ return new class extends Migration
   {
     Schema::create('employees', function (Blueprint $table) {
       $table->id();
-<<<<<<< HEAD
       $table->foreignId('department_id')
         ->constrained('departments')
         ->cascadeOnDelete();
       $table->char('NIK');
-=======
-      $table->foreignId('department_id')->constrained()->cascadeOnDelete();
-      $table->char('NIK', 16);
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
       $table->string('first_name');
       $table->string('middle_name');
       $table->string('last_name');
@@ -29,7 +24,6 @@ return new class extends Migration
       $table->char('phone_no', 15);
       $table->string('sex');
       $table->string('address');
-<<<<<<< HEAD
       $table->char('postcode_id');
       $table->char('npwp');
       $table->string('employee_status');
@@ -56,20 +50,6 @@ return new class extends Migration
       $table->foreignId('emplevel_id')
         ->constrained('emplevels')
         ->cascadeOnDelete();
-=======
-      $table->foreignId('postcode_id');
-      $table->char('npwp');
-      $table->foreignId('employee_status_id')->constrained()->cascadeOnDelete();
-      $table->foreignId('title_id')->constrained()->cascadeOnDelete();
-      $table->foreignId('subtitle_id')->constrained()->cascadeOnDelete();
-      $table->foreignId('band_id')->constrained()->cascadeOnDelete();
-
-      $table->foreignId('outlet_id')->constrained()->cascadeOnDelete();
-      $table->string('npp', 10);
-      $table->foreignId('gradeeselon_id')->constrained()->cascadeOnDelete();
-      $table->foreignId('area_id')->constrained()->cascadeOnDelete();
-      $table->foreignId('emplevel_id')->constrained()->cascadeOnDelete();
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
       $table->char('saptitle_id');
       $table->char('saptitle_name');
       $table->date('date_hired');
@@ -90,10 +70,7 @@ return new class extends Migration
       $table->date('contract_start');
       $table->date('contract_end');
 
-<<<<<<< HEAD
       // $table->string('tax_id');
-=======
->>>>>>> aaafa088f7a6f3af4a2c8ae6307fe8061fe972bb
       $table->string('status_pasangan'); // TK, K-0, K-1, K-2, K-3
       $table->integer('jumlah_tanggungan'); // (0-3)
       $table->string('pasangan_ditanggung_pajak'); // (ya/tidak)
