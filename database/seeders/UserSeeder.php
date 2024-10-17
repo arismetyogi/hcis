@@ -22,6 +22,6 @@ class UserSeeder extends Seeder
       'outlet_id' => 1,
     ]);
 
-    User::factory()->count(9)->create();
+    // User::factory()->count(9)->create();
   }
 }

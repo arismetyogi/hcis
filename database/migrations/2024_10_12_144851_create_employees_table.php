@@ -16,9 +16,9 @@ return new class extends Migration
       $table->foreignId('department_id')
         ->constrained('departments')
         ->cascadeOnDelete();
-      $table->char('NIK');
+      $table->char('NIK')->unique();
       $table->string('first_name');
-      $table->string('middle_name');
+      $table->string('middle_name')->nullable();
       $table->string('last_name');
       $table->date('date_of_birth');
       $table->char('phone_no', 15);
@@ -26,7 +26,8 @@ return new class extends Migration
       $table->string('address');
       $table->char('postcode_id');
       $table->char('npwp');
-      $table->string('employee_status');
+      $table->foreignId('employee_status_id')
+        ->constrained('employee_statuses');
       $table->foreignId('title_id')
         ->constrained('titles')
         ->cascadeOnDelete();
@@ -50,7 +51,7 @@ return new class extends Migration
       $table->foreignId('emplevel_id')
         ->constrained('emplevels')
         ->cascadeOnDelete();
-      $table->char('saptitle_id');
+      $table->char('saptitle_id')->unique();
       $table->char('saptitle_name');
       $table->date('date_hired');
       $table->date('date_promoted');
@@ -59,24 +60,24 @@ return new class extends Migration
         ->constrained('descstatuses')
         ->cascadeOnDelete();
 
-      $table->char('bpjs_id');
+      $table->char('bpjs_id')->unique();
       $table->integer('insured_member_count');
       $table->integer('bpjs_class');
       $table->integer('bpjstk_id');
 
-      $table->string('contract_document_id');
-      $table->integer('contract_sequence_no');
-      $table->integer('contract_term');
-      $table->date('contract_start');
-      $table->date('contract_end');
+      $table->string('contract_document_id')->nullable();
+      $table->integer('contract_sequence_no')->nullable();
+      $table->integer('contract_term')->nullable();
+      $table->date('contract_start')->nullable();
+      $table->date('contract_end')->nullable();
 
       // $table->string('tax_id');
       $table->string('status_pasangan'); // TK, K-0, K-1, K-2, K-3
       $table->integer('jumlah_tanggungan'); // (0-3)
       $table->string('pasangan_ditanggung_pajak'); // (ya/tidak)
 
-      $table->integer('honorarium');
-      $table->char('rekening_no', 16);
+      // $table->integer('honorarium');
+      $table->char('rekening_no', 16)->unique();
       $table->string('rekening_name');
       $table->foreignId('bank_id')
         ->constrained('banks');

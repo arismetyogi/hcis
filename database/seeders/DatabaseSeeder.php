@@ -20,6 +20,17 @@ class DatabaseSeeder extends Seeder
     $this->call(ProvinceSeeder::class);
     $this->call(PostcodeSeeder::class);
     $this->call(BankSeeder::class);
+
+    $this->call(BandSeeder::class);
+    $this->call(DescstatusSeeder::class);
+    $this->call(GradeeselonSeeder::class);
+    $this->call(RecruitmentSeeder::class);
+    $this->call(EmplevelSeeder::class);
+    $this->call(AreaSeeder::class);
+    $this->call(EmployeeStatusSeeder::class);
+    $this->call(TitleSeeder::class);
+    $this->call(SubtitleSeeder::class);
+
     $this->call(DepartmentSeeder::class);
     $this->call(OutletSeeder::class);
   }

@@ -24,7 +24,7 @@ class OutletSeeder extends Seeder
         $outlets = json_decode($jsonData, true);
 
         if (is_array($outlets)) {
-          // DB::statement('SET FOREIGN_KEY_CHECKS=0;'); //for dev only -> inject data
+          DB::statement('SET FOREIGN_KEY_CHECKS=0;'); //for dev only -> inject data
           DB::table('outlets')->insert($outlets);
         }
       } else {

@@ -30,7 +30,9 @@ class PayrollResource extends Resource
     return $form
       ->schema([
         Forms\Components\Select::make('employee_id')
-          ->relationship('employees', 'npp'),
+          ->relationship('employee', 'npp')
+          ->getOptionLabelFromRecordUsing(fn($record) => "{$record->npp} - {$record->first_name} - {$record->last_name}")
+          ->required(),
         Forms\Components\TextInput::make('1050_honorarium')
           ->required()
           ->numeric(),

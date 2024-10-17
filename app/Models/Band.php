@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Band extends Model
 {
   use HasFactory;
 
   protected $fillable = ['name'];
-  public function employees(): BelongsToMany
+  public function employees(): HasMany
   {
-    return $this->belongsToMany(related: Employee::class);
+    return $this->hasMany(related: Employee::class);
   }
 }

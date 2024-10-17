@@ -31,13 +31,13 @@ class Employee extends Model
   {
     return $this->hasOne(Postcode::class);
   }
-  public function employee_status(): HasOne
+  public function employee_status(): BelongsTo
   {
-    return $this->hasOne(EmployeeStatus::class);
+    return $this->belongsTo(EmployeeStatus::class);
   }
-  public function gradeeselon(): HasOne
+  public function gradeeselon(): BelongsTo
   {
-    return $this->hasOne(Gradeeselon::class);
+    return $this->belongsTo(Gradeeselon::class);
   }
   public function title(): HasOne
   {

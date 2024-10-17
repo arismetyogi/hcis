@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class EmployeeStatus extends Model
 {
@@ -12,8 +13,8 @@ class EmployeeStatus extends Model
 
   protected $fillable = ['name'];
 
-  public function employees(): BelongsToMany
+  public function employees(): HasMany
   {
-    return $this->belongsToMany(Employee::class);
+    return $this->hasMany(Employee::class);
   }
 }

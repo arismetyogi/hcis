@@ -51,6 +51,7 @@ class EmployeeResource extends Resource
                       ->maxLength(255),
                     Forms\Components\TextInput::make('middle_name')
                       ->label('Nama Tengah')
+                      ->nullable()
                       ->maxLength(255),
                     Forms\Components\TextInput::make('last_name')
                       ->label('Nama Belakang')
@@ -99,8 +100,7 @@ class EmployeeResource extends Resource
                           ->where('postal_code', 'like', "%{$search}%")
                           ->orWhere('urban', 'like', "%{$search}%")
                           ->orWhere('subdistrict', 'like', "%{$search}%")
-                          ->limit(50) // Limit the number of results to avoid performance issues
-                          // ->pluck('postal_code', 'id');
+                          ->limit(10) // Limit the number of results to avoid performance issues
                           ->get()
                           ->mapWithKeys(function ($postcode) {
                             return [
@@ -114,7 +114,8 @@ class EmployeeResource extends Resource
                           ->urban . ' - ' . optional(Postcode::find($value))
                           ->subdistrict
                       )
-                      ->searchable(),
+                      ->searchable()
+                      ->nullable(),
                   ])
               ]),
             Forms\Components\Section::make('Employees\' Job Information')
@@ -144,6 +145,8 @@ class EmployeeResource extends Resource
                         fn($value) => optional(Department::find($value))->name
                       )
                       ->searchable()
+                      ->preload()
+                      ->live()
                       ->required(),
                     Forms\Components\Select::make('outlet_id')
                       ->label('Nama Outlet')
@@ -153,7 +156,7 @@ class EmployeeResource extends Resource
                       ->label('NPP')
                       ->unique()
                       ->required()
-                      ->maxLength(255),
+                      ->maxLength(10),
                     Forms\Components\Select::make('employee_status_id')
                       ->label('Status Pegawai')
                       ->relationship('employee_status', 'name')
@@ -166,28 +169,29 @@ class EmployeeResource extends Resource
                       ->label('Nama SubJabatan')
                       ->relationship('subtitle', 'name')
                       ->required(),
-                    Forms\Components\Select::make('band')
+                    Forms\Components\Select::make('band_id')
                       ->label('Nama Band')
                       ->relationship('band', 'name')
                       ->required(),
                     Forms\Components\Select::make('gradeeselon_id')
                       ->label('Grade Eselon')
                       ->relationship('gradeeselon', 'id')
-                      ->getSearchResultsUsing(function (string $search) {
-                        return Gradeeselon::query()
-                          ->where('grade', 'like', "%{$search}%")
-                          ->orWhere('eselon', 'like', "%{$search}%")
-                          ->limit(10) // Limit the number of results to avoid performance issues
-                          ->get()
-                          ->mapWithKeys(function ($grade) {
-                            return [
-                              $grade->id => "{$grade->grade} - {$grade->eselon}"
-                            ];
-                          });
-                      })
-                      ->getOptionLabelUsing(
-                        fn($value) => optional(Gradeeselon::find($value))->grade . ' - ' . optional(value: Gradeeselon::find($value))->eselon
-                      )
+                      ->getOptionLabelFromRecordUsing(fn($record) => "{$record->grade} - {$record->eselon}")
+                      // ->getSearchResultsUsing(function (string $search) {
+                      //   return Gradeeselon::query()
+                      //     ->where('eselon', 'like', "%{$search}%")
+                      //     // ->limit(10) // Limit the number of results to avoid performance issues
+                      //     ->get()
+                      //     ->mapWithKeys(function ($grade) {
+                      //       return [
+                      //         $grade->id => "{$grade->grade} - {$grade->eselon}",
+                      //       ];
+                      //     });
+                      // })
+                      // ->getOptionLabelUsing(
+                      //   fn($value) => optional(Gradeeselon::find($value))->grade . ' - ' . optional(value: Gradeeselon::find($value))->eselon
+                      // )
+                      ->preload()
                       ->required(),
                     Forms\Components\Select::make('area_id')
                       ->label('Area')
@@ -264,7 +268,7 @@ class EmployeeResource extends Resource
                     'lg' => 3,
                   ])
                   ->schema([
-                    Forms\Components\TextInput::make('contract_id')
+                    Forms\Components\TextInput::make('contract_document_id')
                       ->label('No Kontrak')
                       ->unique()
                       ->maxLength(50),
@@ -393,7 +397,7 @@ class EmployeeResource extends Resource
           ->searchable(),
         Tables\Columns\TextColumn::make('npwp')
           ->searchable(),
-        Tables\Columns\TextColumn::make('employee_status')
+        Tables\Columns\TextColumn::make('employee_statuses.name')
           ->searchable(),
         Tables\Columns\TextColumn::make('title_id')
           ->numeric()
@@ -449,9 +453,9 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('tax_id')
           ->numeric()
           ->sortable(),
-        Tables\Columns\TextColumn::make('honorarium')
-          ->numeric()
-          ->sortable(),
+        // Tables\Columns\TextColumn::make('honorarium')
+        //   ->numeric()
+        //   ->sortable(),
         Tables\Columns\TextColumn::make('rekening_no')
           ->searchable(),
         Tables\Columns\TextColumn::make('rekening_name')
