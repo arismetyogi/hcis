@@ -30,7 +30,7 @@ class User extends Authenticatable implements HasTenants
     'email',
     'password',
     'is_admin',
-    'department_id'
+    'team_id'
   ];
 
   /**
@@ -64,7 +64,7 @@ class User extends Authenticatable implements HasTenants
   }
   public function teams(): BelongsToMany
   {
-    return $this->belongsToMany(Team::class);
+    return $this->belongsToMany(Team::class, 'team_user', 'team_id', 'user_id');
   }
 
   public function canAccessTenant(Model $tenant): bool

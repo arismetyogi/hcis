@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
       'email' => 'admin@admin.com',
       'password' => Hash::make('123'),
       'is_admin' => true,
-      'department_id' => 1,
+      'team_id' => 1,
     ]);
     DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     // User::factory()->count(9)->create();

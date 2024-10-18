@@ -27,7 +27,14 @@ class RegisterTeam extends RegisterTenant
   {
     $team = Team::create($data);
 
-    $team->members()->attach(auth()->user());
+    // $team->members()->attach(auth()->user());
+    // Attach the currently authenticated user to the team
+    if ($user = auth()->user()) {
+      $team->members()->attach($user);
+    } else {
+      // Handle the case when there is no authenticated user, if necessary
+      throw new \Exception("User not authenticated");
+    }
 
     return $team;
   }
