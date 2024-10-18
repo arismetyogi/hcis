@@ -10,7 +10,7 @@ class Department extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name'];
+  protected $fillable = ['id', 'name', 'branch_name', 'slug'];
 
   public function employees(): HasMany
   {
@@ -20,5 +20,10 @@ class Department extends Model
   public function outlets(): HasMany
   {
     return $this->hasMany(Outlet::class);
+  }
+
+  public function users(): HasMany
+  {
+    return $this->hasMany(User::class);
   }
 }

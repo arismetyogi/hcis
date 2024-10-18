@@ -30,6 +30,11 @@ class PayrollResource extends Resource
   {
     return $form
       ->schema([
+        Forms\Components\TextInput::make('bln_thn')
+          ->label('bulan-tahun')
+          ->required()
+          ->placeholder('0824')
+          ->maxLength(8),
         Forms\Components\Select::make('employee_id')
           ->relationship('employee', 'id')
           ->getOptionLabelFromRecordUsing(fn($record) => "{$record->npp} - {$record->first_name} {$record->last_name}")
@@ -100,11 +105,6 @@ class PayrollResource extends Resource
         Forms\Components\TextInput::make('6900_pot_lain')
           ->label('6900 - Pot. Lainnya')
           ->numeric(),
-        Forms\Components\TextInput::make('bln_thn')
-          ->label('bulan-tahun')
-          ->required()
-          ->placeholder('0824')
-          ->maxLength(8),
       ]);
   }
 
@@ -112,8 +112,24 @@ class PayrollResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('employee_id')
+
+        Tables\Columns\TextColumn::make('bln_thn')
+          ->label('Bln-Thn')
+          ->searchable(),
+        Tables\Columns\TextColumn::make('employee.npp')
+          ->label('NPP Pegawai')
+          ->searchable()
+          ->sortable(),
+        Tables\Columns\TextColumn::make('employee.id')
           ->label('Nama Pegawai')
+          ->getStateUsing(function ($record) { //join first_name and last_name from employee relationship
+            return "{$record->employee->first_name} {$record->employee->last_name}";
+          })
+          ->searchable(['employee.first_name', 'employee.last_name']) // Make both columns searchable
+          ->sortable(function ($query, $direction) {
+            $query->orderBy('employee.first_name', $direction)
+              ->orderBy('employee.last_name', $direction);
+          })
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('1050_honorarium')
@@ -121,18 +137,23 @@ class PayrollResource extends Resource
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('uang_saku_mb')
+          ->label('Uang Saku MB')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('3000_lembur')
+          ->label('3000 - Lembur')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('2580_tunj_lain')
+          ->label('2580 - Tunj Lain')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('ujp')
+          ->label('UJP')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('4020_sumbangan_cuti_tahunan')
+          ->label('4020 - Sumb. Cuti Tahunan')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('6500_pot_wajib_koperasi')
@@ -180,8 +201,6 @@ class PayrollResource extends Resource
         Tables\Columns\TextColumn::make('6900_pot_lain')
           ->numeric()
           ->sortable(),
-        Tables\Columns\TextColumn::make('bln_thn')
-          ->searchable(),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
           ->sortable()

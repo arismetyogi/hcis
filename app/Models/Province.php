@@ -14,6 +14,6 @@ class Province extends Model
 
   public function postcodes(): HasMany
   {
-    return $this->hasMany(Postcode::class);
+    return $this->hasMany(Postcode::class, 'code', 'province_code');
   }
 }

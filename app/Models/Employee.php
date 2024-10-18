@@ -18,6 +18,10 @@ class Employee extends Model
   {
     return $this->belongsTo(Department::class);
   }
+  public function team(): BelongsTo
+  {
+    return $this->belongsTo(Team::class);
+  }
   public function outlet(): BelongsTo
   {
     return $this->belongsTo(Outlet::class);

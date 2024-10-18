@@ -12,6 +12,9 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 
 class DepartmentResource extends Resource
 {
@@ -35,12 +38,12 @@ class DepartmentResource extends Resource
       ->schema([
         Forms\Components\TextInput::make('name')
           ->label('Department')
-          ->unique()
+          ->unique(ignoreRecord: true)
           ->required()
           ->maxLength(255),
-        Forms\Components\TextInput::make('branch_id')
+        Forms\Components\TextInput::make('id')
           ->label('Kode BM')
-          ->unique()
+          ->unique(ignoreRecord: true)
           ->required(),
         Forms\Components\TextInput::make('branch_name')
           ->label('Nama BM')
@@ -54,12 +57,15 @@ class DepartmentResource extends Resource
       ->columns([
         Tables\Columns\TextColumn::make('name')
           ->label('Department')
+          ->sortable()
           ->searchable(),
-        Tables\Columns\TextColumn::make('branch_id')
+        Tables\Columns\TextColumn::make('id')
           ->label('Kode BM')
+          ->sortable()
           ->searchable(),
         Tables\Columns\TextColumn::make('branch_name')
           ->label('Nama BM')
+          ->sortable()
           ->searchable(),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()

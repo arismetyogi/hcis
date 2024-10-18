@@ -4,11 +4,15 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Models\Department;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -17,9 +21,9 @@ class UserResource extends Resource
 {
   protected static ?string $model = User::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-user';
+  protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
-  protected static ?string $navigationLabel = 'User';
+  protected static ?string $navigationLabel = 'Users';
 
   protected static ?string $modelLabel = 'Users';
 
@@ -33,21 +37,38 @@ class UserResource extends Resource
   {
     return $form
       ->schema([
-        Forms\Components\Select::make('outlet_id')
-          ->relationship('outlets', 'name')
-          ->required(),
         Forms\Components\TextInput::make('name')
+          ->label('Nama User')
           ->required()
           ->maxLength(255),
         Forms\Components\TextInput::make('email')
           ->email()
           ->required()
           ->maxLength(255),
-        Forms\Components\DateTimePicker::make('email_verified_at'),
         Forms\Components\TextInput::make('password')
           ->password()
           ->required()
           ->maxLength(255),
+        Forms\Components\Toggle::make('is_admin'),
+        Forms\Components\Select::make('department_id')
+          ->relationship('department', 'name')
+          ->getSearchResultsUsing(function (string $search) {
+            return Department::query()
+              ->where('name', 'like', "%{$search}%")
+              ->limit(10) // Limit the number of results to avoid performance issues
+              ->get()
+              ->mapWithKeys(function ($department) {
+                return [
+                  $department->id => "{$department->department_id}",
+                ];
+              });
+          })
+          ->getOptionLabelUsing(
+            fn($value) => optional(Department::find($value))->name
+          )
+          ->searchable()
+          ->preload()
+          ->required(),
       ]);
   }
 
@@ -59,6 +80,11 @@ class UserResource extends Resource
           ->searchable(),
         Tables\Columns\TextColumn::make('email')
           ->searchable(),
+        Tables\Columns\ToggleColumn::make('is_admin')
+          ->sortable(),
+        Tables\Columns\TextColumn::make('department.name')
+          ->searchable()
+          ->sortable(),
         Tables\Columns\TextColumn::make('email_verified_at')
           ->dateTime()
           ->sortable(),

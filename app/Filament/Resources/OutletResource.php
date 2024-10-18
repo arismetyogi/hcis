@@ -2,16 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\OutletResource\Pages;
-use App\Filament\Resources\OutletResource\RelationManagers;
-use App\Models\Outlet;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Outlet;
+use App\Models\Postcode;
+use Filament\Forms\Form;
+use App\Models\Department;
 use Filament\Tables\Table;
+use App\Enums\StoreTypeEnums;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\OutletResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\OutletResource\RelationManagers;
 
 class OutletResource extends Resource
 {
@@ -33,38 +36,63 @@ class OutletResource extends Resource
   {
     return $form
       ->schema([
-        Forms\Components\TextInput::make('name')
-          ->required()
-          ->maxLength(255),
-        Forms\Components\TextInput::make('branch_id')
-          ->required()
-          ->maxLength(255),
-        Forms\Components\TextInput::make('branch_name')
-          ->required()
-          ->maxLength(255),
+        Forms\Components\Select::make('department_id')
+          ->relationship('department', 'name')
+          ->getSearchResultsUsing(function (string $search) {
+            return Department::query()
+              ->where('id', 'like', "%{$search}%")
+              ->orWhere('name', 'like', "%{$search}%")
+              ->limit(10) // Limit the number of results to avoid performance issues
+              ->get()
+              ->mapWithKeys(function ($department) {
+                return [
+                  $department->id => "{$department->name}",
+                ];
+              });
+          })
+          ->getOptionLabelUsing(
+            fn($value) => optional(Department::find($value))->name
+          )
+          ->preload()
+          ->searchable()
+          ->required(),
         Forms\Components\TextInput::make('outlet_sap_id')
+          ->required()
+          ->maxLength(255),
+        Forms\Components\TextInput::make('name')
           ->required()
           ->maxLength(255),
         Forms\Components\Select::make('store_type')
           ->label('Store Type')
-          ->options(Outlet::all()->pluck('type_store', 'outlet_id'))
+          ->options(StoreTypeEnums::options())
           ->required(),
         Forms\Components\DatePicker::make('operational_date')
-          ->format('d/m/Y')
+          ->date()
           ->required(),
         Forms\Components\TextInput::make('address')
           ->required()
           ->maxLength(255),
-        Forms\Components\TextInput::make('post_code')
-          ->integer()
-          ->required()
-          ->maxLength(5),
-        Forms\Components\TextInput::make('district_name')
+        Forms\Components\TextInput::make('phone')
           ->required()
           ->maxLength(255),
-        Forms\Components\TextInput::make('outlet_sap_id')
-          ->required()
-          ->maxLength(255),
+        Forms\Components\Select::make('postcode_id')
+          ->label('Kode Pos')
+          ->relationship('postcode', 'postal_code')
+          ->getSearchResultsUsing(function (string $search) {
+            return Postcode::query()
+              ->where('postal_code', 'like', "%{$search}%")
+              ->orWhere('urban', 'like', "%{$search}%")
+              ->orWhere('subdistrict', 'like', "%{$search}%")
+              ->limit(10) // Limit the number of results to avoid performance issues
+              ->get()
+              ->mapWithKeys(function ($postcode) {
+                return [
+                  $postcode->id => "{$postcode->postal_code} - {$postcode->urban}, {$postcode->subdistrict}"
+                ];
+              });
+          })
+          ->searchable()
+          ->nullable(),
       ]);
   }
 
@@ -74,9 +102,7 @@ class OutletResource extends Resource
       ->columns([
         Tables\Columns\TextColumn::make('name')
           ->searchable(),
-        Tables\Columns\TextColumn::make('branch_id')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('branch_name')
+        Tables\Columns\TextColumn::make('department_id')
           ->searchable(),
         Tables\Columns\TextColumn::make('outlet_sap_id')
           ->searchable(),
@@ -86,19 +112,13 @@ class OutletResource extends Resource
           ->searchable(),
         Tables\Columns\TextColumn::make('address')
           ->searchable(),
-        Tables\Columns\TextColumn::make('post_code')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('district_name')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('city_id')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('state_id')
+        Tables\Columns\TextColumn::make('postcode.postal_code')
           ->searchable(),
         Tables\Columns\TextColumn::make('latitude')
           ->searchable(),
         Tables\Columns\TextColumn::make('longitude')
           ->searchable(),
-        Tables\Columns\TextColumn::make('phone_no')
+        Tables\Columns\TextColumn::make('phone')
           ->searchable(),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()

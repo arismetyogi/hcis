@@ -33,20 +33,20 @@ class PostcodeResource extends Resource
   {
     return $form
       ->schema([
-        Forms\Components\TextInput::make('urban')
+        Forms\Components\Select::make('province_code')
+          ->relationship('province', 'name')
+          ->required()
+          ->searchable()
+          ->preload(),
+        Forms\Components\TextInput::make('city')
           ->required()
           ->maxLength(255),
         Forms\Components\TextInput::make('subdistrict')
           ->required()
           ->maxLength(255),
-        Forms\Components\TextInput::make('city')
+        Forms\Components\TextInput::make('urban')
           ->required()
           ->maxLength(255),
-        Forms\Components\Select::make('province_id')
-          ->relationship('province', 'name')
-          ->required()
-          ->searchable()
-          ->preload(),
       ]);
   }
 
@@ -55,16 +55,20 @@ class PostcodeResource extends Resource
     return $table
       ->columns([
 
+        Tables\Columns\TextColumn::make('province.name_en')
+          ->searchable()
+          ->sortable(),
+        Tables\Columns\TextColumn::make('city')
+          ->searchable()
+          ->sortable(),
+        Tables\Columns\TextColumn::make('subdistrict')
+          ->searchable()
+          ->sortable(),
         Tables\Columns\TextColumn::make('urban')
           ->searchable(),
-        Tables\Columns\TextColumn::make('subdistrict')
+        Tables\Columns\TextColumn::make('postal_code')
+          ->label('Zip Code')
           ->searchable(),
-        Tables\Columns\TextColumn::make('city')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('province.name')
-          ->numeric()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('postal_code'),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
           ->sortable()

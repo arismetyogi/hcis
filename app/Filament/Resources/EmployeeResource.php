@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
+use Filament\Forms\Set;
 
 class EmployeeResource extends Resource
 {
@@ -60,12 +61,27 @@ class EmployeeResource extends Resource
                       ->label('NIK')
                       ->unique()
                       ->required()
-                      ->maxLength(255),
+                      ->type('text')
+                      ->maxLength(16)
+                      ->reactive()
+                      ->placeholder('19001030102200001')
+                      // ->rules(['numeric', 'digits:16'])
+                      ->afterStateUpdated(function (callable $set, $state) {
+                        // Ensure only numeric values remain
+                        $set('nik', preg_replace('/\D/', '', $state));
+                      }),
                     Forms\Components\TextInput::make('npwp')
                       ->label('NPWP')
                       ->unique()
                       ->required()
-                      ->maxLength(255),
+                      ->type('text')
+                      ->maxLength(16)
+                      ->reactive()
+                      // ->rules(['numeric', 'digits:16'])
+                      ->afterStateUpdated(function (callable $set, $state) {
+                        // Ensure only numeric values remain
+                        $set('npwp', preg_replace('/\D/', '', $state));
+                      }),
                     Forms\Components\DatePicker::make('date_of_birth')
                       ->label('Tanggal Lahir')
                       ->required(),
@@ -73,6 +89,7 @@ class EmployeeResource extends Resource
                       ->label('No Telp.')
                       ->tel()
                       ->required()
+                      ->placeholder('081234567890')
                       ->maxLength(15),
                     Forms\Components\Select::make('sex')
                       ->label('Jenis Kelamin')
@@ -103,16 +120,16 @@ class EmployeeResource extends Resource
                           ->get()
                           ->mapWithKeys(function ($postcode) {
                             return [
-                              $postcode->id => "{$postcode->postal_code} - {$postcode->urban} - {$postcode->subdistrict}",
+                              $postcode->id => "{$postcode->postal_code} - {$postcode->urban}, {$postcode->subdistrict}"
                             ];
                           });
                       })
-                      ->getOptionLabelUsing(
-                        fn($value) => optional(Postcode::find($value))
-                          ->postal_code . ' - ' . optional(Postcode::find($value))
-                          ->urban . ' - ' . optional(Postcode::find($value))
-                          ->subdistrict
-                      )
+                      // ->getOptionLabelUsing(
+                      //   fn($value) => optional(Postcode::find($value))
+                      //     ->postal_code . ' - ' . optional(Postcode::find($value))
+                      //     ->urban . ' - ' . optional(Postcode::find($value))
+                      //     ->subdistrict
+                      // )
                       ->searchable()
                       ->nullable(),
                   ])
@@ -146,7 +163,7 @@ class EmployeeResource extends Resource
                       ->searchable()
                       ->live()
                       ->preload()
-                      ->afterStateUpdated()
+                      ->afterStateUpdated(fn(Set $set) => $set('outlet_id', null))
                       ->required(),
                     Forms\Components\Select::make('outlet_id')
                       ->label('Nama Outlet')
@@ -162,8 +179,11 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
                       ->unique()
-                      ->required()
-                      ->maxLength(10),
+                      ->type('text')
+                      ->maxLength(9)
+                      ->placeholder('19990101A')
+                      ->rules(['regex:/^\d{8}[A-Z]$/'])
+                      ->required(),
                     Forms\Components\Select::make('employee_status_id')
                       ->label('Status Pegawai')
                       ->relationship('employee_status', 'name')
@@ -197,8 +217,8 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('saptitle_id')
                       ->label('ID Jab SAP')
                       ->unique()
-                      ->required()
-                      ->numeric(),
+                      ->type('text')
+                      ->required(),
                     Forms\Components\TextInput::make('saptitle_name')
                       ->label('Nama Jab SAP')
                       ->required()
@@ -292,11 +312,11 @@ class EmployeeResource extends Resource
                   ])
                   ->schema([
                     Forms\Components\Select::make('status_pasangan')
-                      ->label('Status Pasangan')
+                      ->label('Status Pasangan Pajak')
                       ->options(StatusPasanganEnums::options())
                       ->required(),
                     Forms\Components\TextInput::make('jumlah_tanggungan')
-                      ->label('Jumlah Tanggungan')
+                      ->label('Jumlah Tanggungan Pajak')
                       ->integer()
                       ->minValue(0)
                       ->maxValue(3)
