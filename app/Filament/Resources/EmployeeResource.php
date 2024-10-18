@@ -146,20 +146,22 @@ class EmployeeResource extends Resource
                     Forms\Components\Select::make('department_id')
                       ->label('Unit Kerja - UB')
                       ->relationship('department', 'name')
-                      ->getSearchResultsUsing(function (string $search) {
-                        return Department::query()
-                          ->where('name', 'like', "%{$search}%")
-                          ->limit(10) // Limit the number of results to avoid performance issues
-                          ->get()
-                          ->mapWithKeys(function ($department) {
-                            return [
-                              $department->id => "{$department->department_id}",
-                            ];
-                          });
-                      })
-                      ->getOptionLabelUsing(
-                        fn($value) => optional(Department::find($value))->name
-                      )
+                      ->default(auth()->user()->department_id)
+                      ->disabled(!auth()->user()->is_admin())
+                      // ->getSearchResultsUsing(function (string $search) {
+                      //   return Department::query()
+                      //     ->where('name', 'like', "%{$search}%")
+                      //     ->limit(10) // Limit the number of results to avoid performance issues
+                      //     ->get()
+                      //     ->mapWithKeys(function ($department) {
+                      //       return [
+                      //         $department->id => "{$department->department_id}",
+                      //       ];
+                      //     });
+                      // })
+                      // ->getOptionLabelUsing(
+                      //   fn($value) => optional(Department::find($value))->name
+                      // )
                       ->searchable()
                       ->live()
                       ->preload()
@@ -483,6 +485,16 @@ class EmployeeResource extends Resource
       ->filters([
         //
       ])
+      ->query(function ($query) {
+        $user = auth()->user();
+
+        // If the user is not an admin, scope by department
+        if (!$user->hasRole('admin')) {
+          return $query->where('department_id', $user->department_id);
+        }
+
+        return $query;
+      })
       ->actions([
         Tables\Actions\ViewAction::make(),
         Tables\Actions\EditAction::make(),

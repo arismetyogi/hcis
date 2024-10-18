@@ -6,6 +6,7 @@ use App\Models\Team;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\Tenancy\RegisterTenant;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterTeam extends RegisterTenant
 {
@@ -29,7 +30,7 @@ class RegisterTeam extends RegisterTenant
 
     // $team->members()->attach(auth()->user());
     // Attach the currently authenticated user to the team
-    if ($user = auth()->user()) {
+    if ($user = Auth::user()) {
       $team->members()->attach($user);
     } else {
       // Handle the case when there is no authenticated user, if necessary

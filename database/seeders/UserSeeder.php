@@ -17,12 +17,20 @@ class UserSeeder extends Seeder
   {
     // force insert
     DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    User::create([
-      'name' => 'Admin',
-      'email' => 'admin@admin.com',
-      'password' => Hash::make('123'),
-      'is_admin' => true,
-      'team_id' => 1,
+    User::insert([
+      [
+        'name' => 'Admin',
+        'email' => 'admin@admin.com',
+        'password' => Hash::make('123'),
+        'is_admin' => true,
+        'department_id' => 1,
+      ],
+      [
+        'name' => 'adm bandung',
+        'email' => 'adm.bandung@test.com',
+        'password' => Hash::make('123'),
+        'department_id' => 3103,
+      ]
     ]);
     DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     // User::factory()->count(9)->create();

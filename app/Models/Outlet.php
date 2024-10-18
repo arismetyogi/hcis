@@ -13,10 +13,6 @@ class Outlet extends Model
 
   protected $guarded = [''];
 
-  public function employees(): HasMany
-  {
-    return $this->hasMany(Employee::class);
-  }
   public function department(): BelongsTo
   {
     return $this->belongsTo(Department::class);
@@ -24,5 +20,10 @@ class Outlet extends Model
   public function postcode(): BelongsTo
   {
     return $this->belongsTo(Postcode::class);
+  }
+
+  public function employees(): HasMany
+  {
+    return $this->hasMany(Employee::class);
   }
 }
