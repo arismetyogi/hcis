@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PayrollResource\Pages;
 use App\Filament\Resources\PayrollResource\RelationManagers;
+use App\Models\Employee;
 use App\Models\Payroll;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -30,75 +31,80 @@ class PayrollResource extends Resource
     return $form
       ->schema([
         Forms\Components\Select::make('employee_id')
-          ->relationship('employee', 'npp')
-          ->getOptionLabelFromRecordUsing(fn($record) => "{$record->npp} - {$record->first_name} - {$record->last_name}")
+          ->relationship('employee', 'id')
+          ->getOptionLabelFromRecordUsing(fn($record) => "{$record->npp} - {$record->first_name} {$record->last_name}")
+          ->searchable()
+          ->preload()
           ->required(),
         Forms\Components\TextInput::make('1050_honorarium')
+          ->label('1050 - Honorarium')
           ->required()
           ->numeric(),
         Forms\Components\TextInput::make('uang_saku_mb')
-          ->required()
+          ->label('Uang Saku MB')
           ->numeric(),
         Forms\Components\TextInput::make('3000_lembur')
-          ->required()
+          ->label('3000 - Lembur')
           ->numeric(),
         Forms\Components\TextInput::make('2580_tunj_lain')
-          ->required()
+          ->label('2580 - Tunjangan Lainnya')
           ->numeric(),
         Forms\Components\TextInput::make('ujp')
-          ->required()
+          ->label('Upah Jasa Pelayanan')
           ->numeric(),
         Forms\Components\TextInput::make('4020_sumbangan_cuti_tahunan')
-          ->required()
+          ->label('4020 - Sumbangan Cuti Tahunan')
           ->numeric(),
         Forms\Components\TextInput::make('6500_pot_wajib_koperasi')
-          ->required()
+          ->label('6500 - Potongan Wajib Koperasi')
           ->numeric(),
         Forms\Components\TextInput::make('6540_pot_pinjaman_koperasi')
-          ->required()
+          ->label('6540 - Potongan Pinjaman Koperasi')
           ->numeric(),
         Forms\Components\TextInput::make('6590_pot_ykkkf')
-          ->required()
+          ->label('6590 - Potongan YKKKF')
           ->numeric(),
         Forms\Components\TextInput::make('6620_pot_keterlambatan')
-          ->required()
+          ->label('6620 - Potongan Keterlambatan')
           ->numeric(),
         Forms\Components\TextInput::make('6630_pinjaman_karyawan')
-          ->required()
+          ->label('6630 - Pinjaman Karyawan')
           ->numeric(),
         Forms\Components\TextInput::make('6700_pot_bank_mandiri')
-          ->required()
+          ->label('6700 - Pot. Bank Mandiri')
           ->numeric(),
         Forms\Components\TextInput::make('6701_pot_bank_bri')
-          ->required()
+          ->label('6701 - Pot. Bank BRI')
           ->numeric(),
         Forms\Components\TextInput::make('6702_pot_bank_btn')
-          ->required()
+          ->label('6702 - Pot. Bank BTN')
           ->numeric(),
         Forms\Components\TextInput::make('6703_pot_bank_danamon')
-          ->required()
+          ->label('6703 - Pot. Bank Danamon')
           ->numeric(),
         Forms\Components\TextInput::make('6704_pot_bank_dki')
-          ->required()
+          ->label('6704 - Pot. Bank DKI')
           ->numeric(),
         Forms\Components\TextInput::make('6705_pot_bank_bjb')
-          ->required()
+          ->label('6705 - Pot. Bank BJB')
           ->numeric(),
         Forms\Components\TextInput::make('6750_pot_adm_bank_mandiri')
-          ->required()
+          ->label('6750 - Pot. Adm. Bank Mandiri')
           ->numeric(),
         Forms\Components\TextInput::make('6751_pot_adm_bank_bri')
-          ->required()
+          ->label('6751 - Pot. Adm. Bank BRI')
           ->numeric(),
         Forms\Components\TextInput::make('6752_pot_adm_bank_bjb')
-          ->required()
+          ->label('6752 - Pot. Adm. Bank BJB')
           ->numeric(),
         Forms\Components\TextInput::make('6900_pot_lain')
-          ->required()
+          ->label('6900 - Pot. Lainnya')
           ->numeric(),
         Forms\Components\TextInput::make('bln_thn')
+          ->label('bulan-tahun')
           ->required()
-          ->maxLength(255),
+          ->placeholder('0824')
+          ->maxLength(8),
       ]);
   }
 
@@ -106,7 +112,12 @@ class PayrollResource extends Resource
   {
     return $table
       ->columns([
+        Tables\Columns\TextColumn::make('employee_id')
+          ->label('Nama Pegawai')
+          ->searchable()
+          ->sortable(),
         Tables\Columns\TextColumn::make('1050_honorarium')
+          ->label('1050 - Honorarium')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('uang_saku_mb')

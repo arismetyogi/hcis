@@ -11,7 +11,7 @@ class Postcode extends Model
 {
   use HasFactory;
 
-  protected $guarded = [];
+  protected $fillable = ['urban', 'subdsitrict', 'city', 'province_code', 'postal_code'];
 
   public function province(): BelongsTo
   {
@@ -20,6 +20,6 @@ class Postcode extends Model
 
   public function employees(): BelongsToMany
   {
-    return $this->belongsToMany(Employee::class);           
+    return $this->belongsToMany(Employee::class);
   }
 }

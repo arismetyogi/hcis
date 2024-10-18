@@ -10,9 +10,9 @@ class Payroll extends Model
 {
   use HasFactory;
 
-  protected $guarded = [];
+  protected $guarded = ['id'];
 
-  public function employees(): BelongsTo
+  public function employee(): BelongsTo
   {
     return $this->belongsTo(Employee::class);
   }

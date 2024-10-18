@@ -2,22 +2,25 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\FemalePantsSizeEnums;
+use App\Models\Outlet;
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Forms\Get;
+use App\Models\Employee;
+use App\Models\Postcode;
+use Filament\Forms\Form;
+use App\Models\Department;
+use Filament\Tables\Table;
+use App\Models\Gradeeselon;
+use Filament\Resources\Resource;
 use App\Enums\MalePantsSizeEnums;
 use App\Enums\StatusPasanganEnums;
-use App\Filament\Resources\EmployeeResource\Pages;
-use App\Filament\Resources\EmployeeResource\RelationManagers;
-use App\Models\Department;
-use App\Models\Employee;
-use App\Models\Gradeeselon;
-use App\Models\Postcode;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
+use Illuminate\Support\Collection;
+use App\Enums\FemalePantsSizeEnums;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\EmployeeResource\RelationManagers;
 
 class EmployeeResource extends Resource
 {
@@ -48,10 +51,6 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('first_name')
                       ->label('Nama Depan')
                       ->required()
-                      ->maxLength(255),
-                    Forms\Components\TextInput::make('middle_name')
-                      ->label('Nama Tengah')
-                      ->nullable()
                       ->maxLength(255),
                     Forms\Components\TextInput::make('last_name')
                       ->label('Nama Belakang')
@@ -133,11 +132,11 @@ class EmployeeResource extends Resource
                       ->getSearchResultsUsing(function (string $search) {
                         return Department::query()
                           ->where('name', 'like', "%{$search}%")
-                          ->limit(50) // Limit the number of results to avoid performance issues
+                          ->limit(10) // Limit the number of results to avoid performance issues
                           ->get()
                           ->mapWithKeys(function ($department) {
                             return [
-                              $department->id => "{$department->name}",
+                              $department->id => "{$department->department_id}",
                             ];
                           });
                       })
@@ -145,12 +144,20 @@ class EmployeeResource extends Resource
                         fn($value) => optional(Department::find($value))->name
                       )
                       ->searchable()
-                      ->preload()
                       ->live()
+                      ->preload()
+                      ->afterStateUpdated()
                       ->required(),
                     Forms\Components\Select::make('outlet_id')
                       ->label('Nama Outlet')
-                      ->relationship('outlet', 'name')
+                      ->options(
+                        fn(Get $get) => Outlet::query()
+                          ->where('department_id', $get('department_id'))
+                          ->pluck('name', 'id')
+                      )
+                      ->live()
+                      ->preload()
+                      ->searchable()
                       ->required(),
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
@@ -177,20 +184,6 @@ class EmployeeResource extends Resource
                       ->label('Grade Eselon')
                       ->relationship('gradeeselon', 'id')
                       ->getOptionLabelFromRecordUsing(fn($record) => "{$record->grade} - {$record->eselon}")
-                      // ->getSearchResultsUsing(function (string $search) {
-                      //   return Gradeeselon::query()
-                      //     ->where('eselon', 'like', "%{$search}%")
-                      //     // ->limit(10) // Limit the number of results to avoid performance issues
-                      //     ->get()
-                      //     ->mapWithKeys(function ($grade) {
-                      //       return [
-                      //         $grade->id => "{$grade->grade} - {$grade->eselon}",
-                      //       ];
-                      //     });
-                      // })
-                      // ->getOptionLabelUsing(
-                      //   fn($value) => optional(Gradeeselon::find($value))->grade . ' - ' . optional(value: Gradeeselon::find($value))->eselon
-                      // )
                       ->preload()
                       ->required(),
                     Forms\Components\Select::make('area_id')
@@ -369,12 +362,9 @@ class EmployeeResource extends Resource
     return $table
       ->columns([
         Tables\Columns\TextColumn::make('first_name')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('middle_name')
-          ->searchable(),
+          ->searchable()
+          ->sortable(),
         Tables\Columns\TextColumn::make('last_name')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('city_of_birth')
           ->searchable(),
         Tables\Columns\TextColumn::make('date_of_birth')
           ->date()
@@ -385,44 +375,36 @@ class EmployeeResource extends Resource
           ->searchable(),
         Tables\Columns\TextColumn::make('address')
           ->searchable(),
-        Tables\Columns\TextColumn::make('zip_code')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('department_id')
-          ->numeric()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('payroll_id')
-          ->numeric()
+        Tables\Columns\TextColumn::make('departments.name')
+          ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('NIK')
           ->searchable(),
         Tables\Columns\TextColumn::make('npwp')
           ->searchable(),
         Tables\Columns\TextColumn::make('employee_statuses.name')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('title_id')
-          ->numeric()
+          ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('subtitle_id')
-          ->numeric()
+        Tables\Columns\TextColumn::make('titles.name')
+          ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('band')
+        Tables\Columns\TextColumn::make('subtitles.name')
+          ->searchable()
+          ->sortable(),
+        Tables\Columns\TextColumn::make('bands.name')
           ->searchable(),
-        Tables\Columns\TextColumn::make('outlet_id')
-          ->numeric()
+        Tables\Columns\TextColumn::make('outlets.name')
+          ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('npp')
           ->searchable(),
         Tables\Columns\TextColumn::make('gradeeselon_id')
           ->numeric()
           ->sortable(),
-        Tables\Columns\TextColumn::make('area_id')
-          ->numeric()
-          ->sortable(),
         Tables\Columns\TextColumn::make('emplevel_id')
           ->numeric()
           ->sortable(),
-        Tables\Columns\TextColumn::make('saptitle_id')
-          ->numeric()
+        Tables\Columns\TextColumn::make('saptitle_name')
           ->sortable(),
         Tables\Columns\TextColumn::make('date_hired')
           ->date()
@@ -433,8 +415,7 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('date_last_mutated')
           ->date()
           ->sortable(),
-        Tables\Columns\TextColumn::make('descstatus_id')
-          ->numeric()
+        Tables\Columns\TextColumn::make('descstatuses.name')
           ->sortable(),
         Tables\Columns\TextColumn::make('bpjs_id')
           ->searchable(),

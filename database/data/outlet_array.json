@@ -2,8 +2,7 @@
   {
     "outlet_sap_id": 3103,
     "name": "UNIT BISNIS BANDUNG",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Cihampelas No. 7",
@@ -15,8 +14,7 @@
   {
     "outlet_sap_id": 3108,
     "name": "UNIT BISNIS BATAM",
-    "branch_id": 3108,
-    "branch_name": "UNIT BISNIS BATAM",
+    "department_id": 3108,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "-",
@@ -28,8 +26,7 @@
   {
     "outlet_sap_id": 3109,
     "name": "UNIT BISNIS TANJUNG PINANG",
-    "branch_id": 3109,
-    "branch_name": "UNIT BISNIS TANJUNG PINANG",
+    "department_id": 3109,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "JL. BINTAN NO. 656 - 658",
@@ -41,8 +38,7 @@
   {
     "outlet_sap_id": 3113,
     "name": "UNIT BISNIS DEPOK",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "JL. Nusnatara Raya No. 33 Depok",
@@ -54,8 +50,7 @@
   {
     "outlet_sap_id": 3118,
     "name": "UNIT BISNIS JAYA II",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "-",
@@ -67,8 +62,7 @@
   {
     "outlet_sap_id": 3119,
     "name": "UNIT BISNIS JAYAPURA",
-    "branch_id": 3119,
-    "branch_name": "UNIT BISNIS JAYAPURA",
+    "department_id": 3119,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "jl kesehtan komp rsud dok 2 jayapura",
@@ -80,8 +74,7 @@
   {
     "outlet_sap_id": 3120,
     "name": "UNIT BISNIS JEMBER",
-    "branch_id": 3120,
-    "branch_name": "UNIT BISNIS JEMBER",
+    "department_id": 3120,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jln. Gajah Mada 171 jember",
@@ -93,8 +86,7 @@
   {
     "outlet_sap_id": 3124,
     "name": "UNIT BISNIS MAKASSAR",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "-",
@@ -106,8 +98,7 @@
   {
     "outlet_sap_id": 3125,
     "name": "UNIT BISNIS MALANG",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "malang",
@@ -119,8 +110,7 @@
   {
     "outlet_sap_id": 3129,
     "name": "UNIT BISNIS MATARAM",
-    "branch_id": 3129,
-    "branch_name": "UNIT BISNIS MATARAM",
+    "department_id": 3129,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Sriwijaya No.295",
@@ -132,8 +122,7 @@
   {
     "outlet_sap_id": 3135,
     "name": "UNIT BISNIS PALU",
-    "branch_id": 3135,
-    "branch_name": "UNIT BISNIS PALU",
+    "department_id": 3135,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "-",
@@ -145,8 +134,7 @@
   {
     "outlet_sap_id": 3136,
     "name": "UNIT BISNIS PEKANBARU",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "JL. JENS SUDIRMAN NO.175",
@@ -158,8 +146,7 @@
   {
     "outlet_sap_id": 3137,
     "name": "UNIT BISNIS PONTIANAK",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "JL. TANJUNG PURA NO. 419",
@@ -171,8 +158,7 @@
   {
     "outlet_sap_id": 3138,
     "name": "UNIT BISNIS RS JAKARTA",
-    "branch_id": 3138,
-    "branch_name": "UNIT BISNIS RS JAKARTA",
+    "department_id": 3138,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "-",
@@ -184,8 +170,7 @@
   {
     "outlet_sap_id": 3139,
     "name": "UNIT BISNIS SAMARINDA",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Gerilya Ruko 1B/1C Rt.10, Kota Samarinda",
@@ -197,8 +182,7 @@
   {
     "outlet_sap_id": 3140,
     "name": "UNIT BISNIS PEKALONGAN",
-    "branch_id": 3140,
-    "branch_name": "UNIT BISNIS PEKALONGAN",
+    "department_id": 3140,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl.Imam Bonjol No.32",
@@ -210,8 +194,7 @@
   {
     "outlet_sap_id": 3144,
     "name": "UNIT BISNIS GRESIK",
-    "branch_id": 3144,
-    "branch_name": "UNIT BISNIS GRESIK",
+    "department_id": 3144,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Dr. Wahidin Sudirohusodo 788",
@@ -223,8 +206,7 @@
   {
     "outlet_sap_id": "AA07",
     "name": "KF.0397 Sigli",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2010-01-01",
     "address": "Jl. Perdagangan No. 1",
@@ -236,8 +218,7 @@
   {
     "outlet_sap_id": "AA0712",
     "name": "PPO KF 397 Tijue",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "NEW",
     "operational_date": "2020-01-01",
     "address": "Jl Banda Aceh-Medan , km 116 , Gp. Dayah Teungoh Tijue",
@@ -249,8 +230,7 @@
   {
     "outlet_sap_id": "AA09",
     "name": "KF.0403 Bireun",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "MEDICAL",
     "operational_date": "2011-01-01",
     "address": "Jl. T. Hamzah Bendahara No. 19",
@@ -262,8 +242,7 @@
   {
     "outlet_sap_id": "AA37",
     "name": "KF Prada",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-03-12",
     "address": "Jl. Teuku Nyak Arif, Syiah Kuala, Banda Aceh",
@@ -275,8 +254,7 @@
   {
     "outlet_sap_id": "AA41",
     "name": "KF Merdeka Tapaktuan",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Merdeka No. 69-70",
@@ -288,8 +266,7 @@
   {
     "outlet_sap_id": "AA42",
     "name": "KF Sultan Iskandar Muda",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Nasional Meulaboh - Tapak Tuan",
@@ -301,8 +278,7 @@
   {
     "outlet_sap_id": "AA4211",
     "name": "PPO RS SIM Nagan Raya",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl. Meulaboh - Tapaktuan RS Sultan",
@@ -314,8 +290,7 @@
   {
     "outlet_sap_id": "AA43",
     "name": "KF Punge",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Sultan Iskandar Muda, Desa Pung",
@@ -327,8 +302,7 @@
   {
     "outlet_sap_id": "AA44",
     "name": "KF Alfayat",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl. Sultan Malikul Saleh No.26, Neusu Aceh, Kec. Baiturrahman, Kota Banda Aceh",
@@ -340,8 +314,7 @@
   {
     "outlet_sap_id": "AA45",
     "name": "KF Pel RSUD Teungku Peukan Blangpidie",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "jln nasional padang, meurante susoh, Kecamaten Blang Pidie, Kabupaten Aceh Barat Daya, Aceh",
@@ -353,8 +326,7 @@
   {
     "outlet_sap_id": "AB40",
     "name": "KF Bulungan Balikpapan",
-    "branch_id": 3102,
-    "branch_name": "UNIT BISNIS BALIKPAPAN",
+    "department_id": 3102,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-07-12",
     "address": "Jl. Kol. H. Soetadji RT 16 Tanjung Selor Ilir",
@@ -366,8 +338,7 @@
   {
     "outlet_sap_id": "AB42",
     "name": "Klinik Mandiri KF Ria Kencana PKBI",
-    "branch_id": 3102,
-    "branch_name": "UNIT BISNIS BALIKPAPAN",
+    "department_id": 3102,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Letnan Jend Suprapto No. 1, Kel. Gn. Kelua, Kec. Samarinda Ulu, Samarinda, Kalimantan Timur 75123",
@@ -379,8 +350,7 @@
   {
     "outlet_sap_id": "AB45",
     "name": "KF A. Yani II",
-    "branch_id": 3102,
-    "branch_name": "UNIT BISNIS BALIKPAPAN",
+    "department_id": 3102,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-02-01",
     "address": "JL. Jend. A. Yani No. 20, Kel. Gn. Sari Ilir Kec. Balikpapan Tengah, Kota Balikpapan",
@@ -392,8 +362,7 @@
   {
     "outlet_sap_id": "AB46",
     "name": "KF MT. Haryono II",
-    "branch_id": 3102,
-    "branch_name": "UNIT BISNIS BALIKPAPAN",
+    "department_id": 3102,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. MT. Haryono RT.41 Damai Baru",
@@ -405,8 +374,7 @@
   {
     "outlet_sap_id": "AC02",
     "name": "KF.0011",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Supratman No.72",
@@ -418,8 +386,7 @@
   {
     "outlet_sap_id": "AC10",
     "name": "KF.0240",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Rancabolang No.69",
@@ -431,8 +398,7 @@
   {
     "outlet_sap_id": "AC12",
     "name": "KF.0319",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "SUPER_STORE",
     "operational_date": "2008-01-01",
     "address": "Jl. Raya Venus No.27, Metro Marga Rahayu",
@@ -444,8 +410,7 @@
   {
     "outlet_sap_id": "AC35",
     "name": "Apotek KF Geger Kalong",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "SUPER_STORE",
     "operational_date": "2018-03-18",
     "address": "Jl. Gegerkalong No.33",
@@ -457,8 +422,7 @@
   {
     "outlet_sap_id": "AC49",
     "name": "KF MARGA CINTA",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-09-01",
     "address": "Jl. Marga Cinta No. 58",
@@ -470,8 +434,7 @@
   {
     "outlet_sap_id": "AC61",
     "name": "KF Holis",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Holis No.247, Babakan",
@@ -483,8 +446,7 @@
   {
     "outlet_sap_id": "AC62",
     "name": "KF Antapani 2",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl.purwakarta no 162 RT/RW 01/04 kelurahan antapani kidul antapani",
@@ -496,8 +458,7 @@
   {
     "outlet_sap_id": "AC63",
     "name": "KF Parahyangan",
-    "branch_id": 3103,
-    "branch_name": "UNIT BISNIS BANDUNG",
+    "department_id": 3103,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Ruko Pancawarna no 27 Kota Baru Parahyangan, Kelurahan Cipeundeuy",
@@ -509,8 +470,7 @@
   {
     "outlet_sap_id": "AE10",
     "name": "KF Moch Hatta",
-    "branch_id": 3105,
-    "branch_name": "UNIT BISNIS TASIKMALAYA",
+    "department_id": 3105,
     "store_type": "MEDICAL",
     "operational_date": "2016-09-01",
     "address": "Jl. Moch Hatta No 147 Kota Tasikmal",
@@ -522,8 +482,7 @@
   {
     "outlet_sap_id": "AE18",
     "name": "KF Mangkubumi",
-    "branch_id": 3105,
-    "branch_name": "UNIT BISNIS TASIKMALAYA",
+    "department_id": 3105,
     "store_type": "MEDICAL",
     "operational_date": "2023-10-09",
     "address": "Jl. Mayor Tobing No. 136 Rt.001/04",
@@ -535,8 +494,7 @@
   {
     "outlet_sap_id": "AE19",
     "name": "KF Ciledug Garut",
-    "branch_id": 3105,
-    "branch_name": "UNIT BISNIS TASIKMALAYA",
+    "department_id": 3105,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl. Raya Ciledug No.195, Kota Kulon, Kec. Garut Kota, Kabupaten Garut, Jawa Barat",
@@ -548,8 +506,7 @@
   {
     "outlet_sap_id": "AG08",
     "name": "KF 383 S.Parman-2",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "NONE",
     "operational_date": "2010-01-01",
     "address": "Jalan S.Parman No.161 RT 01/001",
@@ -561,8 +518,7 @@
   {
     "outlet_sap_id": "AG09",
     "name": "KF.0433 A Yani 59",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "MEDICAL",
     "operational_date": "2013-05-01",
     "address": "Jl. A.Yani, Pemurus Luar",
@@ -574,8 +530,7 @@
   {
     "outlet_sap_id": "AG10",
     "name": "KF 444 Gatsu",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2013-06-01",
     "address": "Jl. Gatot Subroto",
@@ -587,8 +542,7 @@
   {
     "outlet_sap_id": "AG17",
     "name": "KF Belitung Darat",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "",
     "operational_date": "2017-05-01",
     "address": "Jl. Belitumg Darat No.38",
@@ -600,8 +554,7 @@
   {
     "outlet_sap_id": "AG22",
     "name": "ApotekKF.0517GuntungPayung",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "MEDICAL",
     "operational_date": "2014-02-01",
     "address": "HQ2X+3PM, Jl. Ahmad Yani Jl. A. Yani",
@@ -613,8 +566,7 @@
   {
     "outlet_sap_id": "AG31",
     "name": "APT KIMIA FARMA SULTAN ADAM 2",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-12-01",
     "address": "Jl. Sultan Adam No.10",
@@ -626,8 +578,7 @@
   {
     "outlet_sap_id": "AG36",
     "name": "KF Sungai Danau",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Jend. Ahmad Yani Sungai Danau",
@@ -639,8 +590,7 @@
   {
     "outlet_sap_id": "AG37",
     "name": "KF Plajau",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl. Transmigrasi Plajau, Baroqah, Kec. Simpang Empat, Kabupaten Tanah Bumbu, Kalimantan Selatan",
@@ -652,8 +602,7 @@
   {
     "outlet_sap_id": "AH21",
     "name": "KF Dapur 12-Batam",
-    "branch_id": 3108,
-    "branch_name": "UNIT BISNIS BATAM",
+    "department_id": 3108,
     "store_type": "MEDICAL",
     "operational_date": "2017-07-01",
     "address": "JL.Ruko Buana Niaga No.5-6 Sagulung Batam",
@@ -665,8 +614,7 @@
   {
     "outlet_sap_id": "AH3011",
     "name": "PPO KF KEK Nongsa",
-    "branch_id": 3108,
-    "branch_name": "UNIT BISNIS BATAM",
+    "department_id": 3108,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Hang Lekiu KM 2 Nongsa, Sambau,",
@@ -678,8 +626,7 @@
   {
     "outlet_sap_id": "AH40",
     "name": "KF Newton",
-    "branch_id": 3108,
-    "branch_name": "UNIT BISNIS BATAM",
+    "department_id": 3108,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Komplek Nagoya Paradise Center",
@@ -691,8 +638,7 @@
   {
     "outlet_sap_id": "AI01",
     "name": "KF.0031 TPI",
-    "branch_id": 3109,
-    "branch_name": "UNIT BISNIS TANJUNG PINANG",
+    "department_id": 3109,
     "store_type": "SUPER_STORE",
     "operational_date": "2003-01-01",
     "address": "Jl. Bintan No.656 - 658",
@@ -704,8 +650,7 @@
   {
     "outlet_sap_id": "AI07",
     "name": "KF.0297 Bintan",
-    "branch_id": 3109,
-    "branch_name": "UNIT BISNIS TANJUNG PINANG",
+    "department_id": 3109,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2003-01-01",
     "address": "Jl. D.I. Panjaitan Km. 9 Komp. Bintan Center",
@@ -717,8 +662,7 @@
   {
     "outlet_sap_id": "AI10",
     "name": "KF.0649 Batubatas",
-    "branch_id": 3109,
-    "branch_name": "UNIT BISNIS TANJUNG PINANG",
+    "department_id": 3109,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2015-05-01",
     "address": "Jl. Raja Haji Fisabilillah Km. 8 Atas",
@@ -730,8 +674,7 @@
   {
     "outlet_sap_id": "AI22",
     "name": "KF Natuna",
-    "branch_id": 3109,
-    "branch_name": "UNIT BISNIS TANJUNG PINANG",
+    "department_id": 3109,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "JL. DATUK KAYA WAN MOH. BENTENG - RANAI",
@@ -743,8 +686,7 @@
   {
     "outlet_sap_id": "AJ0111",
     "name": "KF. 284 RESEP SUZ",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "MEDICAL",
     "operational_date": "2004-01-01",
     "address": "-",
@@ -756,8 +698,7 @@
   {
     "outlet_sap_id": "AJ0311",
     "name": "KF. 340 RESEP UNI",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "MEDICAL",
     "operational_date": "2009-01-01",
     "address": "-",
@@ -769,8 +710,7 @@
   {
     "outlet_sap_id": "AJ27",
     "name": "KF Han Kam",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "",
     "operational_date": "2016-11-16",
     "address": "Jln. Raya Hankam No. 2 Jatisampurna",
@@ -782,8 +722,7 @@
   {
     "outlet_sap_id": "AJ3011",
     "name": "PPO KF Suzuki Cikarang",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "PT. Suzuki Indomobil Motor Kawasan",
@@ -795,8 +734,7 @@
   {
     "outlet_sap_id": "AJ3111",
     "name": "PPO KF Suzuki Pulogadung",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jl. Raya Bekasi No.Km. 19, RW.2, Rw",
@@ -808,8 +746,7 @@
   {
     "outlet_sap_id": "AJ32",
     "name": "KF Jati Rahayu",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "SUPER_STORE",
     "operational_date": "2017-06-01",
     "address": "Jl.Jati Rahayu Bekasi",
@@ -821,8 +758,7 @@
   {
     "outlet_sap_id": "AJ39",
     "name": "KF Kranji 1030",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "NONE",
     "operational_date": "2018-06-01",
     "address": "Jl. Pemuda Kranji No.33, RT.005/RW.013",
@@ -834,8 +770,7 @@
   {
     "outlet_sap_id": "AJ49",
     "name": "KF JGC Bekasi",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-05-26",
     "address": "Jakarta Garden City Ruko Boulevard No 26, Kel. Cakung Timur",
@@ -847,8 +782,7 @@
   {
     "outlet_sap_id": "AJ50",
     "name": "KF Mekarsari Bekasi",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "NONE",
     "operational_date": "2023-04-08",
     "address": "Ruko Libersa Park, JI. Agus Salim RT. 003 RW. 007, Kel. Bekasi Jaya, Kec. Bekasi Timur - Kota Bekasi",
@@ -860,8 +794,7 @@
   {
     "outlet_sap_id": "AK03",
     "name": "KF.0440 Veteran",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2013-05-01",
     "address": "Jl. Veteran No. 97 Desa/Kelurahan Nagri Kaler",
@@ -873,8 +806,7 @@
   {
     "outlet_sap_id": "AK11",
     "name": "KF 0768 Lamaran",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-08-01",
     "address": "JL Syech Quro Kelurahan Karawang Wetan, Kec. Karawang Timur, Kab. Karawang",
@@ -886,8 +818,7 @@
   {
     "outlet_sap_id": "AK19",
     "name": "KF TANJUNGMEKAR",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "NONE",
     "operational_date": "2018-04-01",
     "address": "Jl. Raya Proklamasi No. 6 Tj.Mekar",
@@ -899,8 +830,7 @@
   {
     "outlet_sap_id": "AK20",
     "name": "KF Rengas Dengklok",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "MEDICAL",
     "operational_date": "2018-09-27",
     "address": "Jl.Proklamasi No.115, Rengasdeng, Rengasdengklok,Kab. Karawang, Jawa Barat",
@@ -912,8 +842,7 @@
   {
     "outlet_sap_id": "AK29",
     "name": "KF Express Rest Area KM72A",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "MEDICAL",
     "operational_date": "2021-12-10",
     "address": "Rest Area Km 72 Tol Purbaleunyi Desa Cigelam Kec. Babakancikao, Kab. Purwakarta, Jawa Barat",
@@ -925,8 +854,7 @@
   {
     "outlet_sap_id": "AK30",
     "name": "KF Pinayungan",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jalan Pinayungan Dusun Sukadana RT010/04 Desa Pinayungan Kec Teluk Jambe",
@@ -938,8 +866,7 @@
   {
     "outlet_sap_id": "AK31",
     "name": "KF Express Rest Area KM 88A",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "MEDICAL",
     "operational_date": "2024-12-18",
     "address": "Rest Area Km 88 A, Tol Cipularang Rest Area KM. 88A, Cipularang, Jl. Tol Purbaleunyi Rest Area Tol No.Km 88 A",
@@ -951,8 +878,7 @@
   {
     "outlet_sap_id": "AK32",
     "name": "KF Wirabrata",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Berlian Kel. Cikampek Utara, Ke",
@@ -964,8 +890,7 @@
   {
     "outlet_sap_id": "AL12",
     "name": "Klinik Cilendek",
-    "branch_id": 3112,
-    "branch_name": "UNIT BISNIS BOGOR",
+    "department_id": 3112,
     "store_type": "",
     "operational_date": "2017-08-17",
     "address": "Jl. Brigjen Saptaji Hadiprawira",
@@ -977,8 +902,7 @@
   {
     "outlet_sap_id": "AL2212",
     "name": "PPO Klinik KF Ya Rahman",
-    "branch_id": 3112,
-    "branch_name": "UNIT BISNIS BOGOR",
+    "department_id": 3112,
     "store_type": "NONE",
     "operational_date": "2019-01-01",
     "address": "Jl. Raya Parung Gunung Sindur No. 2",
@@ -990,8 +914,7 @@
   {
     "outlet_sap_id": "AL29",
     "name": "KF Ya Rahman",
-    "branch_id": 3112,
-    "branch_name": "UNIT BISNIS BOGOR",
+    "department_id": 3112,
     "store_type": "NONE",
     "operational_date": "2022-10-01",
     "address": "Jl Raya Parung - Gunung Sindur No 2",
@@ -1003,8 +926,7 @@
   {
     "outlet_sap_id": "AL30",
     "name": "KF Cilendek",
-    "branch_id": 3112,
-    "branch_name": "UNIT BISNIS BOGOR",
+    "department_id": 3112,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Brigjen Saptaji Hadiprawira, Kota Bogor Barat,Kota Bogor, Jawa Barat,",
@@ -1016,8 +938,7 @@
   {
     "outlet_sap_id": "AL31",
     "name": "KF Pasir Kuda",
-    "branch_id": 3112,
-    "branch_name": "UNIT BISNIS BOGOR",
+    "department_id": 3112,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. RE Abdullah No 12 RT 001/001 ,",
@@ -1029,8 +950,7 @@
   {
     "outlet_sap_id": "AM01",
     "name": "KF.0143",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2006-01-01",
     "address": "Jl. Margonda Raya No. 154A",
@@ -1042,8 +962,7 @@
   {
     "outlet_sap_id": "AM0212",
     "name": "PPO KF 202 T Iskandar",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "NONE",
     "operational_date": "2024-09-01",
     "address": "Jl.Tole Iskandar No.17",
@@ -1055,8 +974,7 @@
   {
     "outlet_sap_id": "AM03",
     "name": "KF.0352 Margonda",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2009-01-01",
     "address": "Jl. Margonda Raya No. 326",
@@ -1068,8 +986,7 @@
   {
     "outlet_sap_id": "AM0411",
     "name": "PPO KF 366",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "NONE",
     "operational_date": "2020-03-01",
     "address": "Ruko Maharaja Blok A1 No. 03",
@@ -1081,8 +998,7 @@
   {
     "outlet_sap_id": "AM0611",
     "name": "PPO KF 382",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "MEDICAL",
     "operational_date": "2019-12-31",
     "address": "Jl. Komjen. Pol. M. Jasin No.59",
@@ -1094,8 +1010,7 @@
   {
     "outlet_sap_id": "AM09",
     "name": "KF 0394 Melati",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "NONE",
     "operational_date": "2011-01-01",
     "address": "Jl. Melati No.14, RT.004/RW.010, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat",
@@ -1107,8 +1022,7 @@
   {
     "outlet_sap_id": "AM12",
     "name": "KF.0491 Sawangan",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2013-11-01",
     "address": "Jl. Raya Muchtar No. 76E",
@@ -1120,8 +1034,7 @@
   {
     "outlet_sap_id": "AM13",
     "name": "KF.0568 Bojong Sari",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "NONE",
     "operational_date": "2014-09-01",
     "address": "Jl. Raya Parung Ciputat RT 01/",
@@ -1133,8 +1046,7 @@
   {
     "outlet_sap_id": "AM17",
     "name": "KF. 0757",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-10-15",
     "address": "Jl. Raya Sawangan No.RT 003/009",
@@ -1146,8 +1058,7 @@
   {
     "outlet_sap_id": "AM19",
     "name": "KF Radar Auri",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2017-03-17",
     "address": "Jl. Radar Auri, Kel Cisalak Pasar, Cimanggis, Kota Depok, Jawa Barat",
@@ -1159,8 +1070,7 @@
   {
     "outlet_sap_id": "AM24",
     "name": "KF Ratu Jaya",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-08-03",
     "address": "Jl, Raya Ratu Jaya Kel Ratu Jaya",
@@ -1172,8 +1082,7 @@
   {
     "outlet_sap_id": "AM2711",
     "name": "PPO KF Adelina Sawangan 0757",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "NONE",
     "operational_date": "2024-09-01",
     "address": "Jl. Raya Sawangan No.RT 003/009",
@@ -1185,8 +1094,7 @@
   {
     "outlet_sap_id": "AM31",
     "name": "KF Adelina Tanah Baru",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "MEDICAL",
     "operational_date": "2022-07-11",
     "address": "Perumahan Exclusive Tanah Baru No. 2, RT.006/001",
@@ -1198,8 +1106,7 @@
   {
     "outlet_sap_id": "AM32",
     "name": "KF Leuwinanggung",
-    "branch_id": 3113,
-    "branch_name": "UNIT BISNIS DEPOK",
+    "department_id": 3113,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Kramat Rt 004 Rt 002",
@@ -1211,8 +1118,7 @@
   {
     "outlet_sap_id": "AN20",
     "name": "KF 955 Cikijing",
-    "branch_id": 3114,
-    "branch_name": "UNIT BISNIS CIREBON",
+    "department_id": 3114,
     "store_type": "NONE",
     "operational_date": "2017-10-01",
     "address": "Jl. KH Abdul Fatah No.14 Cikijing",
@@ -1224,8 +1130,7 @@
   {
     "outlet_sap_id": "AN31",
     "name": "KF Sultan Ageng",
-    "branch_id": 3114,
-    "branch_name": "UNIT BISNIS CIREBON",
+    "department_id": 3114,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Sultan Ageng Tirtayasa No.230",
@@ -1237,8 +1142,7 @@
   {
     "outlet_sap_id": "AO24",
     "name": "KF.0838",
-    "branch_id": 3115,
-    "branch_name": "UNIT BISNIS NUSADUA",
+    "department_id": 3115,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-11-16",
     "address": "JL. PANTAI BERAWA NO 16,BR. PELAMBINGAN, DESA TIBUBENENG,KECAMATAN KUTA UTARA, KABUPATEN BADUNG, PROVINSI BALI",
@@ -1250,8 +1154,7 @@
   {
     "outlet_sap_id": "AO30",
     "name": "KF 940 Canggu",
-    "branch_id": 3115,
-    "branch_name": "UNIT BISNIS NUSADUA",
+    "department_id": 3115,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2017-08-17",
     "address": "JL. Raya Canggu No. 77 Canggu, Kuta Utara",
@@ -1263,8 +1166,7 @@
   {
     "outlet_sap_id": "AO47",
     "name": "KF Express Bandara I Gusti Ngurah Rai",
-    "branch_id": 3115,
-    "branch_name": "UNIT BISNIS NUSADUA",
+    "department_id": 3115,
     "store_type": "MEDICAL",
     "operational_date": "2021-12-27",
     "address": "Jl Raya Ngurah Rai, Tuban, Kuta, Badung",
@@ -1276,8 +1178,7 @@
   {
     "outlet_sap_id": "AO48",
     "name": "KF Pecatu",
-    "branch_id": 3115,
-    "branch_name": "UNIT BISNIS NUSADUA",
+    "department_id": 3115,
     "store_type": "MEDICAL",
     "operational_date": "2023-01-01",
     "address": "Jl. Raya Uluwatu Pecatu No.78, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali",
@@ -1289,8 +1190,7 @@
   {
     "outlet_sap_id": "AO49",
     "name": "KF PADMA 2",
-    "branch_id": 3115,
-    "branch_name": "UNIT BISNIS NUSADUA",
+    "department_id": 3115,
     "store_type": "MEDICAL",
     "operational_date": "2023-09-10",
     "address": "Jl. Raya Padma Utara No. 4",
@@ -1302,8 +1202,7 @@
   {
     "outlet_sap_id": "AO50",
     "name": "KF Pepito Sawangan",
-    "branch_id": 3115,
-    "branch_name": "UNIT BISNIS NUSADUA",
+    "department_id": 3115,
     "store_type": "MEDICAL",
     "operational_date": "2024-03-13",
     "address": "Jl. Raya Nusa Dua Selatan, Benoa Ke",
@@ -1315,8 +1214,7 @@
   {
     "outlet_sap_id": "AP01",
     "name": "KF.0034",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Diponegoro No.125",
@@ -1328,8 +1226,7 @@
   {
     "outlet_sap_id": "AP14",
     "name": "KF.0235 Imam B",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "MEDICAL",
     "operational_date": "2003-01-01",
     "address": "Jl. Iman Bonjol No.66",
@@ -1341,8 +1238,7 @@
   {
     "outlet_sap_id": "AP15",
     "name": "KF.0276 Manyar",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2004-01-01",
     "address": "Jl. Cokroaminoto. No.410",
@@ -1354,8 +1250,7 @@
   {
     "outlet_sap_id": "AP32",
     "name": "KF 939 Tukad Balian",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2017-09-17",
     "address": "Jl. Tukad Balian No 123 Renon",
@@ -1367,8 +1262,7 @@
   {
     "outlet_sap_id": "AP33",
     "name": "KF Marlboro",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "MEDICAL",
     "operational_date": "2018-04-01",
     "address": "Jl. Teuku Umar Barat",
@@ -1380,8 +1274,7 @@
   {
     "outlet_sap_id": "AP38",
     "name": "KF Celuk",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "MEDICAL",
     "operational_date": "2018-08-01",
     "address": "Jl. Raya Celuk No. 81X",
@@ -1393,8 +1286,7 @@
   {
     "outlet_sap_id": "AP46",
     "name": "APT.KF.IMAM BONJOL 2",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-06-23",
     "address": "Jl. Imam Bonjol No. 515B",
@@ -1406,8 +1298,7 @@
   {
     "outlet_sap_id": "AP47",
     "name": "KF Buana Raya",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2020-12-01",
     "address": "Jl. Buana Raya No.18, Kel. Padang Sambian, Kec. Denpasar Barat, Denpasar",
@@ -1419,8 +1310,7 @@
   {
     "outlet_sap_id": "AP48",
     "name": "KF Monkey Forest",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Wanara Wana, Desa Ubud, Gianyar",
@@ -1432,8 +1322,7 @@
   {
     "outlet_sap_id": "AP49",
     "name": "KF Karangasem",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "MEDICAL",
     "operational_date": "2023-05-28",
     "address": "Jalan Untung Surapati No.88x",
@@ -1445,8 +1334,7 @@
   {
     "outlet_sap_id": "AP50",
     "name": "KF Danau Tamblingan 1",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "MEDICAL",
     "operational_date": "2023-07-01",
     "address": "Jl. Danau Tamblingan No. 80 Sanur,",
@@ -1458,8 +1346,7 @@
   {
     "outlet_sap_id": "AP51",
     "name": "KF Ubud Raya",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "MEDICAL",
     "operational_date": "2023-08-26",
     "address": "Jl. Ubud Raya No.1",
@@ -1471,8 +1358,7 @@
   {
     "outlet_sap_id": "AQ0123",
     "name": "PPO Tokopedia Marketplace Blok M",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. St.Hasanuddin No. 1",
@@ -1484,8 +1370,7 @@
   {
     "outlet_sap_id": "AQ0126",
     "name": "PPO KF First Care",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl. Panglima Polim III No.5 Melawai",
@@ -1497,8 +1382,7 @@
   {
     "outlet_sap_id": "AQ0311",
     "name": "PPO Klinik KF PLN Gambir",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jl. M.I. Ridwan Rais No.1, RT.7/RW.Jl. M.I. Ridwan Rais No.1, RT.7/RW.1, Gambir, Jakarta Pusat",
@@ -1510,8 +1394,7 @@
   {
     "outlet_sap_id": "AQ0312",
     "name": "PPO KF PLN Gandul",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Kuttab Ar-Rahman . Jl. Ehave No. 01",
@@ -1523,8 +1406,7 @@
   {
     "outlet_sap_id": "AQ06",
     "name": "KF.0254 Pos Pengumben",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "SUPER_STORE",
     "operational_date": "2003-01-01",
     "address": "Jl. Raya Pos Pengumben Blok I No.11",
@@ -1536,8 +1418,7 @@
   {
     "outlet_sap_id": "AQ0611",
     "name": "PPO Klinik KF 254",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "2019-01-01",
     "address": "Jl. Pos Pengumben Raya Blok I No 11 Kebon Jeruk",
@@ -1549,8 +1430,7 @@
   {
     "outlet_sap_id": "AQ22",
     "name": "KF.0652 Ceger",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2015-07-01",
     "address": "Jl.Ceger Raya No.9B Pondok Are",
@@ -1562,8 +1442,7 @@
   {
     "outlet_sap_id": "AQ24",
     "name": "APT.055 OSHCS",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "SUPER_STORE",
     "operational_date": "2003-01-01",
     "address": "Jl.Kebayoran Lama No 50,RT/RW. 001/001",
@@ -1575,8 +1454,7 @@
   {
     "outlet_sap_id": "AQ2402",
     "name": "Optik KF.055 OSHCS",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "Jln. Raya Kebayoran Lama No. 50",
@@ -1588,8 +1466,7 @@
   {
     "outlet_sap_id": "AQ2411",
     "name": "PPO OPTIK KF.0055 OSHCS",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jln. Raya Kebayoran Lama No. 50",
@@ -1601,8 +1478,7 @@
   {
     "outlet_sap_id": "AQ2916",
     "name": "PPO VM Halte Transjakarta Puri Beta 2",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Karang Tim., Kec. Karang Tengah, Ko",
@@ -1614,8 +1490,7 @@
   {
     "outlet_sap_id": "AQ35",
     "name": "Klinik Mandiri KF Kampung Sawah",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "",
     "operational_date": "2018-03-08",
     "address": "Jl. Ki Hajar Dewantoro No. 189 Kamp",
@@ -1627,8 +1502,7 @@
   {
     "outlet_sap_id": "AQ37",
     "name": "KLINIK MANDIRI KF BPOM",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "",
     "operational_date": "2018-01-01",
     "address": "Jl. Percetakan Negara No. 23 Jakarta Pusat",
@@ -1640,8 +1514,7 @@
   {
     "outlet_sap_id": "AQ39",
     "name": "Klinik Mandiri KF Joglo",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "",
     "operational_date": "2018-01-01",
     "address": "Jl. Joglo Raya No 117, Kembangan -",
@@ -1653,8 +1526,7 @@
   {
     "outlet_sap_id": "AQ42",
     "name": "KLINIK MANDIRI KF PLN GAMBIR",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "",
     "operational_date": "2018-01-01",
     "address": "Jl. M.I. Ridwan Rais No.1, RT.7/RW.1, Gambir, Jakarta Pusat",
@@ -1666,8 +1538,7 @@
   {
     "outlet_sap_id": "AQ45",
     "name": "KF 1088 Fatmawati",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "2018-09-01",
     "address": "Jl. RS Fatmawati, Cipete Selatan,",
@@ -1679,8 +1550,7 @@
   {
     "outlet_sap_id": "AQ4711",
     "name": "PPO KF Pakubuwono",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Apartemen Pakubuwono Residence, Jl.",
@@ -1692,8 +1562,7 @@
   {
     "outlet_sap_id": "AQ4811",
     "name": "PPO Klinik KF Lions Club",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "2019-01-01",
     "address": "Jl. Raya Pluit Timur Kav B2 Pluit,",
@@ -1705,8 +1574,7 @@
   {
     "outlet_sap_id": "AQ58",
     "name": "Klinik Mandiri KF Season City",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "MEDICAL",
     "operational_date": "2020-05-01",
     "address": "Seasons City mall lantai 2 Jl Professor Dr.Latumeten No.33",
@@ -1718,8 +1586,7 @@
   {
     "outlet_sap_id": "AQ63",
     "name": "Klinik Mandiri KF Mutiara Cawang",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Cawang Baru Utara No. 18, Cipinang Cempedak, Jatinegara, Jakarta Timur",
@@ -1731,8 +1598,7 @@
   {
     "outlet_sap_id": "AQ67",
     "name": "KF H&B Mall Gandaria City",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "MEDICAL",
     "operational_date": "2022-04-20",
     "address": "Gandaria City Mall,Lantai UG,Jl. Sultan Iskandar Muda, RT.10/RW.6, Kebayoran Lama Utara, Kebayoran Lama, Jakarta Selatan",
@@ -1744,8 +1610,7 @@
   {
     "outlet_sap_id": "AQ68",
     "name": "Apt. KF. MERUYA",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "JL. Meruya Selatan Raya No. 47 RT. 05 RW. 01",
@@ -1757,8 +1622,7 @@
   {
     "outlet_sap_id": "AQ6816",
     "name": "PPO VM Halte Transjakarta Puri Beta 2",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Karang Tim., Kec. Karang Tengah, Ko",
@@ -1770,8 +1634,7 @@
   {
     "outlet_sap_id": "AQ69",
     "name": "Apt. KF. CITRA GARDEN",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Citra Garden 1 Blok I1 No. 14 K",
@@ -1783,8 +1646,7 @@
   {
     "outlet_sap_id": "AR0317",
     "name": "PPO PRJ Reguler KF Kemayoran",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "NONE",
     "operational_date": "2024-06-10",
     "address": "Gedung Pusat Niaga Arena Jiexpo Kem",
@@ -1796,8 +1658,7 @@
   {
     "outlet_sap_id": "AR0318",
     "name": "PPO PRJ Flash Sale KF Kemayoran",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "NONE",
     "operational_date": "2024-06-10",
     "address": "Gedung Pusat Niaga Arena Jiexpo Kem",
@@ -1809,8 +1670,7 @@
   {
     "outlet_sap_id": "AR07",
     "name": "APT. KF.0046 RAWA BADAK",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "NONE",
     "operational_date": "2003-01-01",
     "address": "Lorong 104 No.5B, Rawa Badak Utara, Koja, Jakarta Utara, DKI Jakarta",
@@ -1822,8 +1682,7 @@
   {
     "outlet_sap_id": "AR08",
     "name": "APT. KF.0048 MATRAMAN",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "SUPER_STORE",
     "operational_date": "2003-01-01",
     "address": "Jl. Matraman Raya No. 85, Pal Meriem,",
@@ -1835,8 +1694,7 @@
   {
     "outlet_sap_id": "AR0902",
     "name": "Optik KF.Angkasa Pura II",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "",
     "operational_date": "2010-01-01",
     "address": "Jl. Bandara Soekarno Hatta, Gedung 600 Kantor Pusat Bandara Seokarno Hatta",
@@ -1848,8 +1706,7 @@
   {
     "outlet_sap_id": "AR1002",
     "name": "Optik - KF.0049 - Optik",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "",
     "operational_date": "2010-01-01",
     "address": "Jl. Pahlawan Revolusi No. 53",
@@ -1861,8 +1718,7 @@
   {
     "outlet_sap_id": "AR1902",
     "name": "OPTIK  KF.450 CIBUBUR LT",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "",
     "operational_date": "2010-01-01",
     "address": "Jl. Lawu B1 No.01",
@@ -1874,8 +1730,7 @@
   {
     "outlet_sap_id": "AR2101",
     "name": "Klinik - KF Menteng Huis",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "",
     "operational_date": "2006-01-01",
     "address": "Jl. Cikini Raya No. 2",
@@ -1887,8 +1742,7 @@
   {
     "outlet_sap_id": "AR36",
     "name": "KF Express Terminal 3 Internasional",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "MEDICAL",
     "operational_date": "2017-05-01",
     "address": "Jl. P-2, Terminal 3 Ultimate Bandara Internasional Soekarno Hatta, Pajang, Benda, Kota Tangerang, 15126",
@@ -1900,8 +1754,7 @@
   {
     "outlet_sap_id": "AR38",
     "name": "KF H&B Green Pramuka Square",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2017-08-17",
     "address": "Jl. Letjend A. Yani Kav 49",
@@ -1913,8 +1766,7 @@
   {
     "outlet_sap_id": "AR41",
     "name": "Klinik Mandiri KF Plaza Danamon",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "",
     "operational_date": "2017-01-01",
     "address": "Jl. HR Rasuna Said Kav.C No.10 Jakar",
@@ -1926,8 +1778,7 @@
   {
     "outlet_sap_id": "AR42",
     "name": "Apotek Kimia Farma Cililitan Besar",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-01-18",
     "address": "Jl. Cililitan Besar No.12",
@@ -1939,8 +1790,7 @@
   {
     "outlet_sap_id": "AR47",
     "name": "APT. KF.HOTEL HOLIDAY IN EXPRESS",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "MEDICAL",
     "operational_date": "2018-10-01",
     "address": "Jl. Matraman Raya No. 55, Pal Meriem, Matraman, Kota Jakarta Timur, DKI Jakarta - 13140",
@@ -1952,8 +1802,7 @@
   {
     "outlet_sap_id": "AR50",
     "name": "KF H&B Mall Sarinah",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2022-03-21",
     "address": "Mall Sarinah, Jl. M.H. Thamrin No.11 RT.008 RW.04 GONDANGDIA, Menteng, Kota Jakarta Pusat, DKI Jakarta, 10350",
@@ -1965,8 +1814,7 @@
   {
     "outlet_sap_id": "AR51",
     "name": "KF Kelapa Gading 2",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl.Boulevard Kelapa Gading QA-05/05",
@@ -1978,8 +1826,7 @@
   {
     "outlet_sap_id": "AR52",
     "name": "KF Kalisari",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Kalisari II, RT.13/RW.1,Pekayon",
@@ -1991,8 +1838,7 @@
   {
     "outlet_sap_id": "AR53",
     "name": "KF Bina Marga Cipayung",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl. Bina Marga No. 94A, Cipayung",
@@ -2004,8 +1850,7 @@
   {
     "outlet_sap_id": "AR54",
     "name": "KF Cempaka Putih Tengah",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "JL. Cempaka Putih Tengah XXX NO.5D",
@@ -2017,8 +1862,7 @@
   {
     "outlet_sap_id": "AR55",
     "name": "KF Danau Indah Sunter",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Danau Indah Raya No.C-2/2, RW.13, Sunter Jaya,",
@@ -2030,8 +1874,7 @@
   {
     "outlet_sap_id": "AR56",
     "name": "KF Pantai Indah Kapuk",
-    "branch_id": 3118,
-    "branch_name": "UNIT BISNIS JAYA II",
+    "department_id": 3118,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Rukan crown golf Jl. Pantai Indah Kapuk No.b2, Kamal Muara",
@@ -2043,8 +1886,7 @@
   {
     "outlet_sap_id": "AS01",
     "name": "KF.0172",
-    "branch_id": 3119,
-    "branch_name": "UNIT BISNIS JAYAPURA",
+    "department_id": 3119,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl koti no 36",
@@ -2056,8 +1898,7 @@
   {
     "outlet_sap_id": "AS05",
     "name": "KF.Pel062 RSUD Jayapura",
-    "branch_id": 3119,
-    "branch_name": "UNIT BISNIS JAYAPURA",
+    "department_id": 3119,
     "store_type": "NONE",
     "operational_date": "2003-01-01",
     "address": "Jl. Kesehatan Dok II, Komp. RS",
@@ -2069,8 +1910,7 @@
   {
     "outlet_sap_id": "AS0511",
     "name": "PPO Apotek KF Kamkey",
-    "branch_id": 3119,
-    "branch_name": "UNIT BISNIS JAYAPURA",
+    "department_id": 3119,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl.Gerilyawan No. 3C,Kamkey-Abepura",
@@ -2082,8 +1922,7 @@
   {
     "outlet_sap_id": "AS06",
     "name": "KF Grand Allison Sentani",
-    "branch_id": 3119,
-    "branch_name": "UNIT BISNIS JAYAPURA",
+    "department_id": 3119,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "JL. RAYA KEMIRI NO. 282 KOMPLEKS MISI SENTANI JAYAPURA",
@@ -2095,8 +1934,7 @@
   {
     "outlet_sap_id": "AS12",
     "name": "KF Mimika Baru",
-    "branch_id": 3119,
-    "branch_name": "UNIT BISNIS JAYAPURA",
+    "department_id": 3119,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl.Budi Utomo No.8b Kel. Timika Ind",
@@ -2108,8 +1946,7 @@
   {
     "outlet_sap_id": "AS13",
     "name": "KF Nabire",
-    "branch_id": 3119,
-    "branch_name": "UNIT BISNIS JAYAPURA",
+    "department_id": 3119,
     "store_type": "NEW",
     "operational_date": "1010-01-01",
     "address": "Jl. RE. Martadinata, Kel Oyehe, Kec Nabire, Kab. Nabire - Papua Tengah",
@@ -2121,8 +1958,7 @@
   {
     "outlet_sap_id": "AT0111",
     "name": "PPO Klinik KF Gajah Mada",
-    "branch_id": 3120,
-    "branch_name": "UNIT BISNIS JEMBER",
+    "department_id": 3120,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jl. Gajah Mada 103 Jember",
@@ -2134,8 +1970,7 @@
   {
     "outlet_sap_id": "AT0112",
     "name": "PPO Klinik KF Tanggul",
-    "branch_id": 3120,
-    "branch_name": "UNIT BISNIS JEMBER",
+    "department_id": 3120,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jl. PB. Sudirman 99 Tanggul Wetan J",
@@ -2147,8 +1982,7 @@
   {
     "outlet_sap_id": "AT12",
     "name": "KF.0853",
-    "branch_id": 3120,
-    "branch_name": "UNIT BISNIS JEMBER",
+    "department_id": 3120,
     "store_type": "MEDICAL",
     "operational_date": "2016-12-01",
     "address": "Selatan lampu merah lincing RT 02 RW 04, Dusun Lugonto, Desa Lemahbangdewo, Kec. Rogojampi, Kabupaten Banyuwangi, Jawa Timur",
@@ -2160,8 +1994,7 @@
   {
     "outlet_sap_id": "AT22",
     "name": "KF Lumajang",
-    "branch_id": 3120,
-    "branch_name": "UNIT BISNIS JEMBER",
+    "department_id": 3120,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "JL. Brigjen Katamso 29, Tompokerasa",
@@ -2173,8 +2006,7 @@
   {
     "outlet_sap_id": "AT23",
     "name": "KF Ambulu Jember",
-    "branch_id": 3120,
-    "branch_name": "UNIT BISNIS JEMBER",
+    "department_id": 3120,
     "store_type": "MEDICAL",
     "operational_date": "2024-03-05",
     "address": "Jl. Watu Ulo No.2",
@@ -2186,8 +2018,7 @@
   {
     "outlet_sap_id": "AU10",
     "name": "KF 748 Sao-Sao",
-    "branch_id": 3121,
-    "branch_name": "UNIT BISNIS KENDARI",
+    "department_id": 3121,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-05-01",
     "address": "JL. SAO – SAO NO. 243, Kel. Bende Kec. Kadia, Kendari, Sulawesi Tenggara",
@@ -2199,8 +2030,7 @@
   {
     "outlet_sap_id": "AU11",
     "name": "KF 773 Poasia",
-    "branch_id": 3121,
-    "branch_name": "UNIT BISNIS KENDARI",
+    "department_id": 3121,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-09-16",
     "address": "JL. Bunggasi PorosKel. Andonohu, Kec. Poasia, Kendari, Sulawesi Tenggara",
@@ -2212,8 +2042,7 @@
   {
     "outlet_sap_id": "AU18",
     "name": "KF Fatufia",
-    "branch_id": 3121,
-    "branch_name": "UNIT BISNIS KENDARI",
+    "department_id": 3121,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl. Trans Sulawesi",
@@ -2225,8 +2054,7 @@
   {
     "outlet_sap_id": "AV01",
     "name": "KF.0101",
-    "branch_id": 3122,
-    "branch_name": "UNIT BISNIS KUPANG",
+    "department_id": 3122,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Herewila No. 38",
@@ -2238,8 +2066,7 @@
   {
     "outlet_sap_id": "AV05",
     "name": "KF.Kelimutu",
-    "branch_id": 3122,
-    "branch_name": "UNIT BISNIS KUPANG",
+    "department_id": 3122,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2014-01-01",
     "address": "Jl. Kelimutu Ende",
@@ -2251,8 +2078,7 @@
   {
     "outlet_sap_id": "AV14",
     "name": "KF.0810",
-    "branch_id": 3122,
-    "branch_name": "UNIT BISNIS KUPANG",
+    "department_id": 3122,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-12-01",
     "address": "Jl. Eltari No.KM 3, RT.017/RW.005,",
@@ -2264,8 +2090,7 @@
   {
     "outlet_sap_id": "AV15",
     "name": "KF. CENTRAL ATAMBUA",
-    "branch_id": 3122,
-    "branch_name": "UNIT BISNIS KUPANG",
+    "department_id": 3122,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-02-01",
     "address": "Jl. Soekarno No.2",
@@ -2277,8 +2102,7 @@
   {
     "outlet_sap_id": "AV18",
     "name": "KF Ruteng",
-    "branch_id": 3122,
-    "branch_name": "UNIT BISNIS KUPANG",
+    "department_id": 3122,
     "store_type": "MEDICAL",
     "operational_date": "2022-06-10",
     "address": "Jl. Slamet Riyadi, Langke Rembong,",
@@ -2290,8 +2114,7 @@
   {
     "outlet_sap_id": "AV20",
     "name": "KF Express Labuan Bajo",
-    "branch_id": 3122,
-    "branch_name": "UNIT BISNIS KUPANG",
+    "department_id": 3122,
     "store_type": "MEDICAL",
     "operational_date": "2019-09-25",
     "address": "Jl. Soekarno Hatta, Labuan Bajo",
@@ -2303,8 +2126,7 @@
   {
     "outlet_sap_id": "AW0111",
     "name": "PPO Klinik KF Kotabumi",
-    "branch_id": 3123,
-    "branch_name": "UNIT BISNIS LAMPUNG",
+    "department_id": 3123,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-01",
     "address": "Jl. Raya Candimas Samping Gang Simp",
@@ -2316,8 +2138,7 @@
   {
     "outlet_sap_id": "AW08",
     "name": "KF 553",
-    "branch_id": 3123,
-    "branch_name": "UNIT BISNIS LAMPUNG",
+    "department_id": 3123,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2014-03-31",
     "address": "Jl. AH. Nasution  No. 1 Kel. Imopuro Kec. Metro Pusat, Kota Metro",
@@ -2329,8 +2150,7 @@
   {
     "outlet_sap_id": "AW1111",
     "name": "PPO Klinik KF 0256",
-    "branch_id": 3123,
-    "branch_name": "UNIT BISNIS LAMPUNG",
+    "department_id": 3123,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jl. Arif Rahman Hakim TR 2 Way Hali",
@@ -2342,8 +2162,7 @@
   {
     "outlet_sap_id": "AW17",
     "name": "KF Kedaton",
-    "branch_id": 3123,
-    "branch_name": "UNIT BISNIS LAMPUNG",
+    "department_id": 3123,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Teuku Umar No.15 A-B, Sidodadi",
@@ -2355,8 +2174,7 @@
   {
     "outlet_sap_id": "AX05",
     "name": "KF Gelora",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "MEDICAL",
     "operational_date": "2006-01-01",
     "address": "Jl. Pettanarajeng 5",
@@ -2368,8 +2186,7 @@
   {
     "outlet_sap_id": "AX09",
     "name": "KF Belopa",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "MEDICAL",
     "operational_date": "2003-01-01",
     "address": "Jl. Sungai Pareman No.70, Kel Sabe,",
@@ -2381,8 +2198,7 @@
   {
     "outlet_sap_id": "AX15",
     "name": "KF Telkomas",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2014-10-01",
     "address": "Jl. Perintis Kemerdekaan KM 13, Ruko Telkomas",
@@ -2394,8 +2210,7 @@
   {
     "outlet_sap_id": "AX22",
     "name": "KF. Urimesing Ambon",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "NONE",
     "operational_date": "2016-10-15",
     "address": "Jl. Diponegoro no.66",
@@ -2407,8 +2222,7 @@
   {
     "outlet_sap_id": "AX37",
     "name": "KF Rolling Hills",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "MEDICAL",
     "operational_date": "2018-06-01",
     "address": "Jl. Metro Tanjung Bunga Ruko Rolling Hills No. 63",
@@ -2420,8 +2234,7 @@
   {
     "outlet_sap_id": "AX40",
     "name": "KF Palopo",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2018-08-01",
     "address": "Jl. Kelapa",
@@ -2433,8 +2246,7 @@
   {
     "outlet_sap_id": "AX41",
     "name": "Klinik Mandiri KF Bantaeng",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "",
     "operational_date": "2018-01-01",
     "address": "-",
@@ -2446,8 +2258,7 @@
   {
     "outlet_sap_id": "AX49",
     "name": "KF Takalar",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2020-07-01",
     "address": "jln kemakmuran no 39, des/kec pattallassang kab Takalar.",
@@ -2459,8 +2270,7 @@
   {
     "outlet_sap_id": "AX50",
     "name": "KF Express Bandara Sultan Hasanuddin",
-    "branch_id": 3124,
-    "branch_name": "UNIT BISNIS MAKASSAR",
+    "department_id": 3124,
     "store_type": "NONE",
     "operational_date": "2022-04-15",
     "address": "Jalan Airport No.1, Kec. Makassar, Kabupaten Maros, Sulawesi Selatan 90552",
@@ -2472,8 +2282,7 @@
   {
     "outlet_sap_id": "AY03",
     "name": "KF 0075 Mojoroto",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Jaksa Agung Suprapto no. 25, Mojoroto,Kota Kediri, Jawa Timur",
@@ -2485,8 +2294,7 @@
   {
     "outlet_sap_id": "AY11",
     "name": "KF SMAN II PARE",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2004-01-01",
     "address": "Jl. Pahlawan Kusuma Bangsa No. 28,",
@@ -2498,8 +2306,7 @@
   {
     "outlet_sap_id": "AY18",
     "name": "KF Tulungagung 2",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2014-10-01",
     "address": "Jl. Pahlawan No. 35, Kedungwaru,Kab. Tulungagung, Jawa Timur, - 66224",
@@ -2511,8 +2318,7 @@
   {
     "outlet_sap_id": "AY20",
     "name": "KF Agus Salim",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "MEDICAL",
     "operational_date": "2017-02-01",
     "address": "Jl. KH. Agus Salim No. 32, Bandar, Mojoroto,Kota Kediri, Jawa Timur, - 64122",
@@ -2524,8 +2330,7 @@
   {
     "outlet_sap_id": "AY28",
     "name": "KF VETERAN MALANG",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "MEDICAL",
     "operational_date": "2018-08-02",
     "address": "Jl. Veteran No.172, Plosokerep, Kec. Sananwetan, Kota Blitar, Jawa Timur",
@@ -2537,8 +2342,7 @@
   {
     "outlet_sap_id": "AY31",
     "name": "KF Kalpataru",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "NONE",
     "operational_date": "2018-10-01",
     "address": "Jl. Kalpataru No. 92 Kota Malang",
@@ -2550,8 +2354,7 @@
   {
     "outlet_sap_id": "AY36",
     "name": "KF Kepuharjo",
-    "branch_id": 3125,
-    "branch_name": "UNIT BISNIS MALANG",
+    "department_id": 3125,
     "store_type": "MEDICAL",
     "operational_date": "2023-09-09",
     "address": "Jl. Raya Ngijo Karangploso No.27, Krajan",
@@ -2563,8 +2366,7 @@
   {
     "outlet_sap_id": "AZ07",
     "name": "KF. Kartini",
-    "branch_id": 3126,
-    "branch_name": "UNIT BISNIS GORONTALO",
+    "department_id": 3126,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-12-01",
     "address": "Jl. HB. Jasin Kel. Limba U2 Kec. Kota Selatan",
@@ -2576,8 +2378,7 @@
   {
     "outlet_sap_id": "AZ10",
     "name": "KF PEL RSUD ALOEI SABOE",
-    "branch_id": 3126,
-    "branch_name": "UNIT BISNIS GORONTALO",
+    "department_id": 3126,
     "store_type": "MEDICAL",
     "operational_date": "2018-08-23",
     "address": "Jl. Prof. DR Aloei Saboe Kel. Wongkaditi, Kec. Kota Utara",
@@ -2589,8 +2390,7 @@
   {
     "outlet_sap_id": "AZ14",
     "name": "KF Pel RSUD Dunda",
-    "branch_id": 3126,
-    "branch_name": "UNIT BISNIS GORONTALO",
+    "department_id": 3126,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-01-04",
     "address": "Jl. Ahmad A Wahab Kel Hunggaluwa",
@@ -2602,8 +2402,7 @@
   {
     "outlet_sap_id": "BA04",
     "name": "KF 290 Martadinata",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "SUPER_STORE",
     "operational_date": "2004-01-01",
     "address": "Jl. R.E Martadinata No.35, Dendengan Luar",
@@ -2615,8 +2414,7 @@
   {
     "outlet_sap_id": "BA08",
     "name": "KF.0396 Tuminting",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "MEDICAL",
     "operational_date": "2011-01-01",
     "address": "Jl. Hasanuddin No. 137",
@@ -2628,8 +2426,7 @@
   {
     "outlet_sap_id": "BA10",
     "name": "KF.Pel005 RSUP Malayang Kandau",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "MEDICAL",
     "operational_date": "2003-01-01",
     "address": "Jl. Wolter Monginsidi",
@@ -2641,8 +2438,7 @@
   {
     "outlet_sap_id": "BA27",
     "name": "KF MALALAYANG",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-04-16",
     "address": "Jl.  Raya TANAWANGKO, MALALAYANG I",
@@ -2654,8 +2450,7 @@
   {
     "outlet_sap_id": "BA31",
     "name": "KF Talaud",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2022-12-20",
     "address": "Jalan Raya Mala- melonguane, kec. Melonguane, Kab. Kepulauan Talaud (Pulau karakelong)",
@@ -2667,8 +2462,7 @@
   {
     "outlet_sap_id": "BA3111",
     "name": "PPO KF RSUD Talaud",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Raya Mala Kecamatan Melengwane",
@@ -2680,8 +2474,7 @@
   {
     "outlet_sap_id": "BA34",
     "name": "KF PEL POBUNDAYAN",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "MEDICAL",
     "operational_date": "2017-03-01",
     "address": "Jl.Ahmad Yani Kotamobago",
@@ -2693,8 +2486,7 @@
   {
     "outlet_sap_id": "BA36",
     "name": "KF  TAHUNA",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "MEDICAL",
     "operational_date": "2017-08-17",
     "address": "Jl. Samratulangi",
@@ -2706,8 +2498,7 @@
   {
     "outlet_sap_id": "BA3611",
     "name": "PPO KF RSUD Liunkendage",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "JF5J+889, Apeng Sembeka, Kec. Tahuna",
@@ -2719,8 +2510,7 @@
   {
     "outlet_sap_id": "BA41",
     "name": "KF 1027 Bitung Tengah",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "NONE",
     "operational_date": "2018-08-01",
     "address": "Jl. Sam Ratulangi No.23, Pakadoodan",
@@ -2732,8 +2522,7 @@
   {
     "outlet_sap_id": "BA4511",
     "name": "PPO KF RSUD Noongan",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Marintek",
@@ -2745,8 +2534,7 @@
   {
     "outlet_sap_id": "BB20",
     "name": "KF Weda",
-    "branch_id": 3128,
-    "branch_name": "UNIT BISNIS TERNATE",
+    "department_id": 3128,
     "store_type": "MEDICAL",
     "operational_date": "2022-11-08",
     "address": "Jl. Dusun II, Desa Fidi Jaya",
@@ -2758,8 +2546,7 @@
   {
     "outlet_sap_id": "BB21",
     "name": "KF Bacan 2",
-    "branch_id": 3128,
-    "branch_name": "UNIT BISNIS TERNATE",
+    "department_id": 3128,
     "store_type": "MEDICAL",
     "operational_date": "2022-09-06",
     "address": "Jl. Oesman Syah, Labuha",
@@ -2771,8 +2558,7 @@
   {
     "outlet_sap_id": "BC0211",
     "name": "PPO KF RS Unram",
-    "branch_id": 3129,
-    "branch_name": "UNIT BISNIS MATARAM",
+    "department_id": 3129,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "-",
@@ -2784,8 +2570,7 @@
   {
     "outlet_sap_id": "BC1501",
     "name": "KLINIK SUMBAWA II",
-    "branch_id": 3129,
-    "branch_name": "UNIT BISNIS MATARAM",
+    "department_id": 3129,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jln. Hasanuddin No. 32 Sumbawa Besar, SUMBAWA,Kab. Sumbawa, Nusa Tenggara Barat",
@@ -2797,8 +2582,7 @@
   {
     "outlet_sap_id": "BC19",
     "name": "KLINIK MANDIRI KF ALAS.",
-    "branch_id": 3129,
-    "branch_name": "UNIT BISNIS MATARAM",
+    "department_id": 3129,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "JL. PENDIDIKAN NO.",
@@ -2810,8 +2594,7 @@
   {
     "outlet_sap_id": "BC22",
     "name": "KF Dompu",
-    "branch_id": 3129,
-    "branch_name": "UNIT BISNIS MATARAM",
+    "department_id": 3129,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-01-01",
     "address": "Jl. Jendral Sudirman No.27",
@@ -2823,8 +2606,7 @@
   {
     "outlet_sap_id": "BC23",
     "name": "KF Aikmel",
-    "branch_id": 3129,
-    "branch_name": "UNIT BISNIS MATARAM",
+    "department_id": 3129,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "JL. Koperasi No. 100 Aikmel",
@@ -2836,8 +2618,7 @@
   {
     "outlet_sap_id": "BD0111",
     "name": "KF. 27 (M3/ALKES)",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "NONE",
     "operational_date": "2003-01-01",
     "address": "Jl. Palang Merah No.32",
@@ -2849,8 +2630,7 @@
   {
     "outlet_sap_id": "BD0412",
     "name": "PPO2  KF. 0030",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "CHILD",
     "operational_date": "2003-01-01",
     "address": "Jln. Let.Jend.Soeprapto No. 56",
@@ -2862,8 +2642,7 @@
   {
     "outlet_sap_id": "BD14",
     "name": "KF.Pel041 RS Umum Kota Tebing",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "Jln. Kumpul Pane NO.226",
@@ -2875,8 +2654,7 @@
   {
     "outlet_sap_id": "BD16",
     "name": "KF 84 Tanjungbalai",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Sudirman No. 25 B Kel. Karya",
@@ -2888,8 +2666,7 @@
   {
     "outlet_sap_id": "BD17",
     "name": "KF.0542 Percut",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2014-07-01",
     "address": "Jl. Medan Batang Kuis Psr 9 Percut Sei Tuan",
@@ -2901,8 +2678,7 @@
   {
     "outlet_sap_id": "BD23",
     "name": "KF.M YAMIN",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "",
     "operational_date": "2016-01-01",
     "address": "Jln. M Yamin No.282 B Medan",
@@ -2914,8 +2690,7 @@
   {
     "outlet_sap_id": "BD31",
     "name": "Apotek KF Lubuk Pakam",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "MEDICAL",
     "operational_date": "2018-03-18",
     "address": "Jl. Imam Bonjol No. 47, Kel. Tanjung Garbus Satu",
@@ -2927,8 +2702,7 @@
   {
     "outlet_sap_id": "BD3411",
     "name": "PPO KF Bandara Kualanamu",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "",
     "operational_date": "2020-01-07",
     "address": "medan",
@@ -2940,8 +2714,7 @@
   {
     "outlet_sap_id": "BD3611",
     "name": "KF HM Joni (PPO Basri)",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2021-01-01",
     "address": "Jl. Kapt. Jumhana No. 39/440",
@@ -2953,8 +2726,7 @@
   {
     "outlet_sap_id": "BD38",
     "name": "KF Setia Budi 2",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2020-04-01",
     "address": "Jl. Setia Budi No.96, Kel. Tanjung",
@@ -2966,8 +2738,7 @@
   {
     "outlet_sap_id": "BD40",
     "name": "KF Padang Bulan",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "MEDICAL",
     "operational_date": "2024-07-07",
     "address": "Jl. Jamin Ginting No. 406-407",
@@ -2979,8 +2750,7 @@
   {
     "outlet_sap_id": "BD41",
     "name": "KF Sibolga",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "MEDICAL",
     "operational_date": "2024-09-01",
     "address": "Jl. Sisingamangaraja, Kel. Aek Mani",
@@ -2992,8 +2762,7 @@
   {
     "outlet_sap_id": "BE0502",
     "name": "Optik KF 386 Fortuna",
-    "branch_id": 3131,
-    "branch_name": "UNIT BISNIS PADANG",
+    "department_id": 3131,
     "store_type": "NEW",
     "operational_date": "2020-08-01",
     "address": "Jl. S Parman No. 171 B",
@@ -3005,8 +2774,7 @@
   {
     "outlet_sap_id": "BE06",
     "name": "Apotek Kimia Farma RSUP Dr. M. Djamil Pa",
-    "branch_id": 3131,
-    "branch_name": "UNIT BISNIS PADANG",
+    "department_id": 3131,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Perintis Kemerdekaan No. 24",
@@ -3018,8 +2786,7 @@
   {
     "outlet_sap_id": "BE16",
     "name": "KF SOETA",
-    "branch_id": 3131,
-    "branch_name": "UNIT BISNIS PADANG",
+    "department_id": 3131,
     "store_type": "MEDICAL",
     "operational_date": "2016-08-01",
     "address": "Jl. Soekarno hatta payakumbuh",
@@ -3031,8 +2798,7 @@
   {
     "outlet_sap_id": "BE20",
     "name": "KF Cengkeh",
-    "branch_id": 3131,
-    "branch_name": "UNIT BISNIS PADANG",
+    "department_id": 3131,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2017-04-04",
     "address": "Jl.Raya Cengkeh No.4 Padang",
@@ -3044,8 +2810,7 @@
   {
     "outlet_sap_id": "BE22",
     "name": "KF LAPAI",
-    "branch_id": 3131,
-    "branch_name": "UNIT BISNIS PADANG",
+    "department_id": 3131,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-03",
     "address": "Jl. Jhoni Anwar No.5, Kp. Lapai",
@@ -3057,8 +2822,7 @@
   {
     "outlet_sap_id": "BE25",
     "name": "KF Zam Zam",
-    "branch_id": 3131,
-    "branch_name": "UNIT BISNIS PADANG",
+    "department_id": 3131,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. dr. Abdul Rivai No. 23",
@@ -3070,8 +2834,7 @@
   {
     "outlet_sap_id": "BF09",
     "name": "KLINIK KIMIA FARMA KUMAI",
-    "branch_id": 3132,
-    "branch_name": "UNIT BISNIS PALANGKARAYA",
+    "department_id": 3132,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Masjid RT. 03 RW. 01",
@@ -3083,8 +2846,7 @@
   {
     "outlet_sap_id": "BF11",
     "name": "Apotek KF. 971",
-    "branch_id": 3132,
-    "branch_name": "UNIT BISNIS PALANGKARAYA",
+    "department_id": 3132,
     "store_type": "MEDICAL",
     "operational_date": "2017-10-01",
     "address": "Jl. Tjilik Riwut Palangkaraya",
@@ -3096,8 +2858,7 @@
   {
     "outlet_sap_id": "BG02",
     "name": "KF.0208",
-    "branch_id": 3133,
-    "branch_name": "UNIT BISNIS JAMBI",
+    "department_id": 3133,
     "store_type": "",
     "operational_date": "2006-01-01",
     "address": "jln. Sultan agung Rt.10",
@@ -3109,8 +2870,7 @@
   {
     "outlet_sap_id": "BG08",
     "name": "KF. Muara Bungo",
-    "branch_id": 3133,
-    "branch_name": "UNIT BISNIS JAMBI",
+    "department_id": 3133,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2017-03-01",
     "address": "Jl. Muhammad Yamin - Muara Bungo",
@@ -3122,8 +2882,7 @@
   {
     "outlet_sap_id": "BG10",
     "name": "KF SIMPANG RIMBO",
-    "branch_id": 3133,
-    "branch_name": "UNIT BISNIS JAMBI",
+    "department_id": 3133,
     "store_type": "",
     "operational_date": "2018-12-22",
     "address": "Jl. Patimura Rt02",
@@ -3135,8 +2894,7 @@
   {
     "outlet_sap_id": "BG15",
     "name": "KF Sudirman Jambi",
-    "branch_id": 3133,
-    "branch_name": "UNIT BISNIS JAMBI",
+    "department_id": 3133,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-07-01",
     "address": "Jl. Jenderal Sudirman No. 13 RT 4 Jelutung – Kota Jambi",
@@ -3148,8 +2906,7 @@
   {
     "outlet_sap_id": "BG16",
     "name": "KF Pasir Putih",
-    "branch_id": 3133,
-    "branch_name": "UNIT BISNIS JAMBI",
+    "department_id": 3133,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. RB. Siagian No. 16 RT 09",
@@ -3161,8 +2918,7 @@
   {
     "outlet_sap_id": "BH24",
     "name": "KF Sultan M. Mansyur",
-    "branch_id": 3134,
-    "branch_name": "UNIT BISNIS PALEMBANG",
+    "department_id": 3134,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-06-01",
     "address": "Jl. Sultan M. Mansyur Komplek Green Forest Residence No.780-814",
@@ -3174,8 +2930,7 @@
   {
     "outlet_sap_id": "BH36",
     "name": "KF Baturaja",
-    "branch_id": 3134,
-    "branch_name": "UNIT BISNIS PALEMBANG",
+    "department_id": 3134,
     "store_type": "MEDICAL",
     "operational_date": "1010-01-01",
     "address": "Jl.Jenderal A.Yani No.319 Kemalaraj",
@@ -3187,8 +2942,7 @@
   {
     "outlet_sap_id": "BI17",
     "name": "KF Kamonji",
-    "branch_id": 3135,
-    "branch_name": "UNIT BISNIS PALU",
+    "department_id": 3135,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Imam Bonjol No. 46 A,Kel. Kamon",
@@ -3200,8 +2954,7 @@
   {
     "outlet_sap_id": "BI18",
     "name": "KF Tadulako",
-    "branch_id": 3135,
-    "branch_name": "UNIT BISNIS PALU",
+    "department_id": 3135,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Soekarno Hatta, Kel. Talise,",
@@ -3213,8 +2966,7 @@
   {
     "outlet_sap_id": "BJ03",
     "name": "KF.0229",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. Sudirman No. 724",
@@ -3226,8 +2978,7 @@
   {
     "outlet_sap_id": "BJ06",
     "name": "KF.0518 Nangka",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "MEDICAL",
     "operational_date": "2014-01-01",
     "address": "Jl. Nangka No.59",
@@ -3239,8 +2990,7 @@
   {
     "outlet_sap_id": "BJ07",
     "name": "KF.0614 Harapan",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "NONE",
     "operational_date": "2014-12-01",
     "address": "Jl. H. Imam Munandar No. 227 RT.01/11 Kel. Tangkerang Kec. Bukit Raya",
@@ -3252,8 +3002,7 @@
   {
     "outlet_sap_id": "BJ11",
     "name": "KF.0692 Bangkinang",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2015-07-01",
     "address": "Jl. Prof.H.M.Yamin Sh. No.1-2 Bangkinang",
@@ -3265,8 +3014,7 @@
   {
     "outlet_sap_id": "BJ17",
     "name": "Klinik Mandiri KF Hemodialisa RS Lancang Kuning",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "",
     "operational_date": "2018-01-01",
     "address": "Jl. Ronggo Warsito Ujung No. 5-A Kel. Sukamaju, Kec. Sail Pekanbaru",
@@ -3278,8 +3026,7 @@
   {
     "outlet_sap_id": "BJ18",
     "name": "KF 1105 Paus",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-10-01",
     "address": "Jl. Paus No.55, Rt.003/Rw.007, Tengkerang",
@@ -3291,8 +3038,7 @@
   {
     "outlet_sap_id": "BJ20",
     "name": "Apotek KF Bukit Barisan",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "NONE",
     "operational_date": "2019-02-04",
     "address": "Jl. Bukit Barisan No.7A, Kel. Tangkerang Timur, Kec. Tenayan Raya, Pekanbaru",
@@ -3304,8 +3050,7 @@
   {
     "outlet_sap_id": "BJ24",
     "name": "KF Sudirman Dumai",
-    "branch_id": 3136,
-    "branch_name": "UNIT BISNIS PEKANBARU",
+    "department_id": 3136,
     "store_type": "MEDICAL",
     "operational_date": "2023-07-07",
     "address": "Jl. Jend. Sudirman No.168, Tlk. Binjai, Kec. Dumai Tim., Kota Dumai, Riau 28826",
@@ -3317,8 +3062,7 @@
   {
     "outlet_sap_id": "BK0111",
     "name": "PPO Klinik KF Danau Sentarum",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "MEDICAL",
     "operational_date": "2021-01-02",
     "address": "Jl. Danau Sentarum No. 1 samping Gg. Waris Sui bangkong Pontianak",
@@ -3330,8 +3074,7 @@
   {
     "outlet_sap_id": "BK0211",
     "name": "PPO Klinik KF Sintang",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "NONE",
     "operational_date": "2021-01-02",
     "address": "Jl. YC Oevang Oeray RT.29/03 Baning Kota Kec. Sintang Kab. Sintang",
@@ -3343,8 +3086,7 @@
   {
     "outlet_sap_id": "BK05",
     "name": "KF 525 SSA",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-03-14",
     "address": "Jl. M Yamin No. A7 Pontianak",
@@ -3356,8 +3098,7 @@
   {
     "outlet_sap_id": "BK0512",
     "name": "PPO Klinik KF Landak",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "NONE",
     "operational_date": "2021-01-02",
     "address": "Jl. Agus Salim No.31 Ketapang",
@@ -3369,8 +3110,7 @@
   {
     "outlet_sap_id": "BK1012",
     "name": "PPO Klinik KF Ketapang",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "MEDICAL",
     "operational_date": "2021-01-02",
     "address": "Jl. Agus Salim No.31 Ketapang",
@@ -3382,8 +3122,7 @@
   {
     "outlet_sap_id": "BK13",
     "name": "KF JERUJU",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "NONE",
     "operational_date": "2018-09-01",
     "address": "Jl. Kom Yos Sudarso Ruko No.3 Pontianak",
@@ -3395,8 +3134,7 @@
   {
     "outlet_sap_id": "BK20",
     "name": "KF Sintang",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "JL. Lintas Melawi Rt.03/01",
@@ -3408,8 +3146,7 @@
   {
     "outlet_sap_id": "BK21",
     "name": "KF Yos Sudarso Singkawang",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Yos Sudarso No.40A",
@@ -3421,8 +3158,7 @@
   {
     "outlet_sap_id": "BK22",
     "name": "KF Delta Pawan",
-    "branch_id": 3137,
-    "branch_name": "UNIT BISNIS PONTIANAK",
+    "department_id": 3137,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "JL. R. Suprapto No. 67",
@@ -3434,8 +3170,7 @@
   {
     "outlet_sap_id": "BL0112",
     "name": "APOTEK LOKET LT 2 TUNAI",
-    "branch_id": 3138,
-    "branch_name": "UNIT BISNIS RS JAKARTA",
+    "department_id": 3138,
     "store_type": "MEDICAL",
     "operational_date": "2003-01-01",
     "address": "Jl. Diponegoro No. 71",
@@ -3447,8 +3182,7 @@
   {
     "outlet_sap_id": "BL0114",
     "name": "KF SAT  FARMASI LT 2",
-    "branch_id": 3138,
-    "branch_name": "UNIT BISNIS RS JAKARTA",
+    "department_id": 3138,
     "store_type": "MEDICAL",
     "operational_date": "2003-01-01",
     "address": "Jl. Diponegoro No. 71",
@@ -3460,8 +3194,7 @@
   {
     "outlet_sap_id": "BL0115",
     "name": "KF SAT FARMASI LT 3",
-    "branch_id": 3138,
-    "branch_name": "UNIT BISNIS RS JAKARTA",
+    "department_id": 3138,
     "store_type": "MEDICAL",
     "operational_date": "2003-01-01",
     "address": "Jl. Diponegoro No. 71",
@@ -3473,8 +3206,7 @@
   {
     "outlet_sap_id": "BL0117",
     "name": "APOTEK LOKET LT 1",
-    "branch_id": 3138,
-    "branch_name": "UNIT BISNIS RS JAKARTA",
+    "department_id": 3138,
     "store_type": "MEDICAL",
     "operational_date": "2003-01-01",
     "address": "Jl. Diponegoro No. 71",
@@ -3486,8 +3218,7 @@
   {
     "outlet_sap_id": "BM01",
     "name": "KF M. Yamin (KF 105)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2003-01-01",
     "address": "Jl. M Yamin Ruko M Yamin Square No.6, Kel. Gunung Kelua, Samarinda Ulu, Kota Samarinda, Kalimantan Timur 75123",
@@ -3499,8 +3230,7 @@
   {
     "outlet_sap_id": "BM0112",
     "name": "PPO Klinik KF Sutomo",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-01",
     "address": "Jl. Dr Sutomo No.52, Samarinda Ulu,",
@@ -3512,8 +3242,7 @@
   {
     "outlet_sap_id": "BM03",
     "name": "KF Agus Salim (KF 138)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "SUPER_STORE",
     "operational_date": "2003-01-01",
     "address": "Jl. KH.Agus Salim No. 30",
@@ -3525,8 +3254,7 @@
   {
     "outlet_sap_id": "BM08",
     "name": "KF Bung Tomo (KF 354)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2009-01-01",
     "address": "Jl. Bung Tomo No. 50",
@@ -3538,8 +3266,7 @@
   {
     "outlet_sap_id": "BM1311",
     "name": "PPO Klinik KF Amanah",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "NONE",
     "operational_date": "2019-01-01",
     "address": "Jl. Pm Noor  Rt.50 No.4 Sempaja Sam",
@@ -3551,8 +3278,7 @@
   {
     "outlet_sap_id": "BM17",
     "name": "KF Timbau (KF 725)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "MEDICAL",
     "operational_date": "2016-12-01",
     "address": "Jl. Wolter Mongonsidi Tenggarong",
@@ -3564,8 +3290,7 @@
   {
     "outlet_sap_id": "BM18",
     "name": "KF Sambutan (KF 823)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-09-16",
     "address": "Jl.Sultan Alimuddin No.6 Sambutan",
@@ -3577,8 +3302,7 @@
   {
     "outlet_sap_id": "BM19",
     "name": "KF Sukarame (KF 824)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "MEDICAL",
     "operational_date": "2017-01-17",
     "address": "Jl.Awang Long Senopati No.27",
@@ -3590,8 +3314,7 @@
   {
     "outlet_sap_id": "BM21",
     "name": "KF Kadrie Oening (KF 854)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2017-01-17",
     "address": "Jl. Kadrie Oening RT.18 No. 89B",
@@ -3603,8 +3326,7 @@
   {
     "outlet_sap_id": "BM22",
     "name": "KF Loa Janan (KF 907)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2017-01-17",
     "address": "Jl. Cipto Mangunkusumo No. 2C RT.19, Kel. Simpang Tiga, Kec. Loa Janan Ilir, Kota Samarinda",
@@ -3616,8 +3338,7 @@
   {
     "outlet_sap_id": "BM23",
     "name": "KF Palaran (KF 930)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "MEDICAL",
     "operational_date": "2017-11-17",
     "address": "JL. TRIKORA RT.004",
@@ -3629,8 +3350,7 @@
   {
     "outlet_sap_id": "BM24",
     "name": "KF. Sangatta",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "",
     "operational_date": "2020-01-01",
     "address": "JL.YOS SUDARSO SANGATTA",
@@ -3642,8 +3362,7 @@
   {
     "outlet_sap_id": "BM25",
     "name": "Klinik Mandiri KF Amanah",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "JL. PM. NOOR NO 4 RT. 50",
@@ -3655,8 +3374,7 @@
   {
     "outlet_sap_id": "BM27",
     "name": "KF Gunung Cermai (KF 1038)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-08-13",
     "address": "Jl. Gunung Cermai Rt.01, Samarinda",
@@ -3668,8 +3386,7 @@
   {
     "outlet_sap_id": "BM28",
     "name": "KF Gerilya (KF 1020)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "HEALTH_AND_CARE",
     "operational_date": "2018-07-23",
     "address": "Jl. Gerilya Ruko 1B/1C Rt.10",
@@ -3681,8 +3398,7 @@
   {
     "outlet_sap_id": "BM29",
     "name": "KF Barong Tongkok (KF 1290)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2020-09-18",
     "address": "Jl. Naras Gunaaq RT 4",
@@ -3694,8 +3410,7 @@
   {
     "outlet_sap_id": "BM30",
     "name": "KF Yos Sudarso (KF 1265)",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "MEDICAL",
     "operational_date": "2020-01-30",
     "address": "Jl. Yos Sudarso II RT.16 NO.41",
@@ -3707,8 +3422,7 @@
   {
     "outlet_sap_id": "BM33",
     "name": "KF PM NOOR",
-    "branch_id": 3139,
-    "branch_name": "UNIT BISNIS SAMARINDA",
+    "department_id": 3139,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. PM. Noor",
@@ -3720,8 +3434,7 @@
   {
     "outlet_sap_id": "BN01",
     "name": "KF.0016",
-    "branch_id": 3140,
-    "branch_name": "UNIT BISNIS PEKALONGAN",
+    "department_id": 3140,
     "store_type": "SUPER_STORE",
     "operational_date": "2003-01-01",
     "address": "Jl. Imam Bonjol No.32",
@@ -3733,8 +3446,7 @@
   {
     "outlet_sap_id": "BN15",
     "name": "KF 1125 Kedungwuni",
-    "branch_id": 3140,
-    "branch_name": "UNIT BISNIS PEKALONGAN",
+    "department_id": 3140,
     "store_type": "NONE",
     "operational_date": "2018-09-01",
     "address": "Jl. Urip Sumoharjo, Jebegan, Podo,",
@@ -3746,8 +3458,7 @@
   {
     "outlet_sap_id": "BN19",
     "name": "KF Express Rest Area 260B Banjaratma",
-    "branch_id": 3140,
-    "branch_name": "UNIT BISNIS PEKALONGAN",
+    "department_id": 3140,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-04-14",
     "address": "Rest Area 260B Banjaratma, Ruas Jalan Tol Pejagan - Pemalang KM 260B arah Jakarta Banjaratma, Kecamatan Bulakamba, Kabupaten Brebes Jawa Tengah",
@@ -3759,8 +3470,7 @@
   {
     "outlet_sap_id": "BO03",
     "name": "KF.0019",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2003-01-01",
     "address": "Jl. ST. Agung No. 1 A Komp.Pertokoan R. A/15",
@@ -3772,8 +3482,7 @@
   {
     "outlet_sap_id": "BO1811",
     "name": "PPO Klinik KF Medoho Gajah",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "NONE",
     "operational_date": "2019-01-01",
     "address": "Jl. Medoho 1 No. 18 Rt.001 Rw.001 K",
@@ -3785,8 +3494,7 @@
   {
     "outlet_sap_id": "BO1812",
     "name": "PPO Klinik KF USM Gajah",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "NONE",
     "operational_date": "2019-01-01",
     "address": "Jl. Soekarno Hatta, Tlogosari, Sema",
@@ -3798,8 +3506,7 @@
   {
     "outlet_sap_id": "BO2411",
     "name": "PPO Klinik KF Mayong Jepara",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jl. Raya Jepara-Kudus KM. 22, No 05",
@@ -3811,8 +3518,7 @@
   {
     "outlet_sap_id": "BO25",
     "name": "KF Tlogosari",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "MEDICAL",
     "operational_date": "2022-11-10",
     "address": "Jl. Tlogosari Raya II No. 46, Kel.",
@@ -3824,8 +3530,7 @@
   {
     "outlet_sap_id": "BO28",
     "name": "KF 1042 Pemuda Pati",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "MEDICAL",
     "operational_date": "2018-12-01",
     "address": "Jl. Pemuda No.288 DS. Kalidoro, Kec",
@@ -3837,8 +3542,7 @@
   {
     "outlet_sap_id": "BO41",
     "name": "KF Unwahas",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Menoreh Raya No. 94, Kel. Sampa",
@@ -3850,8 +3554,7 @@
   {
     "outlet_sap_id": "BP0911",
     "name": "PPO KF Dolopo",
-    "branch_id": 3142,
-    "branch_name": "UNIT BISNIS SURAKARTA",
+    "department_id": 3142,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Raya Dolopo - Ngebel No.465, Kr",
@@ -3863,8 +3566,7 @@
   {
     "outlet_sap_id": "BP17",
     "name": "KF CARUBAN",
-    "branch_id": 3142,
-    "branch_name": "UNIT BISNIS SURAKARTA",
+    "department_id": 3142,
     "store_type": "",
     "operational_date": "2017-04-04",
     "address": "jl. Ahmad yani no 106 caruban",
@@ -3876,8 +3578,7 @@
   {
     "outlet_sap_id": "BP22",
     "name": "KF 0896 Urip Sumoharjo",
-    "branch_id": 3142,
-    "branch_name": "UNIT BISNIS SURAKARTA",
+    "department_id": 3142,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-02-01",
     "address": "Jl. Urip Sumoharjo No. 52 Ponorogo",
@@ -3889,8 +3590,7 @@
   {
     "outlet_sap_id": "BP28",
     "name": "KF Jaten",
-    "branch_id": 3142,
-    "branch_name": "UNIT BISNIS SURAKARTA",
+    "department_id": 3142,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Raya Solo-Tawangmangu Km.7",
@@ -3902,8 +3602,7 @@
   {
     "outlet_sap_id": "BQ07",
     "name": "KF FAKFAK",
-    "branch_id": 3143,
-    "branch_name": "UNIT BISNIS SORONG",
+    "department_id": 3143,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-09-16",
     "address": "Jl. Yos sudarso RT 06 Kel. dulanpokpok Kec. pariwari Kab.fakfak",
@@ -3915,8 +3614,7 @@
   {
     "outlet_sap_id": "BQ11",
     "name": "KF Aimas",
-    "branch_id": 3143,
-    "branch_name": "UNIT BISNIS SORONG",
+    "department_id": 3143,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-10-01",
     "address": "Jl. Sorong - Klamono, Samping Alun Alun Aimas, Kab. Sorong, Papua Barat",
@@ -3928,8 +3626,7 @@
   {
     "outlet_sap_id": "BQ12",
     "name": "KF Raja Ampat",
-    "branch_id": 3143,
-    "branch_name": "UNIT BISNIS SORONG",
+    "department_id": 3143,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Poros No. 30 Kota Waisai",
@@ -3941,8 +3638,7 @@
   {
     "outlet_sap_id": "BR08",
     "name": "KF 906 Cangkir",
-    "branch_id": 3144,
-    "branch_name": "UNIT BISNIS GRESIK",
+    "department_id": 3144,
     "store_type": "NONE",
     "operational_date": "2017-07-01",
     "address": "Jl. Raya Cangkir KM. 22, Kel. Bambe, Kec. Driyorejo, Kab. Gresik, Jawa Timur, Indonesia Kode Pos",
@@ -3954,8 +3650,7 @@
   {
     "outlet_sap_id": "BR1101",
     "name": "Klinik KF Bojonegoro",
-    "branch_id": 3144,
-    "branch_name": "UNIT BISNIS GRESIK",
+    "department_id": 3144,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "JL. DIPONEGORO NO. 77",
@@ -3967,8 +3662,7 @@
   {
     "outlet_sap_id": "BR16",
     "name": "KF Sidayu",
-    "branch_id": 3144,
-    "branch_name": "UNIT BISNIS GRESIK",
+    "department_id": 3144,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Raya Sidayu Panceng Gresik",
@@ -3980,8 +3674,7 @@
   {
     "outlet_sap_id": "BT0711",
     "name": "PPO Klinik KF Pratama Sebelas Medika",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "MEDICAL",
     "operational_date": "2019-01-01",
     "address": "Jl. Bung Tomo No. 5, Surabaya",
@@ -3993,8 +3686,7 @@
   {
     "outlet_sap_id": "BT13",
     "name": "KF.0274 PAMEKASAN",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "NONE",
     "operational_date": "2003-01-01",
     "address": "Jl. Trunojoyo 92 Pamekasan",
@@ -4006,8 +3698,7 @@
   {
     "outlet_sap_id": "BT17",
     "name": "KF 0432 Ampel",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2013-01-01",
     "address": "Jalan K.H.M Mansyur No.77, Kel. Nyamplungan",
@@ -4019,8 +3710,7 @@
   {
     "outlet_sap_id": "BT35",
     "name": "KF KUPANG JAYA",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "MEDICAL",
     "operational_date": "2016-11-16",
     "address": "Jl. Kupang Jaya Blok B - 4 Surabaya",
@@ -4032,8 +3722,7 @@
   {
     "outlet_sap_id": "BT43",
     "name": "Apotek KF HR Muhammad",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2018-08-01",
     "address": "Jl. HR Muhammad No.21 Surabaya",
@@ -4045,8 +3734,7 @@
   {
     "outlet_sap_id": "BT45",
     "name": "KF 994 Sukolilo",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "MEDICAL",
     "operational_date": "2018-08-01",
     "address": "Jl. Nginden Semolo No.22, RT.002/RW.01, Nginden Jangkungan",
@@ -4058,8 +3746,7 @@
   {
     "outlet_sap_id": "BT49",
     "name": "KF Penjaringan",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "MEDICAL",
     "operational_date": "2019-03-25",
     "address": "Jl. Raya Pandugo No.72, Penjaringan Sari",
@@ -4071,8 +3758,7 @@
   {
     "outlet_sap_id": "BT51",
     "name": "KF Wiyung 2",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-20",
     "address": "Jl. Menganti No.177, Wiyung, Kec. Wiyung, Kota SBY, Jawa Timur",
@@ -4084,8 +3770,7 @@
   {
     "outlet_sap_id": "BT58",
     "name": "Klinik Pratama KF Sebelas Medika",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "Jl. Bung Tomo No. 5-7, Surabaya",
@@ -4097,8 +3782,7 @@
   {
     "outlet_sap_id": "BT62",
     "name": "KF Kutisari",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Kutisari Selatan. No.36",
@@ -4110,8 +3794,7 @@
   {
     "outlet_sap_id": "BT63",
     "name": "KF Babatan",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Menganti No.722 Kel. Babatan",
@@ -4123,8 +3806,7 @@
   {
     "outlet_sap_id": "BT65",
     "name": "KF Lakarsantri",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "MEDICAL",
     "operational_date": "2023-07-07",
     "address": "Jl. Lidah Kulon No.16, Lakarsantri",
@@ -4136,8 +3818,7 @@
   {
     "outlet_sap_id": "BT66",
     "name": "KF Kedung Cowek",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "MEDICAL",
     "operational_date": "2023-07-07",
     "address": "Jl. Kedung Cowek no.44 Tambaksari",
@@ -4149,8 +3830,7 @@
   {
     "outlet_sap_id": "BT67",
     "name": "KF Karang Pilang",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "Jl. Mastrip no.185 Karang Pilang",
@@ -4162,8 +3842,7 @@
   {
     "outlet_sap_id": "BT68",
     "name": "KF Sumenep 2",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Trunojoyo No.91 Sumenep",
@@ -4175,8 +3854,7 @@
   {
     "outlet_sap_id": "BU0112",
     "name": "PPO Klinik KF Cimangkok",
-    "branch_id": 3147,
-    "branch_name": "UNIT BISNIS SUKABUMI",
+    "department_id": 3147,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-01",
     "address": "Jl. Raya Sukabumi Cianjur Kec. Suka",
@@ -4188,8 +3866,7 @@
   {
     "outlet_sap_id": "BU0113",
     "name": "PPO Klinik KF 008",
-    "branch_id": 3147,
-    "branch_name": "UNIT BISNIS SUKABUMI",
+    "department_id": 3147,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-01",
     "address": "Jl. Veteran II No.2",
@@ -4201,8 +3878,7 @@
   {
     "outlet_sap_id": "BU0312",
     "name": "PPO Klinik KF PT Pratama Nike",
-    "branch_id": 3147,
-    "branch_name": "UNIT BISNIS SUKABUMI",
+    "department_id": 3147,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-01",
     "address": "Jl. Raya Sukabumi Cianjur Km 13-14,",
@@ -4214,8 +3890,7 @@
   {
     "outlet_sap_id": "BU11",
     "name": "KF Pelabuhan Ratux",
-    "branch_id": 3147,
-    "branch_name": "UNIT BISNIS SUKABUMI",
+    "department_id": 3147,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2016-11-16",
     "address": "Jl.Siliwangi No.49 Pel Ratu -Sukab",
@@ -4227,8 +3902,7 @@
   {
     "outlet_sap_id": "BV20",
     "name": "KF Rau",
-    "branch_id": 3148,
-    "branch_name": "UNIT BISNIS CILEGON",
+    "department_id": 3148,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2023-03-01",
     "address": "Jl. Kyai H. Abdul Latif No.41, Cimuncang",
@@ -4240,8 +3914,7 @@
   {
     "outlet_sap_id": "BW0311",
     "name": "PPO KF 95 (RSIA PUTRA DALIMA)",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "NONE",
     "operational_date": "2019-01-01",
     "address": "Jln. Raya Serpong Sektor VII BSD Blok RP. No. 92, ,,",
@@ -4253,8 +3926,7 @@
   {
     "outlet_sap_id": "BW0411",
     "name": "PPO Klinik KF Tiara",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-01",
     "address": "Jl. Pamulang Permai Raya Blok E No.",
@@ -4266,8 +3938,7 @@
   {
     "outlet_sap_id": "BW0611",
     "name": "PPO Klinik KF Cipondoh",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. KH Hasyim Ashari No. 68, RT 003/RW 002",
@@ -4279,8 +3950,7 @@
   {
     "outlet_sap_id": "BW09",
     "name": "KF 0475 BERINGIN",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2013-01-01",
     "address": "Jl. Beringin Raya No.45 A, Karawaci",
@@ -4292,8 +3962,7 @@
   {
     "outlet_sap_id": "BW21",
     "name": "KF 0620 PORIS",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "MEDICAL",
     "operational_date": "2015-02-02",
     "address": "Jl. Poris Indah Blok C 1 No. 3",
@@ -4305,8 +3974,7 @@
   {
     "outlet_sap_id": "BW28",
     "name": "KLINIK MANDIRI KF TIARA",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "MEDICAL",
     "operational_date": "2018-05-30",
     "address": "Jl. Pamulang Permai Raya Blok E No.8, Pamulang Barat",
@@ -4318,8 +3986,7 @@
   {
     "outlet_sap_id": "BW4111",
     "name": "PPO Klinik KF Kedaung",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2019-01-01",
     "address": "Jl. Keuangan Rt001/Rw002,  KEDAUNG",
@@ -4331,8 +3998,7 @@
   {
     "outlet_sap_id": "BW46",
     "name": "KF OSHCS GADING SERPONG",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2020-03-01",
     "address": "Jl. Boulevard Gading Serpong Blok M5 No. 8B, Tangerang",
@@ -4344,8 +4010,7 @@
   {
     "outlet_sap_id": "BW50",
     "name": "KF Alam Sutera 2",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "BASIC_HEALTH",
     "operational_date": "1010-01-01",
     "address": "JALAN SERPONG NOMOR 8C RT/RW 004/002, Desa/Kelurahan Pakulonan",
@@ -4357,8 +4022,7 @@
   {
     "outlet_sap_id": "BX14",
     "name": "KF 0416",
-    "branch_id": 3150,
-    "branch_name": "UNIT BISNIS YOGYA",
+    "department_id": 3150,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2012-01-01",
     "address": "Jl. Taman Siswa No. 100, Wirogunan",
@@ -4370,8 +4034,7 @@
   {
     "outlet_sap_id": "BX36",
     "name": "KF Besi",
-    "branch_id": 3150,
-    "branch_name": "UNIT BISNIS YOGYA",
+    "department_id": 3150,
     "store_type": "MEDICAL",
     "operational_date": "2018-09-01",
     "address": "Jl. Kaliurang KM.13, Sardonoharjo,",
@@ -4383,8 +4046,7 @@
   {
     "outlet_sap_id": "BX54",
     "name": "KF Pandeyan",
-    "branch_id": 3150,
-    "branch_name": "UNIT BISNIS YOGYA",
+    "department_id": 3150,
     "store_type": "MEDICAL",
     "operational_date": "2023-07-17",
     "address": "Jl. Pandeyan no. 22 RT 11/12 Umbulh",
@@ -4396,8 +4058,7 @@
   {
     "outlet_sap_id": "CP01",
     "name": "KF Urimesing Ambon",
-    "branch_id": 3168,
-    "branch_name": "UNIT BISNIS AMBON",
+    "department_id": 3168,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "Jl. Diponegoro no.66 Ahusen Si",
@@ -4409,8 +4070,7 @@
   {
     "outlet_sap_id": "CS02",
     "name": "KF.0274 PAMEKASAN",
-    "branch_id": 3171,
-    "branch_name": "UNIT BISNIS MADURA",
+    "department_id": 3171,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "Jl. Trunojoyo 92 Pamekasan Bar",
@@ -4422,8 +4082,7 @@
   {
     "outlet_sap_id": "CS07",
     "name": "KF.Sumenep 2",
-    "branch_id": 3171,
-    "branch_name": "UNIT BISNIS MADURA",
+    "department_id": 3171,
     "store_type": "NONE",
     "operational_date": "2024-01-05",
     "address": "Jl. Trunojoyo No.91, Labangsen",
@@ -4435,8 +4094,7 @@
   {
     "outlet_sap_id": "YR01",
     "name": "WS SUBUR ABADI",
-    "branch_id": 5169,
-    "branch_name": "BM Warung Sehat",
+    "department_id": 5169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "JW49+WF4, Kebayanan 1, Gabugan",
@@ -4448,8 +4106,7 @@
   {
     "outlet_sap_id": "YR02",
     "name": "WS JATINOM",
-    "branch_id": 5169,
-    "branch_name": "BM Warung Sehat",
+    "department_id": 5169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Krajan-Jatinom, Dusun 2, Krajan,",
@@ -4461,8 +4118,7 @@
   {
     "outlet_sap_id": "YR03",
     "name": "WS PUSKUD KEBUMEN",
-    "branch_id": 5169,
-    "branch_name": "BM Warung Sehat",
+    "department_id": 5169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Dukuh, Kebumen, Kebumen Regency,,",
@@ -4474,8 +4130,7 @@
   {
     "outlet_sap_id": "YR04",
     "name": "WS GRABAG",
-    "branch_id": 5169,
-    "branch_name": "BM Warung Sehat",
+    "department_id": 5169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "J8MG+2QH, Kaliaji, Plumbon",
@@ -4487,8 +4142,7 @@
   {
     "outlet_sap_id": "YR05",
     "name": "WS TANI MANUNGGAL",
-    "branch_id": 5169,
-    "branch_name": "BM Warung Sehat",
+    "department_id": 5169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "77MC+H39, Sunggungan, Sendangrejo,",
@@ -4500,8 +4154,7 @@
   {
     "outlet_sap_id": "YR06",
     "name": "WS MARGOYOSO",
-    "branch_id": 5169,
-    "branch_name": "BM Warung Sehat",
+    "department_id": 5169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Raya Pati - Tayu, Kedung,",
@@ -4513,8 +4166,7 @@
   {
     "outlet_sap_id": "YR07",
     "name": "WS PRASOJO",
-    "branch_id": 5169,
-    "branch_name": "BM Warung Sehat",
+    "department_id": 5169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Jl. Gatot Subroto, Tawangsari, Kebonsari,",
@@ -4526,8 +4178,7 @@
   {
     "outlet_sap_id": "YS01",
     "name": "WS ENDRA MULYA",
-    "branch_id": 5170,
-    "branch_name": "WS LAMPUNG",
+    "department_id": 5170,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Desa Raman Endra Kec.Raman Utara Kab.Lampung Timur",
@@ -4539,8 +4190,7 @@
   {
     "outlet_sap_id": "YS02",
     "name": "WS MAJU SENTOSA",
-    "branch_id": 5170,
-    "branch_name": "WS LAMPUNG",
+    "department_id": 5170,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "Kampung Bangun Rejo Kec.Bangun Rejo Kab.Lampung Tengah",
@@ -4552,8 +4202,7 @@
   {
     "outlet_sap_id": "CQ07",
     "name": "KF Sijuk",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4565,8 +4214,7 @@
   {
     "outlet_sap_id": "CQ06",
     "name": "KF Semabung Baru",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4578,8 +4226,7 @@
   {
     "outlet_sap_id": "CQ03",
     "name": "KF.0503 Suta",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4591,8 +4238,7 @@
   {
     "outlet_sap_id": "CQ05",
     "name": "KF Sungai Liat 2",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4604,8 +4250,7 @@
   {
     "outlet_sap_id": "CQ01",
     "name": "KF 0118",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4617,8 +4262,7 @@
   {
     "outlet_sap_id": "CQ08",
     "name": "KF Sriwijaya",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4630,8 +4274,7 @@
   {
     "outlet_sap_id": "CQ04",
     "name": "KF.0539 Sudirman S Liat",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4643,8 +4286,7 @@
   {
     "outlet_sap_id": "CQ02",
     "name": "KF Pel.029 RSUD Pangkal Pinang",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "BASIC_HEALTH",
     "operational_date": "2024-01-05",
     "address": "",
@@ -4656,8 +4298,7 @@
   {
     "outlet_sap_id": 3169,
     "name": "UNIT BISNIS BANGKA BELITUNG",
-    "branch_id": 3169,
-    "branch_name": "UNIT BISNIS BANGKA BELITUNG",
+    "department_id": 3169,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4669,8 +4310,7 @@
   {
     "outlet_sap_id": 3168,
     "name": "UNIT BISNIS AMBON",
-    "branch_id": 3168,
-    "branch_name": "UNIT BISNIS AMBON",
+    "department_id": 3168,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4682,8 +4322,7 @@
   {
     "outlet_sap_id": 3102,
     "name": "UNIT BISNIS BALIKPAPAN",
-    "branch_id": 3102,
-    "branch_name": "UNIT BISNIS BALIKPAPAN",
+    "department_id": 3102,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4695,8 +4334,7 @@
   {
     "outlet_sap_id": 3101,
     "name": "UNIT BISNIS BANDA ACEH",
-    "branch_id": 3101,
-    "branch_name": "UNIT BISNIS BANDA ACEH",
+    "department_id": 3101,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4708,8 +4346,7 @@
   {
     "outlet_sap_id": 3107,
     "name": "UNIT BISNIS BANJARMASIN",
-    "branch_id": 3107,
-    "branch_name": "UNIT BISNIS BANJARMASIN",
+    "department_id": 3107,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4721,8 +4358,7 @@
   {
     "outlet_sap_id": 3110,
     "name": "UNIT BISNIS BEKASI",
-    "branch_id": 3110,
-    "branch_name": "UNIT BISNIS BEKASI",
+    "department_id": 3110,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4734,8 +4370,7 @@
   {
     "outlet_sap_id": 3112,
     "name": "UNIT BISNIS BOGOR",
-    "branch_id": 3112,
-    "branch_name": "UNIT BISNIS BOGOR",
+    "department_id": 3112,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4747,8 +4382,7 @@
   {
     "outlet_sap_id": 3148,
     "name": "UNIT BISNIS CILEGON",
-    "branch_id": 3148,
-    "branch_name": "UNIT BISNIS CILEGON",
+    "department_id": 3148,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4760,8 +4394,7 @@
   {
     "outlet_sap_id": 3114,
     "name": "UNIT BISNIS CIREBON",
-    "branch_id": 3114,
-    "branch_name": "UNIT BISNIS CIREBON",
+    "department_id": 3114,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4773,8 +4406,7 @@
   {
     "outlet_sap_id": 3116,
     "name": "UNIT BISNIS DENPASAR",
-    "branch_id": 3116,
-    "branch_name": "UNIT BISNIS DENPASAR",
+    "department_id": 3116,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4786,8 +4418,7 @@
   {
     "outlet_sap_id": 3126,
     "name": "UNIT BISNIS GORONTALO",
-    "branch_id": 3126,
-    "branch_name": "UNIT BISNIS GORONTALO",
+    "department_id": 3126,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4799,8 +4430,7 @@
   {
     "outlet_sap_id": 3133,
     "name": "UNIT BISNIS JAMBI",
-    "branch_id": 3133,
-    "branch_name": "UNIT BISNIS JAMBI",
+    "department_id": 3133,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4812,8 +4442,7 @@
   {
     "outlet_sap_id": 3117,
     "name": "UNIT BISNIS JAYA I",
-    "branch_id": 3117,
-    "branch_name": "UNIT BISNIS JAYA I",
+    "department_id": 3117,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4825,8 +4454,7 @@
   {
     "outlet_sap_id": 3111,
     "name": "UNIT BISNIS KARAWANG",
-    "branch_id": 3111,
-    "branch_name": "UNIT BISNIS KARAWANG",
+    "department_id": 3111,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4838,8 +4466,7 @@
   {
     "outlet_sap_id": 3121,
     "name": "UNIT BISNIS KENDARI",
-    "branch_id": 3121,
-    "branch_name": "UNIT BISNIS KENDARI",
+    "department_id": 3121,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4851,8 +4478,7 @@
   {
     "outlet_sap_id": 3122,
     "name": "UNIT BISNIS KUPANG",
-    "branch_id": 3122,
-    "branch_name": "UNIT BISNIS KUPANG",
+    "department_id": 3122,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4864,8 +4490,7 @@
   {
     "outlet_sap_id": 3123,
     "name": "UNIT BISNIS LAMPUNG",
-    "branch_id": 3123,
-    "branch_name": "UNIT BISNIS LAMPUNG",
+    "department_id": 3123,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4877,8 +4502,7 @@
   {
     "outlet_sap_id": 3171,
     "name": "UNIT BISNIS MADURA",
-    "branch_id": 3171,
-    "branch_name": "UNIT BISNIS MADURA",
+    "department_id": 3171,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4890,8 +4514,7 @@
   {
     "outlet_sap_id": 3127,
     "name": "UNIT BISNIS MANADO",
-    "branch_id": 3127,
-    "branch_name": "UNIT BISNIS MANADO",
+    "department_id": 3127,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4903,8 +4526,7 @@
   {
     "outlet_sap_id": 3130,
     "name": "UNIT BISNIS MEDAN",
-    "branch_id": 3130,
-    "branch_name": "UNIT BISNIS MEDAN",
+    "department_id": 3130,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4916,8 +4538,7 @@
   {
     "outlet_sap_id": 3115,
     "name": "UNIT BISNIS NUSADUA",
-    "branch_id": 3115,
-    "branch_name": "UNIT BISNIS NUSADUA",
+    "department_id": 3115,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4929,8 +4550,7 @@
   {
     "outlet_sap_id": 3131,
     "name": "UNIT BISNIS PADANG",
-    "branch_id": 3131,
-    "branch_name": "UNIT BISNIS PADANG",
+    "department_id": 3131,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4942,8 +4562,7 @@
   {
     "outlet_sap_id": 3132,
     "name": "UNIT BISNIS PALANGKARAYA",
-    "branch_id": 3132,
-    "branch_name": "UNIT BISNIS PALANGKARAYA",
+    "department_id": 3132,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4955,8 +4574,7 @@
   {
     "outlet_sap_id": 3134,
     "name": "UNIT BISNIS PALEMBANG",
-    "branch_id": 3134,
-    "branch_name": "UNIT BISNIS PALEMBANG",
+    "department_id": 3134,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4968,8 +4586,7 @@
   {
     "outlet_sap_id": 3141,
     "name": "UNIT BISNIS SEMARANG",
-    "branch_id": 3141,
-    "branch_name": "UNIT BISNIS SEMARANG",
+    "department_id": 3141,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4981,8 +4598,7 @@
   {
     "outlet_sap_id": 3143,
     "name": "UNIT BISNIS SORONG",
-    "branch_id": 3143,
-    "branch_name": "UNIT BISNIS SORONG",
+    "department_id": 3143,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -4994,8 +4610,7 @@
   {
     "outlet_sap_id": 3147,
     "name": "UNIT BISNIS SUKABUMI",
-    "branch_id": 3147,
-    "branch_name": "UNIT BISNIS SUKABUMI",
+    "department_id": 3147,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5007,8 +4622,7 @@
   {
     "outlet_sap_id": 3146,
     "name": "UNIT BISNIS SURABAYA",
-    "branch_id": 3146,
-    "branch_name": "UNIT BISNIS SURABAYA",
+    "department_id": 3146,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5020,8 +4634,7 @@
   {
     "outlet_sap_id": 3142,
     "name": "UNIT BISNIS SURAKARTA",
-    "branch_id": 3142,
-    "branch_name": "UNIT BISNIS SURAKARTA",
+    "department_id": 3142,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5033,8 +4646,7 @@
   {
     "outlet_sap_id": 3149,
     "name": "UNIT BISNIS TANGERANG",
-    "branch_id": 3149,
-    "branch_name": "UNIT BISNIS TANGERANG",
+    "department_id": 3149,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5046,8 +4658,7 @@
   {
     "outlet_sap_id": 3105,
     "name": "UNIT BISNIS TASIKMALAYA",
-    "branch_id": 3105,
-    "branch_name": "UNIT BISNIS TASIKMALAYA",
+    "department_id": 3105,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5059,8 +4670,7 @@
   {
     "outlet_sap_id": 3128,
     "name": "UNIT BISNIS TERNATE",
-    "branch_id": 3128,
-    "branch_name": "UNIT BISNIS TERNATE",
+    "department_id": 3128,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5072,8 +4682,7 @@
   {
     "outlet_sap_id": 3150,
     "name": "UNIT BISNIS YOGYA",
-    "branch_id": 3150,
-    "branch_name": "UNIT BISNIS YOGYA",
+    "department_id": 3150,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5085,8 +4694,7 @@
   {
     "outlet_sap_id": "BS19",
     "name": "KF Tropodo",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2019-07-15",
     "address": "",
@@ -5098,8 +4706,7 @@
   {
     "outlet_sap_id": "BS26",
     "name": "KF Safe N Lock",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2022-04-01",
     "address": "",
@@ -5111,8 +4718,7 @@
   {
     "outlet_sap_id": "BS13",
     "name": "KF Mojosari",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2016-08-16",
     "address": "",
@@ -5124,8 +4730,7 @@
   {
     "outlet_sap_id": "BS23",
     "name": "KF CITRA MEDIKA",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2019-07-20",
     "address": "",
@@ -5137,8 +4742,7 @@
   {
     "outlet_sap_id": "BS02",
     "name": "KF.0119 Sidoarjo",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2007-01-01",
     "address": "",
@@ -5150,8 +4754,7 @@
   {
     "outlet_sap_id": "BS17",
     "name": "KF. Kertosono",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2017-06-01",
     "address": "",
@@ -5163,8 +4766,7 @@
   {
     "outlet_sap_id": "BS07",
     "name": "KF.0521 Taman Pondok Jati",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2014-03-14",
     "address": "",
@@ -5176,8 +4778,7 @@
   {
     "outlet_sap_id": "BS22",
     "name": "KF Gedangan 2",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2018-09-01",
     "address": "",
@@ -5189,8 +4790,7 @@
   {
     "outlet_sap_id": "BS10",
     "name": "KF.0638 Puri Indah",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2015-02-02",
     "address": "",
@@ -5202,8 +4802,7 @@
   {
     "outlet_sap_id": "BS14",
     "name": "KF Damarsi",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2016-11-16",
     "address": "",
@@ -5215,8 +4814,7 @@
   {
     "outlet_sap_id": "BS21",
     "name": "KF PEPELEGI",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2018-07-01",
     "address": "",
@@ -5228,8 +4826,7 @@
   {
     "outlet_sap_id": "BS24",
     "name": "KF Panglima Sudirman",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2019-11-01",
     "address": "",
@@ -5241,8 +4838,7 @@
   {
     "outlet_sap_id": "BS01",
     "name": "KF.0065",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5254,8 +4850,7 @@
   {
     "outlet_sap_id": "BS03",
     "name": "KF.0124",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5267,8 +4862,7 @@
   {
     "outlet_sap_id": "BS15",
     "name": "KF Krian",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2016-11-16",
     "address": "",
@@ -5280,8 +4874,7 @@
   {
     "outlet_sap_id": "BS04",
     "name": "KF.0165 Pasuruan",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5293,8 +4886,7 @@
   {
     "outlet_sap_id": "BS08",
     "name": "KF.0603 Gedangan",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2014-12-03",
     "address": "",
@@ -5306,8 +4898,7 @@
   {
     "outlet_sap_id": "BS09",
     "name": "KF.0604 Jombang",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2014-12-03",
     "address": "",
@@ -5319,8 +4910,7 @@
   {
     "outlet_sap_id": "BS16",
     "name": "KF. REWWIN",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2016-12-01",
     "address": "",
@@ -5332,8 +4922,7 @@
   {
     "outlet_sap_id": "BS25",
     "name": "KF Kedawung",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2020-06-09",
     "address": "",
@@ -5345,8 +4934,7 @@
   {
     "outlet_sap_id": "BS29",
     "name": "KF Sukodono",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2020-09-20",
     "address": "",
@@ -5358,8 +4946,7 @@
   {
     "outlet_sap_id": "BS18",
     "name": "KF. Bangil Pasuruan",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2017-02-01",
     "address": "",
@@ -5371,8 +4958,7 @@
   {
     "outlet_sap_id": "BS20",
     "name": "KF PANDAAN",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2018-07-01",
     "address": "",
@@ -5384,8 +4970,7 @@
   {
     "outlet_sap_id": "BS12",
     "name": "KF.Nganjuk",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2015-12-12",
     "address": "",
@@ -5397,8 +4982,7 @@
   {
     "outlet_sap_id": "BS27",
     "name": "KF Wage Sidoarjo",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2020-07-01",
     "address": "",
@@ -5410,8 +4994,7 @@
   {
     "outlet_sap_id": "BS05",
     "name": "KF.0180 Pahlawan",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5423,8 +5006,7 @@
   {
     "outlet_sap_id": "BS11",
     "name": "KF.Diponegoro",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2015-12-12",
     "address": "",
@@ -5436,8 +5018,7 @@
   {
     "outlet_sap_id": "BS06",
     "name": "KF.0261",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5449,8 +5030,7 @@
   {
     "outlet_sap_id": "BS0101",
     "name": "KLINIK - KF.0065",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5462,8 +5042,7 @@
   {
     "outlet_sap_id": "BS0301",
     "name": "KF.0124",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5475,8 +5054,7 @@
   {
     "outlet_sap_id": "BS0401",
     "name": "KLINIK - KF.0165 Pasuruan",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5488,8 +5066,7 @@
   {
     "outlet_sap_id": "BS0601",
     "name": "KLINIK - KF.0261",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2003-01-01",
     "address": "",
@@ -5501,8 +5078,7 @@
   {
     "outlet_sap_id": "BS1201",
     "name": "KLINIK - KF.Nganjuk",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2015-12-12",
     "address": "",
@@ -5514,8 +5090,7 @@
   {
     "outlet_sap_id": "BS1301",
     "name": "Klinik KF Mojosari",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5527,8 +5102,7 @@
   {
     "outlet_sap_id": "BS2301",
     "name": "Klinik KF Citra Medika",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5540,8 +5114,7 @@
   {
     "outlet_sap_id": 3145,
     "name": "UNIT BISNIS SIDOARJO",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "NONE",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5553,8 +5126,7 @@
   {
     "outlet_sap_id": "BS28",
     "name": "KF Basuni Mojokerto",
-    "branch_id": 3145,
-    "branch_name": "UNIT BISNIS SIDOARJO",
+    "department_id": 3145,
     "store_type": "",
     "operational_date": "2021-02-10",
     "address": "",
@@ -5566,8 +5138,7 @@
   {
     "outlet_sap_id": "CR06",
     "name": "KF Akasia",
-    "branch_id": 3170,
-    "branch_name": "UNIT BISNIS PURWOKERTO",
+    "department_id": 3170,
     "store_type": "",
     "operational_date": "2024-01-05",
     "address": "",
@@ -5579,8 +5150,7 @@
   {
     "outlet_sap_id": "CR02",
     "name": "KF 0206",
-    "branch_id": 3170,
-    "branch_name": "UNIT BISNIS PURWOKERTO",
+    "department_id": 3170,
     "store_type": "",
     "operational_date": "2024-01-01",
     "address": "",
@@ -5592,8 +5162,7 @@
   {
     "outlet_sap_id": "CR01",
     "name": "KF.0089",
-    "branch_id": 3170,
-    "branch_name": "UNIT BISNIS PURWOKERTO",
+    "department_id": 3170,
     "store_type": "",
     "operational_date": "2024-01-05",
     "address": "",
@@ -5605,8 +5174,7 @@
   {
     "outlet_sap_id": "CR05",
     "name": "KF PBLG",
-    "branch_id": 3170,
-    "branch_name": "UNIT BISNIS PURWOKERTO",
+    "department_id": 3170,
     "store_type": "",
     "operational_date": "2024-01-05",
     "address": "",
@@ -5618,8 +5186,7 @@
   {
     "outlet_sap_id": 3170,
     "name": "Unit Bisnis Purwokerto",
-    "branch_id": 3170,
-    "branch_name": "UNIT BISNIS PURWOKERTO",
+    "department_id": 3170,
     "store_type": "",
     "operational_date": "1010-01-01",
     "address": "",
@@ -5631,8 +5198,7 @@
   {
     "outlet_sap_id": "CR04",
     "name": "KF 0133 Purwokerto",
-    "branch_id": 3170,
-    "branch_name": "UNIT BISNIS PURWOKERTO",
+    "department_id": 3170,
     "store_type": "",
     "operational_date": "2024-01-05",
     "address": "",
@@ -5644,8 +5210,7 @@
   {
     "outlet_sap_id": "CR03",
     "name": "KF 0437 Fajar",
-    "branch_id": 3170,
-    "branch_name": "UNIT BISNIS PURWOKERTO",
+    "department_id": 3170,
     "store_type": "",
     "operational_date": "2024-01-05",
     "address": "",

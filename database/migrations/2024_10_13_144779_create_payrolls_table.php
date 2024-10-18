@@ -13,30 +13,55 @@ return new class extends Migration
   {
     Schema::create('payrolls', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('employee_id')
-        ->constrained('employees')
-        ->cascadeOnDelete();
-      $table->float('1050_honorarium');
-      $table->float('uang_saku_mb');
-      $table->float('3000_lembur');
-      $table->float('2580_tunj_lain');
-      $table->float('ujp');
-      $table->float('4020_sumbangan_cuti_tahunan');
-      $table->float('6500_pot_wajib_koperasi');
-      $table->float('6540_pot_pinjaman_koperasi');
-      $table->float('6590_pot_ykkkf');
-      $table->float('6620_pot_keterlambatan');
-      $table->float('6630_pinjaman_karyawan');
-      $table->float('6700_pot_bank_mandiri');
-      $table->float('6701_pot_bank_bri');
-      $table->float('6702_pot_bank_btn');
-      $table->float('6703_pot_bank_danamon');
-      $table->float('6704_pot_bank_dki');
-      $table->float('6705_pot_bank_bjb');
-      $table->float('6750_pot_adm_bank_mandiri');
-      $table->float('6751_pot_adm_bank_bri');
-      $table->float('6752_pot_adm_bank_bjb');
-      $table->float('6900_pot_lain');
+
+      $table->unsignedBigInteger('employee_id');
+      $table->foreign('employee_id')
+        ->references('id')
+        ->on('employees')
+        ->onDelete('cascade');
+
+      $table->float('1050_honorarium')
+        ->default(0);
+      $table->float('uang_saku_mb')
+        ->nullable();
+      $table->float('3000_lembur')
+        ->nullable();
+      $table->float('2580_tunj_lain')
+        ->nullable();
+      $table->float('ujp')
+        ->default(0);
+      $table->float('4020_sumbangan_cuti_tahunan')
+        ->default(0);
+      $table->float('6500_pot_wajib_koperasi')
+        ->nullable();
+      $table->float('6540_pot_pinjaman_koperasi')
+        ->nullable();
+      $table->float('6590_pot_ykkkf')
+        ->nullable();
+      $table->float('6620_pot_keterlambatan')
+        ->nullable();
+      $table->float('6630_pinjaman_karyawan')
+        ->nullable();
+      $table->float('6700_pot_bank_mandiri')
+        ->nullable();
+      $table->float('6701_pot_bank_bri')
+        ->nullable();
+      $table->float('6702_pot_bank_btn')
+        ->nullable();
+      $table->float('6703_pot_bank_danamon')
+        ->nullable();
+      $table->float('6704_pot_bank_dki')
+        ->nullable();
+      $table->float('6705_pot_bank_bjb')
+        ->nullable();
+      $table->float('6750_pot_adm_bank_mandiri')
+        ->nullable();
+      $table->float('6751_pot_adm_bank_bri')
+        ->nullable();
+      $table->float('6752_pot_adm_bank_bjb')
+        ->nullable();
+      $table->float('6900_pot_lain')
+        ->nullable();
       $table->char('bln_thn');
       $table->timestamps();
     });

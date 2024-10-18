@@ -16,7 +16,12 @@ return new class extends Migration
       $table->string('urban');
       $table->string('subdistrict');
       $table->string('city');
-      $table->foreignId('province_code');
+
+      $table->string('province_code');
+      $table->foreign('province_code')
+        ->references('code')
+        ->on('provinces');
+
       $table->integer('postal_code');
       $table->timestamps();
     });

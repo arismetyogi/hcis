@@ -24,7 +24,7 @@ return new class extends Migration
       $table->char('phone_no', 15);
       $table->string('sex');
       $table->string('address');
-      $table->char('postcode_id');
+      $table->char('postcode_id')->nullable();
       $table->char('npwp');
       $table->foreignId('employee_status_id')
         ->constrained('employee_statuses');

@@ -13,10 +13,12 @@ return new class extends Migration
   {
     Schema::create('outlets', function (Blueprint $table) {
       $table->id();
+      $table->unsignedBigInteger('department_id');
+      $table->foreign('department_id')
+        ->references('id')
+        ->on('departments');
       $table->char('outlet_sap_id');
       $table->string('name');
-      $table->string('branch_id');
-      $table->string('branch_name');
       $table->string('store_type')->nullable();
       $table->date('operational_date')->nullable();
       $table->string('address')->nullable();

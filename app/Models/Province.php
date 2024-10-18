@@ -10,7 +10,7 @@ class Province extends Model
 {
   use HasFactory;
 
-  protected $guarded = [];
+  protected $fillable = ['name', 'name_en', 'province_code'];
 
   public function postcodes(): HasMany
   {
