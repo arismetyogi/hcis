@@ -10,7 +10,7 @@ class Department extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['id', 'name', 'branch_name', 'slug'];
+  protected $fillable = ['id', 'name', 'branch_name'];
 
   public function outlets(): HasMany
   {

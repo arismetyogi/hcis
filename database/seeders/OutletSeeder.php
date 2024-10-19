@@ -26,6 +26,7 @@ class OutletSeeder extends Seeder
         if (is_array($outlets)) {
           DB::statement('SET FOREIGN_KEY_CHECKS=0;'); //for dev only -> inject data
           DB::table('outlets')->insert($outlets);
+          DB::statement('SET FOREIGN_KEY_CHECKS=1;'); //for dev only -> inject data
         }
       } else {
         $this->command->error("JSON file not found at {$jsonPath}");

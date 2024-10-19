@@ -131,7 +131,7 @@ return [
     // Application Service Providers...
     App\Providers\AppServiceProvider::class,
     App\Providers\Filament\AdminPanelProvider::class,
-    App\Providers\Filament\AppPanelProvider::class,
+    // App\Providers\Filament\AppPanelProvider::class, // if more than 1 panel provider
 
     // Added Service Providers (Do not remove this line)...
   ])->toArray(),

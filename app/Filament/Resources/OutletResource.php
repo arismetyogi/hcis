@@ -113,15 +113,19 @@ class OutletResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('name')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('department_id')
-          ->searchable(),
         Tables\Columns\TextColumn::make('outlet_sap_id')
+          ->label('Kode SAP')
+          ->searchable(),
+        Tables\Columns\TextColumn::make('name')
+          ->label('Nama Outlet')
+          ->searchable(),
+        Tables\Columns\TextColumn::make('department.name')
+          ->label('Nama Unit')
           ->searchable(),
         Tables\Columns\TextColumn::make('store_type')
           ->searchable(),
         Tables\Columns\TextColumn::make('operational_date')
+          ->date()
           ->searchable(),
         Tables\Columns\TextColumn::make('address')
           ->searchable(),

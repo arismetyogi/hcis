@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
+use App\Models\Department;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -149,20 +150,21 @@ class EmployeeResource extends Resource
                       ->disabled(fn($livewire) => !Auth::user()->is_admin)
                       //   // ->disabled(!Auth::user()->is_admin)
                       ->default(Auth::user()->department_id)
-                      //   // ->getSearchResultsUsing(function (string $search) {
-                      //   //   return Department::query()
-                      //   //     ->where('name', 'like', "%{$search}%")
-                      //   //     ->limit(10) // Limit the number of results to avoid performance issues
-                      //   //     ->get()
-                      //   //     ->mapWithKeys(function ($department) {
-                      //   //       return [
-                      //   //         $department->id => "{$department->department_id}",
-                      //   //       ];
-                      //   //     });
-                      //   // })
-                      //   // ->getOptionLabelUsing(
-                      //   //   fn($value) => optional(Department::find($value))->name
-                      //   // )
+                      ->getSearchResultsUsing(function (string $search) {
+                        return Department::query()
+                          ->where('name', 'like', "%{$search}%")
+                          ->orWhere('id', 'like', "%{$search}%")
+                          ->limit(10) // Limit the number of results to avoid performance issues
+                          ->get()
+                          ->mapWithKeys(function ($department) {
+                            return [
+                              $department->id => "{$department->department_id}",
+                            ];
+                          });
+                      })
+                      // ->getOptionLabelUsing(
+                      //   fn($value) => optional(Department::find($value))->id . ' - ' . optional(Department::find($value))->name
+                      // )
                       ->searchable()
                       ->live()
                       ->preload()

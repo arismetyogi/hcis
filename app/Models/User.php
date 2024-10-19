@@ -24,7 +24,7 @@ class User extends Authenticatable
     'email',
     'password',
     'is_admin',
-    'team_id'
+    'department_id'
   ];
 
   /**
@@ -53,7 +53,7 @@ class User extends Authenticatable
   // Relationships
   public function departments(): BelongsTo
   {
-    return $this->belongsTo(Department::class);
+    return $this->belongsTo(Department::class, 'department_id');
   }
   // public function outlets(): HasMany
   // {

@@ -18,7 +18,7 @@ return new class extends Migration
       $table->timestamp('email_verified_at')->nullable();
       $table->string('password');
       $table->boolean('is_admin')->default(false);
-      $table->string('department_id');
+      $table->foreignId('department_id')->constrained('departments')->onDelete('cascade');
       $table->rememberToken();
       $table->timestamps();
     });

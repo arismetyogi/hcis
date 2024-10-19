@@ -19,6 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class UserResource extends Resource
 {
@@ -39,58 +40,46 @@ class UserResource extends Resource
   protected static ?string $slug = 'users';
 
   protected static ?int $navigationSort = 1;
-  protected function getFormSchema(): array
-  {
-    return [
-      Select::make('department_id')
-        ->label('Department')
-        ->options(Department::all()->pluck('name', 'id'))
-        ->required()
-        ->visible(fn($livewire) => auth()->user()->isAdmin()),
-      TextInput::make('name')->required(),
-      TextInput::make('email')->email()->required(),
-      TextInput::make('password')->required(),
-    ];
-  }
-
-  // public static function form(Form $form): Form
+  // protected function getFormSchema(): array
   // {
-  //   return $form
-  //     ->schema([
-  //       Forms\Components\TextInput::make('name')
-  //         ->label('Nama User')
-  //         ->required()
-  //         ->maxLength(255),
-  //       Forms\Components\TextInput::make('email')
-  //         ->email()
-  //         ->required()
-  //         ->maxLength(255),
-  //       Forms\Components\TextInput::make('password')
-  //         ->password()
-  //         ->required()
-  //         ->maxLength(255),
-  //       Forms\Components\Toggle::make('is_admin'),
-  //       Forms\Components\Select::make('department_id')
-  //         ->relationship('department', 'name')
-  //         ->getSearchResultsUsing(function (string $search) {
-  //           return Department::query()
-  //             ->where('name', 'like', "%{$search}%")
-  //             ->limit(10) // Limit the number of results to avoid performance issues
-  //             ->get()
-  //             ->mapWithKeys(function ($department) {
-  //               return [
-  //                 $department->id => "{$department->name}",
-  //               ];
-  //             });
-  //         })
-  //         ->getOptionLabelUsing(
-  //           fn($value) => optional(Department::find($value))->name
-  //         )
-  //         ->searchable()
-  //         ->preload()
-  //         ->required(),
-  //     ]);
+  //   return [
+  //     Select::make('department_id')
+  //       ->label('Department')
+  //       ->options(Department::all()->pluck('name', 'id'))
+  //       ->required()
+  //       ->visible(fn($livewire) => auth()->user()->isAdmin()),
+  //     TextInput::make('name')->required(),
+  //     TextInput::make('email')->email()->required(),
+  //     TextInput::make('password')->required(),
+  //   ];
   // }
+
+  public static function form(Form $form): Form
+  {
+    return $form
+      ->schema([
+        Forms\Components\TextInput::make('name')
+          ->label('Nama User')
+          ->required()
+          ->maxLength(255),
+        Forms\Components\TextInput::make('email')
+          ->email()
+          ->required()
+          ->maxLength(255),
+        Forms\Components\TextInput::make('password')
+          ->password()
+          ->required()
+          ->maxLength(255),
+        Forms\Components\Select::make('department_id')
+          ->label('Unit Kerja - UB')
+          ->relationship('department', 'name')
+          ->options(Department::all()->pluck('name', 'id'))
+          ->searchable()
+          ->preload()
+          ->required(),
+        Forms\Components\Toggle::make('is_admin'),
+      ]);
+  }
 
   public static function table(Table $table): Table
   {
@@ -102,7 +91,7 @@ class UserResource extends Resource
           ->searchable(),
         Tables\Columns\ToggleColumn::make('is_admin')
           ->sortable(),
-        Tables\Columns\TextColumn::make('department.name')
+        Tables\Columns\TextColumn::make('department_id')
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('email_verified_at')
