@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Policies\OutletPolicy;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Outlet;
@@ -18,6 +19,10 @@ use App\Filament\Resources\OutletResource\RelationManagers;
 
 class OutletResource extends Resource
 {
+  protected static function getPolicy(): string
+  {
+    return OutletPolicy::class;
+  }
   protected static ?string $model = Outlet::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

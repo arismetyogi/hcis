@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostcodeResource\Pages;
 use App\Filament\Resources\PostcodeResource\RelationManagers;
 use App\Models\Postcode;
+use App\Policies\PostcodePolicy;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,6 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PostcodeResource extends Resource
 {
+  protected static function getPolicy(): string
+  {
+    return PostcodePolicy::class;
+  }
   protected static ?string $model = Postcode::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

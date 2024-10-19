@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DepartmentResource\Pages;
 use App\Filament\Resources\DepartmentResource\RelationManagers;
 use App\Models\Department;
+use App\Policies\DepartmentPolicy;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,6 +19,10 @@ use Filament\Tables\Actions\ViewAction;
 
 class DepartmentResource extends Resource
 {
+  protected static function getPolicy(): string
+  {
+    return DepartmentPolicy::class;
+  }
   protected static ?string $model = Department::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
