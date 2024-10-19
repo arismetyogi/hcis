@@ -29,6 +29,7 @@ class UserSeeder extends Seeder
         'name' => 'adm bandung',
         'email' => 'adm.bandung@test.com',
         'password' => Hash::make('123'),
+        'is_admin' => false,
         'department_id' => 3103,
       ]
     ]);

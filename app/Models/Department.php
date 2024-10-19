@@ -12,14 +12,13 @@ class Department extends Model
 
   protected $fillable = ['id', 'name', 'branch_name', 'slug'];
 
-  public function employees(): HasMany
-  {
-    return $this->hasMany(Employee::class);
-  }
-
   public function outlets(): HasMany
   {
     return $this->hasMany(Outlet::class);
+  }
+  public function employees(): HasMany
+  {
+    return $this->hasMany(Employee::class);
   }
 
   public function users(): HasMany

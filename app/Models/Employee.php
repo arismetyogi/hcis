@@ -18,10 +18,6 @@ class Employee extends Model
   {
     return $this->belongsTo(Department::class);
   }
-  public function team(): BelongsTo
-  {
-    return $this->belongsTo(Team::class);
-  }
   public function outlet(): BelongsTo
   {
     return $this->belongsTo(Outlet::class);
@@ -31,9 +27,9 @@ class Employee extends Model
   {
     return $this->hasMany(Payroll::class);
   }
-  public function postcode(): HasOne
+  public function postcode(): BelongsTo
   {
-    return $this->hasOne(Postcode::class);
+    return $this->belongsTo(Postcode::class);
   }
   public function employee_status(): BelongsTo
   {
@@ -43,38 +39,38 @@ class Employee extends Model
   {
     return $this->belongsTo(Gradeeselon::class);
   }
-  public function title(): HasOne
+  public function title(): BelongsTo
   {
-    return $this->hasOne(Title::class);
+    return $this->belongsTo(Title::class);
   }
-  public function subtitle(): HasOne
+  public function subtitle(): BelongsTo
   {
-    return $this->hasOne(Subtitle::class);
+    return $this->belongsTo(Subtitle::class);
   }
-  public function band(): HasOne
+  public function band(): BelongsTo
   {
-    return $this->hasOne(Band::class);
+    return $this->belongsTo(Band::class);
   }
-  public function emplevel(): HasOne
+  public function emplevel(): BelongsTo
   {
-    return $this->hasOne(Emplevel::class);
+    return $this->belongsTo(Emplevel::class);
   }
-  public function descstatus(): HasOne
+  public function descstatus(): BelongsTo
   {
-    return $this->hasOne(Descstatus::class);
+    return $this->belongsTo(Descstatus::class);
   }
-  public function bank(): HasOne
+  public function bank(): BelongsTo
   {
-    return $this->hasOne(Bank::class);
+    return $this->belongsTo(Bank::class);
   }
   public function recruitment(): BelongsTo
   {
     return $this->belongsTo(Recruitment::class);
   }
-  public function user(): BelongsTo
-  {
-    return $this->belongsTo(User::class);
-  }
+  // public function user(): BelongsTo
+  // {
+  //   return $this->belongsTo(User::class);
+  // }
   public function area(): BelongsTo
   {
     return $this->belongsTo(Area::class);

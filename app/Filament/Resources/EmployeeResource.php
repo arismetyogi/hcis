@@ -3,31 +3,38 @@
 namespace App\Filament\Resources;
 
 use App\Models\Outlet;
+use App\Traits\FiltersByDepartment;
 use Filament\Forms;
+use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables;
 use Filament\Forms\Get;
 use App\Models\Employee;
 use App\Models\Postcode;
 use Filament\Forms\Form;
-use App\Models\Department;
 use Filament\Tables\Table;
-use App\Models\Gradeeselon;
 use Filament\Resources\Resource;
-use App\Enums\MalePantsSizeEnums;
 use App\Enums\StatusPasanganEnums;
-use Illuminate\Support\Collection;
-use App\Enums\FemalePantsSizeEnums;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Set;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeResource extends Resource
 {
+  use FiltersByDepartment;
   protected static ?string $model = Employee::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-user-group';
+  public static function getEloquentQuery(): Builder
+  {
+    return self::scopeForUserDepartment(parent::getEloquentQuery());
+  }
 
   public static function form(Form $form): Form
   {
@@ -40,16 +47,16 @@ class EmployeeResource extends Resource
             'lg' => 3,
           ])
           ->schema([
-            Forms\Components\Section::make('Employees\' Personal Information')
+            Section::make('Employees\' Personal Information')
               ->schema([
-                Forms\Components\Grid::make()
+                Grid::make()
                   ->columns([
                     'default' => 2,
                     'md' => 3,
                     'lg' => 3,
                   ])
                   ->schema([
-                    Forms\Components\TextInput::make('first_name')
+                    TextInput::make('first_name')
                       ->label('Nama Depan')
                       ->required()
                       ->maxLength(255),
@@ -77,7 +84,6 @@ class EmployeeResource extends Resource
                       ->type('text')
                       ->maxLength(16)
                       ->reactive()
-                      // ->rules(['numeric', 'digits:16'])
                       ->afterStateUpdated(function (callable $set, $state) {
                         // Ensure only numeric values remain
                         $set('npwp', preg_replace('/\D/', '', $state));
@@ -124,12 +130,6 @@ class EmployeeResource extends Resource
                             ];
                           });
                       })
-                      // ->getOptionLabelUsing(
-                      //   fn($value) => optional(Postcode::find($value))
-                      //     ->postal_code . ' - ' . optional(Postcode::find($value))
-                      //     ->urban . ' - ' . optional(Postcode::find($value))
-                      //     ->subdistrict
-                      // )
                       ->searchable()
                       ->nullable(),
                   ])
@@ -146,22 +146,23 @@ class EmployeeResource extends Resource
                     Forms\Components\Select::make('department_id')
                       ->label('Unit Kerja - UB')
                       ->relationship('department', 'name')
-                      ->default(auth()->user()->department_id)
-                      ->disabled(!auth()->user()->is_admin())
-                      // ->getSearchResultsUsing(function (string $search) {
-                      //   return Department::query()
-                      //     ->where('name', 'like', "%{$search}%")
-                      //     ->limit(10) // Limit the number of results to avoid performance issues
-                      //     ->get()
-                      //     ->mapWithKeys(function ($department) {
-                      //       return [
-                      //         $department->id => "{$department->department_id}",
-                      //       ];
-                      //     });
-                      // })
-                      // ->getOptionLabelUsing(
-                      //   fn($value) => optional(Department::find($value))->name
-                      // )
+                      ->disabled(fn($livewire) => !Auth::user()->is_admin)
+                      //   // ->disabled(!Auth::user()->is_admin)
+                      ->default(Auth::user()->department_id)
+                      //   // ->getSearchResultsUsing(function (string $search) {
+                      //   //   return Department::query()
+                      //   //     ->where('name', 'like', "%{$search}%")
+                      //   //     ->limit(10) // Limit the number of results to avoid performance issues
+                      //   //     ->get()
+                      //   //     ->mapWithKeys(function ($department) {
+                      //   //       return [
+                      //   //         $department->id => "{$department->department_id}",
+                      //   //       ];
+                      //   //     });
+                      //   // })
+                      //   // ->getOptionLabelUsing(
+                      //   //   fn($value) => optional(Department::find($value))->name
+                      //   // )
                       ->searchable()
                       ->live()
                       ->preload()
@@ -178,6 +179,7 @@ class EmployeeResource extends Resource
                       ->preload()
                       ->searchable()
                       ->required(),
+
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
                       ->unique()
@@ -339,7 +341,7 @@ class EmployeeResource extends Resource
                       ->type('text')
                       ->maxLength(10)
                       ->placeholder('Masukkan No. Rekening')
-                      ->rule(['regex:/^[0-9]+$/', 'max:10']),
+                      ->rule(['regex:/^[0-9]+$/', 'max:16']),
                     Forms\Components\TextInput::make('rekening_name')
                       ->label('Nama Pemilik Rekening')
                       ->required()
@@ -397,33 +399,33 @@ class EmployeeResource extends Resource
           ->searchable(),
         Tables\Columns\TextColumn::make('address')
           ->searchable(),
-        Tables\Columns\TextColumn::make('departments.name')
+        Tables\Columns\TextColumn::make('department.name')
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('NIK')
           ->searchable(),
         Tables\Columns\TextColumn::make('npwp')
           ->searchable(),
-        Tables\Columns\TextColumn::make('employee_statuses.name')
+        Tables\Columns\TextColumn::make('employee_status.name')
           ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('titles.name')
+        Tables\Columns\TextColumn::make('title.name')
           ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('subtitles.name')
+        Tables\Columns\TextColumn::make('subtitle.name')
           ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('bands.name')
+        Tables\Columns\TextColumn::make('band.name')
           ->searchable(),
-        Tables\Columns\TextColumn::make('outlets.name')
+        Tables\Columns\TextColumn::make('outlet.name')
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('npp')
           ->searchable(),
-        Tables\Columns\TextColumn::make('gradeeselon_id')
-          ->numeric()
+        Tables\Columns\TextColumn::make('gradeeselon.grade')
+          ->label('Grade')
           ->sortable(),
-        Tables\Columns\TextColumn::make('emplevel_id')
+        Tables\Columns\TextColumn::make('emplevel.name')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('saptitle_name')
@@ -437,7 +439,7 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('date_last_mutated')
           ->date()
           ->sortable(),
-        Tables\Columns\TextColumn::make('descstatuses.name')
+        Tables\Columns\TextColumn::make('descstatus.name')
           ->sortable(),
         Tables\Columns\TextColumn::make('bpjs_id')
           ->searchable(),
@@ -463,10 +465,10 @@ class EmployeeResource extends Resource
           ->searchable(),
         Tables\Columns\TextColumn::make('rekening_name')
           ->searchable(),
-        Tables\Columns\TextColumn::make('bank_id')
+        Tables\Columns\TextColumn::make('bank.name')
           ->numeric()
           ->sortable(),
-        Tables\Columns\TextColumn::make('recruitment_id')
+        Tables\Columns\TextColumn::make('recruitment.name')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('pants_size')
@@ -485,19 +487,18 @@ class EmployeeResource extends Resource
       ->filters([
         //
       ])
-      ->query(function ($query) {
-        $user = auth()->user();
-
-        // If the user is not an admin, scope by department
-        if (!$user->hasRole('admin')) {
-          return $query->where('department_id', $user->department_id);
-        }
-
-        return $query;
-      })
+      // ->query(function ($query) {
+      //   $user = Auth::user();
+      //   // If the user is not an admin, scope by department
+      //   if (!$user->is_admin) {
+      //     return $query->where('department_id', $user->department_id);
+      //   }
+      //   return $query;
+      // })
       ->actions([
         Tables\Actions\ViewAction::make(),
         Tables\Actions\EditAction::make(),
+        Tables\Actions\DeleteAction::make(),
       ])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([

@@ -32,6 +32,14 @@ class OutletResource extends Resource
 
   protected static ?int $navigationSort = 3;
 
+  protected static function applyScope(Builder $query): Builder
+  {
+    $user = auth()->user();
+    if (!$user->isAdmin()) {
+      return $query->where('department_id', $user->department_id);
+    }
+    return $query;
+  }
   public static function form(Form $form): Form
   {
     return $form
