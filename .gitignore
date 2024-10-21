@@ -4,7 +4,7 @@
 /public/storage
 /storage/*.key
 /storage/app/public
-/database/data
+/database/data/*.json
 # /.env
 .phpunit.result.cache
 /.phpunit.result.cache
