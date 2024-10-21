@@ -2,14 +2,16 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\PayrollExporter;
 use App\Filament\Resources\PayrollResource\Pages;
 use App\Filament\Resources\PayrollResource\RelationManagers;
-use App\Models\Employee;
 use App\Models\Payroll;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ExportAction;
+use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -217,8 +219,16 @@ class PayrollResource extends Resource
         Tables\Actions\ViewAction::make(),
         Tables\Actions\EditAction::make(),
       ])
+      ->headerActions([
+        ExportAction::make()
+          ->exporter(PayrollResource::class)
+          ->columnMapping(false)
+      ])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([
+          ExportBulkAction::make()
+            ->exporter(PayrollExporter::class)
+            ->columnMapping(false),
           Tables\Actions\DeleteBulkAction::make(),
         ]),
       ]);

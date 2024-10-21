@@ -16,16 +16,15 @@ return new class extends Migration
       $table->foreignId('department_id')
         ->constrained('departments')
         ->cascadeOnDelete();
-      $table->char('NIK')->unique();
+      $table->char('NIK', length: 16)->unique();
       $table->string('first_name');
-      $table->string('middle_name')->nullable();
       $table->string('last_name');
       $table->date('date_of_birth');
       $table->char('phone_no', 15);
       $table->string('sex');
       $table->string('address');
       $table->char('postcode_id')->nullable();
-      $table->char('npwp');
+      $table->char('npwp', length: 16);
       $table->foreignId('employee_status_id')
         ->constrained('employee_statuses');
       $table->foreignId('title_id')
@@ -41,7 +40,7 @@ return new class extends Migration
       $table->foreignId('outlet_id')
         ->constrained('outlets')
         ->cascadeOnDelete();
-      $table->string('npp');
+      $table->string('npp', length: 9);
       $table->foreignId('gradeeselon_id')
         ->constrained('gradeeselons')
         ->cascadeOnDelete();
@@ -63,7 +62,7 @@ return new class extends Migration
       $table->char('bpjs_id')->unique();
       $table->integer('insured_member_count');
       $table->integer('bpjs_class');
-      $table->integer('bpjstk_id');
+      $table->char('bpjstk_id');
 
       $table->string('contract_document_id')->nullable();
       $table->integer('contract_sequence_no')->nullable();

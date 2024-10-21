@@ -35,6 +35,8 @@ class AdminPanelProvider extends PanelProvider
         'warning' => Color::Orange,
         'primary' => Color::Cyan,
       ])
+      ->databaseNotifications()
+      // ->databaseNotificationsPolling('5s')
       ->brandLogo(url('https://www.biofarma.co.id/media/image/originals/post/2023/07/06/kf.png'))
       ->brandLogoHeight('4rem')
       ->favicon(asset('images/kf.png'))

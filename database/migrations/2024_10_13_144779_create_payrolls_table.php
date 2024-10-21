@@ -29,9 +29,9 @@ return new class extends Migration
       $table->float('2580_tunj_lain')
         ->nullable();
       $table->float('ujp')
-        ->default(0);
+        ->nullable();
       $table->float('4020_sumbangan_cuti_tahunan')
-        ->default(0);
+        ->nullable();
       $table->float('6500_pot_wajib_koperasi')
         ->nullable();
       $table->float('6540_pot_pinjaman_koperasi')

@@ -7,6 +7,7 @@ use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\Department;
 use App\Models\User;
 use App\Policies\UserPolicy;
+use Exception;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -40,19 +41,19 @@ class UserResource extends Resource
   protected static ?string $slug = 'users';
 
   protected static ?int $navigationSort = 1;
-  // protected function getFormSchema(): array
-  // {
-  //   return [
-  //     Select::make('department_id')
-  //       ->label('Department')
-  //       ->options(Department::all()->pluck('name', 'id'))
-  //       ->required()
-  //       ->visible(fn($livewire) => auth()->user()->isAdmin()),
-  //     TextInput::make('name')->required(),
-  //     TextInput::make('email')->email()->required(),
-  //     TextInput::make('password')->required(),
-  //   ];
-  // }
+  protected function getFormSchema(): array
+  {
+    // return [
+    //   Select::make('department_id')
+    //     ->label('Department')
+    //     ->options(Department::all()->pluck('name', 'id'))
+    //     ->required()
+    //     ->visible(fn($livewire) => auth()->user()->isAdmin()),
+    //   TextInput::make('name')->required(),
+    //   TextInput::make('email')->email()->required(),
+    //   TextInput::make('password')->required(),
+    // ];
+  }
 
   public static function form(Form $form): Form
   {
@@ -74,8 +75,8 @@ class UserResource extends Resource
           ->label('Unit Kerja - UB')
           ->relationship('department', 'name')
           ->options(Department::all()->pluck('name', 'id'))
-          ->searchable()
           ->preload()
+          ->searchable()
           ->required(),
         Forms\Components\Toggle::make('is_admin'),
       ]);

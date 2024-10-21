@@ -12,9 +12,13 @@ use Filament\Forms\Get;
 use App\Models\Employee;
 use App\Models\Postcode;
 use Filament\Forms\Form;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Enums\StatusPasanganEnums;
+use App\Filament\Exports\EmployeeExporter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -24,6 +28,11 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Set;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ExportAction;
+use Filament\Tables\Actions\ViewAction;
+use Illuminate\Bus\Batch;
 use Illuminate\Support\Facades\Auth;
 
 class EmployeeResource extends Resource
@@ -94,10 +103,11 @@ class EmployeeResource extends Resource
                       ->required(),
                     Forms\Components\TextInput::make('phone_no')
                       ->label('No Telp.')
-                      ->tel()
                       ->required()
-                      ->placeholder('081234567890')
-                      ->maxLength(15),
+                      ->tel()
+                      ->prefix('+62')
+                      // ->telRegex('/^[+]*[(]{0,2}[0-9]{2,4}[)]{0,1}[-\s\.\/0-9]*$/')
+                      ->maxLength(13),
                     Forms\Components\Select::make('sex')
                       ->label('Jenis Kelamin')
                       ->options([
@@ -257,9 +267,16 @@ class EmployeeResource extends Resource
                       ->label('No BPJS')
                       ->unique()
                       ->required()
-                      ->maxLength(255),
+                      ->type('text')
+                      ->maxLength(16)
+                      ->reactive()
+                      ->afterStateUpdated(function (callable $set, $state) {
+                        // Ensure only numeric values remain
+                        $set('bpjs_id', preg_replace('/\D/', '', $state));
+                      }),
                     Forms\Components\TextInput::make('insured_member_count')
                       ->label('Jumlah Tanggungan')
+                      ->integer()
                       ->minValue(0)
                       ->maxValue(4)
                       ->required()
@@ -267,6 +284,7 @@ class EmployeeResource extends Resource
                       ->rules(['integer', 'min:0', 'max:4']),
                     Forms\Components\TextInput::make('bpjs_class')
                       ->label('Kelas BPJS')
+                      ->integer()
                       ->minValue(0)
                       ->maxValue(3)
                       ->required()
@@ -275,7 +293,13 @@ class EmployeeResource extends Resource
                       ->label('No BPJSTK')
                       ->unique()
                       ->required()
-                      ->numeric(),
+                      ->type('text')
+                      ->maxLength(16)
+                      ->reactive()
+                      ->afterStateUpdated(function (callable $set, $state) {
+                        // Ensure only numeric values remain
+                        $set('bpjstk_id', preg_replace('/\D/', '', $state));
+                      }),
                   ])
               ]),
             Forms\Components\Section::make('Contract Info')
@@ -293,11 +317,13 @@ class EmployeeResource extends Resource
                       ->maxLength(50),
                     Forms\Components\TextInput::make('contract_sequence_no')
                       ->label('Kontrak Ke-')
+                      ->integer()
                       ->minValue(0)
                       ->maxValue(3)
                       ->rules(['integer', 'min:0', 'max:3']),
                     Forms\Components\TextInput::make('contract_term')
                       ->label('Masa Kontrak')
+                      ->integer()
                       ->minValue(0)
                       ->maxValue(5)
                       ->rules(['integer', 'min:0', 'max:5']),
@@ -341,9 +367,12 @@ class EmployeeResource extends Resource
                       ->unique()
                       ->required()
                       ->type('text')
-                      ->maxLength(10)
-                      ->placeholder('Masukkan No. Rekening')
-                      ->rule(['regex:/^[0-9]+$/', 'max:16']),
+                      ->maxLength(16)
+                      ->reactive()
+                      ->afterStateUpdated(function (callable $set, $state) {
+                        // Ensure only numeric values remain
+                        $set('rekening_no', preg_replace('/\D/', '', $state));
+                      }),
                     Forms\Components\TextInput::make('rekening_name')
                       ->label('Nama Pemilik Rekening')
                       ->required()
@@ -387,6 +416,8 @@ class EmployeeResource extends Resource
   {
     return $table
       ->columns([
+        Tables\Columns\TextColumn::make('npp')
+          ->searchable(),
         Tables\Columns\TextColumn::make('first_name')
           ->searchable()
           ->sortable(),
@@ -396,18 +427,28 @@ class EmployeeResource extends Resource
           ->date()
           ->sortable(),
         Tables\Columns\TextColumn::make('phone_no')
+          ->getStateUsing(function ($record) {
+            return '+62' . $record->phone_no; // Concatenate prefix with the phone number
+          })
           ->searchable(),
-        Tables\Columns\TextColumn::make('sex')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('address')
-          ->searchable(),
+        Tables\Columns\TextColumn::make('outlet.name')
+          ->searchable()
+          ->sortable(),
         Tables\Columns\TextColumn::make('department.name')
           ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('NIK')
+        Tables\Columns\TextColumn::make('sex')
           ->searchable(),
+        Tables\Columns\TextColumn::make('address')
+          ->label('Alamat')
+          ->searchable()
+          ->toggleable(isToggledHiddenByDefault: true),
+        Tables\Columns\TextColumn::make('nik')
+          ->searchable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('npwp')
-          ->searchable(),
+          ->searchable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('employee_status.name')
           ->searchable()
           ->sortable(),
@@ -418,14 +459,13 @@ class EmployeeResource extends Resource
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('band.name')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('outlet.name')
           ->searchable()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('npp')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('gradeeselon.grade')
-          ->label('Grade')
+          ->toggleable(isToggledHiddenByDefault: true),
+        Tables\Columns\TextColumn::make('gradeeselon_id')
+          ->label('Grade - Eselon')
+          ->getStateUsing(function ($record) {
+            return $record->grade . '-' . $record->eselon;
+          })
           ->sortable(),
         Tables\Columns\TextColumn::make('emplevel.name')
           ->numeric()
@@ -446,6 +486,7 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('bpjs_id')
           ->searchable(),
         Tables\Columns\TextColumn::make('insured_member_count')
+          ->label('Jumlah Tanggungan')
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('bpjs_class')
@@ -454,15 +495,9 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('bpjstk_id')
           ->numeric()
           ->sortable(),
-        Tables\Columns\TextColumn::make('contract_id')
-          ->numeric()
+        Tables\Columns\TextColumn::make('contract_document_id')
+          ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('tax_id')
-          ->numeric()
-          ->sortable(),
-        // Tables\Columns\TextColumn::make('honorarium')
-        //   ->numeric()
-        //   ->sortable(),
         Tables\Columns\TextColumn::make('rekening_no')
           ->searchable(),
         Tables\Columns\TextColumn::make('rekening_name')
@@ -474,6 +509,9 @@ class EmployeeResource extends Resource
           ->numeric()
           ->sortable(),
         Tables\Columns\TextColumn::make('pants_size')
+          ->getStateUsing(function ($record) {
+            return $record->pants_size;
+          })
           ->searchable(),
         Tables\Columns\TextColumn::make('shirt_size')
           ->searchable(),
@@ -489,22 +527,22 @@ class EmployeeResource extends Resource
       ->filters([
         //
       ])
-      // ->query(function ($query) {
-      //   $user = Auth::user();
-      //   // If the user is not an admin, scope by department
-      //   if (!$user->is_admin) {
-      //     return $query->where('department_id', $user->department_id);
-      //   }
-      //   return $query;
-      // })
       ->actions([
-        Tables\Actions\ViewAction::make(),
-        Tables\Actions\EditAction::make(),
-        Tables\Actions\DeleteAction::make(),
+        ViewAction::make(),
+        EditAction::make(),
+        DeleteAction::make(),
+      ])
+      ->headerActions([
+        ExportAction::make()
+          ->exporter(EmployeeExporter::class)
+          ->columnMapping(false)
       ])
       ->bulkActions([
-        Tables\Actions\BulkActionGroup::make([
-          Tables\Actions\DeleteBulkAction::make(),
+        BulkActionGroup::make([
+          ExportBulkAction::make()
+            ->exporter(EmployeeExporter::class)
+            ->columnMapping(false),
+          DeleteBulkAction::make(),
         ]),
       ]);
   }
@@ -521,7 +559,7 @@ class EmployeeResource extends Resource
     return [
       'index' => Pages\ListEmployees::route('/'),
       'create' => Pages\CreateEmployee::route('/create'),
-      'view' => Pages\ViewEmployee::route('/{record}'),
+      // 'view' => Pages\ViewEmployee::route('/{record}'),
       'edit' => Pages\EditEmployee::route('/{record}/edit'),
     ];
   }
