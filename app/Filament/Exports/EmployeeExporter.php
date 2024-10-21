@@ -17,10 +17,14 @@ class EmployeeExporter extends Exporter
       // ExportColumn::make('id')
       //     ->label('ID'),
       ExportColumn::make('npp'),
-      ExportColumn::make('department_id'),
-      ExportColumn::make('department.name'),
-      ExportColumn::make('outlet.pos_outlet_id'),
-      ExportColumn::make('outlet.name'),
+      ExportColumn::make('department_id')
+        ->label('Kode BM'),
+      ExportColumn::make('department.name')
+        ->label('Nama BM'),
+      ExportColumn::make('outlet.outlet_sap_id')
+        ->label('Kode Outlet'),
+      ExportColumn::make('outlet.name')
+        ->label('Nama Outlet'),
       ExportColumn::make('NIK'),
       ExportColumn::make('first_name'),
       ExportColumn::make('last_name'),

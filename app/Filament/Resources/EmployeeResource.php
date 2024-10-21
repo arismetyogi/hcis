@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Models\Outlet;
 use App\Traits\FiltersByDepartment;
 use Filament\Forms;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables;
 use Filament\Forms\Get;
@@ -15,6 +14,7 @@ use Filament\Forms\Form;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Enums\StatusPasanganEnums;
@@ -32,7 +32,8 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ViewAction;
-use Illuminate\Bus\Batch;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class EmployeeResource extends Resource
@@ -41,6 +42,25 @@ class EmployeeResource extends Resource
   protected static ?string $model = Employee::class;
 
   protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+  protected static ?string $recordTitleAttribute = 'first_name'; //global search
+
+  public static function getGlobalSearchResultTitle(Model $record): string
+  {
+    return $record->first_name . ' ' . $record->last_name;
+  }
+  public static function getGloballySearchableAttributes(): array
+  {
+    return ['npp', 'first_name', 'last_name'];
+  }
+
+  public static function getGlobalSearchResultDetails(Model $record): array
+  {
+    return [
+      'NPP' => $record->npp,
+      'Outlet' => $record->outlet->outlet_sap_id . ' - ' . $record->outlet->name,
+    ];
+  }
   public static function getEloquentQuery(): Builder
   {
     return self::scopeForUserDepartment(parent::getEloquentQuery());
@@ -418,10 +438,16 @@ class EmployeeResource extends Resource
       ->columns([
         Tables\Columns\TextColumn::make('npp')
           ->searchable(),
-        Tables\Columns\TextColumn::make('first_name')
-          ->searchable()
-          ->sortable(),
-        Tables\Columns\TextColumn::make('last_name')
+        // Tables\Columns\TextColumn::make('first_name')
+        //   ->searchable()
+        //   ->sortable(),
+        // Tables\Columns\TextColumn::make('last_name')
+        //   ->searchable(),
+        Tables\Columns\TextColumn::make('name')
+          ->label('Nama Lengkap')
+          ->getStateUsing(function ($record) {
+            return $record->first_name . ' ' . $record->last_name;
+          })
           ->searchable(),
         Tables\Columns\TextColumn::make('date_of_birth')
           ->date()
@@ -464,7 +490,7 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('gradeeselon_id')
           ->label('Grade - Eselon')
           ->getStateUsing(function ($record) {
-            return $record->grade . '-' . $record->eselon;
+            return $record->gradeeselon->grade . '-' . $record->gradeeselon->eselon;
           })
           ->sortable(),
         Tables\Columns\TextColumn::make('emplevel.name')
@@ -525,7 +551,13 @@ class EmployeeResource extends Resource
           ->toggleable(isToggledHiddenByDefault: true),
       ])
       ->filters([
-        //
+        SelectFilter::make('Unit Kerja')
+          ->relationship('department', 'name')
+          ->searchable()
+          ->preload()
+          ->indicator('Unit Kerja'),
+        SelectFilter::make('Jabatan')
+          ->relationship('title', 'name'),
       ])
       ->actions([
         ViewAction::make(),
