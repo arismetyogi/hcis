@@ -22,7 +22,7 @@ class PostcodeResource extends Resource
   }
   protected static ?string $model = Postcode::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
   protected static ?string $navigationLabel = 'Post Code';
 
@@ -33,6 +33,15 @@ class PostcodeResource extends Resource
   protected static ?string $slug = 'postcodes';
 
   protected static ?int $navigationSort = 1;
+
+  public static function getNavigationBadge(): ?string
+  {
+    return   static::getModel()::count();
+  }
+  public static function getNavigationBadgeColor(): string|array|null
+  {
+    return 'warning';
+  }
 
   public static function form(Form $form): Form
   {

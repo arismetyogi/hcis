@@ -30,7 +30,7 @@ class UserResource extends Resource
   }
   protected static ?string $model = User::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-user-group';
+  protected static ?string $navigationIcon = 'heroicon-o-users';
 
   protected static ?string $navigationLabel = 'Users';
 
@@ -41,18 +41,14 @@ class UserResource extends Resource
   protected static ?string $slug = 'users';
 
   protected static ?int $navigationSort = 1;
-  protected function getFormSchema(): array
+
+  public static function getNavigationBadge(): ?string
   {
-    // return [
-    //   Select::make('department_id')
-    //     ->label('Department')
-    //     ->options(Department::all()->pluck('name', 'id'))
-    //     ->required()
-    //     ->visible(fn($livewire) => auth()->user()->isAdmin()),
-    //   TextInput::make('name')->required(),
-    //   TextInput::make('email')->email()->required(),
-    //   TextInput::make('password')->required(),
-    // ];
+    return   static::getModel()::count();
+  }
+  public static function getNavigationBadgeColor(): string|array|null
+  {
+    return 'warning';
   }
 
   public static function form(Form $form): Form

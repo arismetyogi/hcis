@@ -15,13 +15,14 @@ use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PayrollResource extends Resource
 {
   protected static ?string $model = Payroll::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-banknotes';
 
   protected static ?string $navigationLabel = 'Payroll';
 
@@ -30,6 +31,30 @@ class PayrollResource extends Resource
   protected static ?string $slug = 'employees-payrolls';
 
 
+  public static function getGlobalSearchEloquentQuery(): Builder
+  {
+    return parent::getGlobalSearchEloquentQuery()->with(['employee']);
+  }
+  public static function getGloballySearchableAttributes(): array
+  {
+    return ['employee.npp', 'employee.first_name', 'employee.last_name'];
+  }
+
+  public static function getGlobalSearchResultDetails(Model $record): array
+  {
+    return [
+      'Karyawan' => $record->employee->npp . ' - ' . $record->employee->first_name . ' ' . $record->employee->last_name,
+    ];
+  }
+
+  public static function getNavigationBadge(): ?string
+  {
+    return   static::getModel()::count();
+  }
+  public static function getNavigationBadgeColor(): string|array|null
+  {
+    return 'warning';
+  }
 
   public static function form(Form $form): Form
   {

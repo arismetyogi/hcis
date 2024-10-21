@@ -43,11 +43,11 @@ class EmployeeResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
-  protected static ?string $recordTitleAttribute = 'first_name'; //global search
+  //global search
 
   public static function getGlobalSearchResultTitle(Model $record): string
   {
-    return $record->first_name . ' ' . $record->last_name;
+    return $record->npp . ' - ' . $record->first_name . ' ' . $record->last_name;
   }
   public static function getGloballySearchableAttributes(): array
   {
@@ -57,10 +57,23 @@ class EmployeeResource extends Resource
   public static function getGlobalSearchResultDetails(Model $record): array
   {
     return [
-      'NPP' => $record->npp,
       'Outlet' => $record->outlet->outlet_sap_id . ' - ' . $record->outlet->name,
     ];
   }
+  // public static function getGlobalSearchEloquentQuery(): Builder
+  // {
+  //   return parent::getGlobalSearchEloquentQuery()->with(['outlet']);
+  // }
+
+  public static function getNavigationBadge(): ?string
+  {
+    return   static::getModel()::count();
+  }
+  public static function getNavigationBadgeColor(): string|array|null
+  {
+    return 'warning';
+  }
+
   public static function getEloquentQuery(): Builder
   {
     return self::scopeForUserDepartment(parent::getEloquentQuery());

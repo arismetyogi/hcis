@@ -25,7 +25,7 @@ class OutletResource extends Resource
   }
   protected static ?string $model = Outlet::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
   protected static ?string $navigationLabel = 'Outlet';
 
@@ -36,6 +36,15 @@ class OutletResource extends Resource
   protected static ?string $slug = 'outlets';
 
   protected static ?int $navigationSort = 3;
+
+  public static function getNavigationBadge(): ?string
+  {
+    return   static::getModel()::count();
+  }
+  public static function getNavigationBadgeColor(): string|array|null
+  {
+    return 'warning';
+  }
 
   protected static function applyScope(Builder $query): Builder
   {

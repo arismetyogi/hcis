@@ -27,9 +27,9 @@ class DepartmentResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
-  protected static ?string $navigationLabel = 'Department';
+  protected static ?string $navigationLabel = 'Unit Kerja';
 
-  protected static ?string $modelLabel = 'Department';
+  protected static ?string $modelLabel = 'Unit Kerja';
 
   protected static ?string $navigationGroup = 'System Configs';
 
@@ -37,6 +37,14 @@ class DepartmentResource extends Resource
 
   protected static ?int $navigationSort = 3;
 
+  public static function getNavigationBadge(): ?string
+  {
+    return   static::getModel()::count();
+  }
+  public static function getNavigationBadgeColor(): string|array|null
+  {
+    return 'warning';
+  }
   public static function form(Form $form): Form
   {
     return $form
