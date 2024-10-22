@@ -6,7 +6,7 @@
 /storage/app/public
 /database/data/*.json
 /database/data.bak/*.json
-# /.env
+/.env
 .phpunit.result.cache
 /.phpunit.result.cache
 
