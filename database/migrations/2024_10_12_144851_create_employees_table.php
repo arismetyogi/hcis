@@ -16,15 +16,15 @@ return new class extends Migration
       $table->foreignId('department_id')
         ->constrained('departments')
         ->cascadeOnDelete();
-      $table->char('NIK', length: 16)->unique();
-      $table->string('first_name');
-      $table->string('last_name');
+      $table->string('nik', length: 16)->unique();
+      $table->string('first_name', 50);
+      $table->string('last_name', 50);
       $table->date('date_of_birth');
-      $table->char('phone_no', 15);
-      $table->string('sex');
-      $table->string('address');
-      $table->char('postcode_id')->nullable();
-      $table->char('npwp', length: 16);
+      $table->string('phone_no', 15);
+      $table->string('sex', 9);
+      $table->string('address', 100);
+      $table->unsignedBigInteger('postcode_id')->nullable();
+      $table->string('npwp', length: 16);
       $table->foreignId('employee_status_id')
         ->constrained('employee_statuses');
       $table->foreignId('title_id')
@@ -50,8 +50,8 @@ return new class extends Migration
       $table->foreignId('emplevel_id')
         ->constrained('emplevels')
         ->cascadeOnDelete();
-      $table->char('saptitle_id')->unique();
-      $table->char('saptitle_name');
+      $table->string('saptitle_id', 15)->unique();
+      $table->string('saptitle_name', 50);
       $table->date('date_hired');
       $table->date('date_promoted');
       $table->date('date_last_mutated');
@@ -59,25 +59,25 @@ return new class extends Migration
         ->constrained('descstatuses')
         ->cascadeOnDelete();
 
-      $table->char('bpjs_id')->unique();
+      $table->string('bpjs_id', 16)->unique();
       $table->integer('insured_member_count');
       $table->integer('bpjs_class');
-      $table->char('bpjstk_id');
+      $table->string('bpjstk_id', 16);
 
-      $table->string('contract_document_id')->nullable();
+      $table->string('contract_document_id', 50)->nullable();
       $table->integer('contract_sequence_no')->nullable();
       $table->integer('contract_term')->nullable();
       $table->date('contract_start')->nullable();
       $table->date('contract_end')->nullable();
 
       // $table->string('tax_id');
-      $table->string('status_pasangan'); // TK, K-0, K-1, K-2, K-3
+      $table->string('status_pasangan', 3); // TK, K-0, K-1, K-2, K-3
       $table->integer('jumlah_tanggungan'); // (0-3)
-      $table->string('pasangan_ditanggung_pajak'); // (ya/tidak)
+      $table->boolean('pasangan_ditanggung_pajak'); // (ya/tidak)
 
       // $table->integer('honorarium');
-      $table->char('rekening_no', 16)->unique();
-      $table->string('rekening_name');
+      $table->string('rekening_no', 16)->unique();
+      $table->string('rekening_name', 50);
       $table->foreignId('bank_id')
         ->constrained('banks');
 
@@ -85,8 +85,8 @@ return new class extends Migration
         ->constrained('recruitments')
         ->cascadeOnDelete();
 
-      $table->string('pants_size');
-      $table->string('shirt_size');
+      $table->string('pants_size', 6);
+      $table->string('shirt_size', 5);
 
       $table->timestamps();
     });

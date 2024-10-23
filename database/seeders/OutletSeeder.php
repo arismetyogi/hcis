@@ -14,7 +14,7 @@ class OutletSeeder extends Seeder
    */
   public function run(): void
   {
-    $jsonPath = database_path('/data/outlet_array.json');
+    $jsonPath = database_path('/data/outlets.json');
 
     // Check if the JSON file exists
     if (File::exists($jsonPath)) {
