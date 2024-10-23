@@ -1,66 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# How To Deploy
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Install Required Software
+```
+sudo apt update
 
-## About Laravel
+sudo apt install git composer zip
+sudo apt install php8.3 php8.3-cli php8.3-fpm php8.3-mysql php8.3-xml php8.3-mbstring php8.3-curl php8.3-zip
+sudo apt install nginx
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Install Composer
+```
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Clone the Project
+```
+cd /var/www
+sudo git clone https://github.com/arismetyogi/hcis.git
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Configuration
 
-## Learning Laravel
+```
+cd /var/www/hcis
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Environment Variables
+Open and edit `.env`
+```
+APP_HOST=production
+APP_URL={host/domain}
+APP_DEBUG=false
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+DB_HOST={MYSQL Host IP}
+DB_DATABASE={Database Name}
+DB_USERNAME={Database Username}
+DB_PASSWORD={Database Password}
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Permision
+```
+sudo chown -R www-data:www-data .
+sudo chown -R www-data:www-data /var/www/hcis/storage
+sudo chown -R www-data:www-data /var/www/hcis/bootstrap/cache
 
-## Laravel Sponsors
+sudo find . -type f -exec chmod 644 {} \;
+sudo find . -type d -exec chomd 755 {} \;
+```
+### Run the required command
+```
+sudo -u www-data composer install --no-dev --optimize-autoloader
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+sudo mkdir /var/www/.npm
+sudo chown -R 33:33 "/var/www/.npm"
 
-### Premium Partners
+sudo npm install
+sudo npm run build
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+sudo composer require livewire/livewire (yes)
 
-## Contributing
+sudo php artisan optimize
+sudo php artisan migrate
+sudo php artisan db:seed
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+sudo php artisan vendor:publish --force --tag=livewire:assets
+sudo php artisan config:cache
+sudo php artisan route:cache
+sudo php artisan view:cache
+sudo php artisan filament:assets
+sudo php artisan filament:cache-components
+```
 
-## Code of Conduct
+## Configure the Web Server (Nginx)
+```
+cd /etc/nginx
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Create a new Nginx server block for your application.
+```
+cd /etc/nginx/sites-available
+sudo vi hcis.conf
+or
+sudo nano hcis.conf
+```
 
-## Security Vulnerabilities
+#### Copy this config and save
+```
+server {
+    listen 80;
+    server_name your-domain.com; //change this with ip, subdomain, or domain
+    root /var/www/hcis/public;
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    index index.php index.html index.htm;
 
-## License
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+#### Link the configuration, restart Nginx and php.
+```
+sudo ln -s /etc/nginx/sites-available/hcis.conf /etc/nginx/sites-enabled/
+sudo systemctl restart nginx
+sudo systemctl restart php8.3-fpm
+```
