@@ -37,16 +37,12 @@ class DatabaseSeeder extends Seeder
 
 
 
-    try {
-      User::create([
-        'name' => 'Admin User',
-        'email' => 'admin@admin.com',
-        'password' => '$2y$12$hCD10ud2kv7bh63qZFqp8.tb1lRTXSJ0jCaJDQSepvWXOF8Hu.oKu', // Hash the password
-        'is_admin' => true,
-        'department_id' => 1,
-      ]);
-    } catch (Exception $e) {
-      //Die silently
-    }
+    User::firstOrCreate([
+      'name' => 'Admin User',
+      'email' => 'admin@admin.com',
+      'password' => '$2y$12$hCD10ud2kv7bh63qZFqp8.tb1lRTXSJ0jCaJDQSepvWXOF8Hu.oKu', // Hash the password
+      'is_admin' => true,
+      'department_id' => 1,
+    ]);
   }
 }
