@@ -9,6 +9,7 @@ use App\Models\Outlet;
 use App\Models\Postcode;
 use Filament\Forms\Form;
 use App\Models\Department;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 use App\Enums\StoreTypeEnums;
 use Filament\Resources\Resource;
@@ -16,6 +17,10 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\OutletResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\OutletResource\RelationManagers;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 
 class OutletResource extends Resource
 {
@@ -159,8 +164,12 @@ class OutletResource extends Resource
         //
       ])
       ->actions([
-        Tables\Actions\EditAction::make(),
-      ])
+        ActionGroup::make([
+          ViewAction::make(),
+          EditAction::make(),
+          DeleteAction::make(),
+        ])->icon('heroicon-m-ellipsis-horizontal')->color('warning')
+      ], position: ActionsPosition::BeforeColumns)
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([
           Tables\Actions\DeleteBulkAction::make(),
