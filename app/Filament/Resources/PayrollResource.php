@@ -51,8 +51,6 @@ class PayrollResource extends Resource
   public static function getNavigationBadge(): ?string
   {
     $user = Auth::user();
-    // Get the current user's department ID
-    $userDepartmentId = $user->department_id;
 
     if ($user->is_admin) {
       // If the user is an admin, return the total count without filtering

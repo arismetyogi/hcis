@@ -64,7 +64,7 @@ return new class extends Migration
       $table->integer('bpjs_class');
       $table->string('bpjstk_id', 16);
 
-      $table->string('contract_document_id', 50)->nullable();
+      $table->string('contract_document_id', 100)->nullable();
       $table->integer('contract_sequence_no')->nullable();
       $table->integer('contract_term')->nullable();
       $table->date('contract_start')->nullable();

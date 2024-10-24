@@ -72,7 +72,13 @@ class EmployeeResource extends Resource
     // Get the current user's department ID
     $userDepartmentId = Auth::user()->department_id;
 
-    // Count the records filtered by the user's department
+    $user = Auth::user();
+    if ($user->is_admin) {
+      // If admin, count records across all departments
+      return static::getModel()::count();
+    }
+
+    // If Not Admin, Count the records filtered by the user's department
     return static::getModel()::where('department_id', $userDepartmentId)->count();
   }
   public static function getNavigationBadgeColor(): string|array|null
@@ -211,9 +217,6 @@ class EmployeeResource extends Resource
                             ];
                           });
                       })
-                      // ->getOptionLabelUsing(
-                      //   fn($value) => optional(Department::find($value))->id . ' - ' . optional(Department::find($value))->name
-                      // )
                       ->searchable()
                       ->live()
                       ->preload()
@@ -273,6 +276,7 @@ class EmployeeResource extends Resource
                       ->label('ID Jab SAP')
                       ->unique(ignoreRecord: true)
                       ->type('text')
+                      ->maxLength(50)
                       ->required(),
                     Forms\Components\TextInput::make('saptitle_name')
                       ->label('Nama Jab SAP')
@@ -324,10 +328,10 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('bpjs_class')
                       ->label('Kelas BPJS')
                       ->integer()
-                      ->minValue(0)
+                      ->minValue(1)
                       ->maxValue(3)
                       ->required()
-                      ->rules(['integer', 'min:0', 'max:3']),
+                      ->rules(['integer', 'min:1', 'max:3']),
                     Forms\Components\TextInput::make('bpjstk_id')
                       ->label('No BPJSTK')
                       ->unique(ignoreRecord: true)
@@ -353,19 +357,19 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('contract_document_id')
                       ->label('No Kontrak')
                       ->unique(ignoreRecord: true)
-                      ->maxLength(50),
+                      ->maxLength(100),
                     Forms\Components\TextInput::make('contract_sequence_no')
                       ->label('Kontrak Ke-')
                       ->integer()
-                      ->minValue(0)
+                      ->minValue(1)
                       ->maxValue(3)
-                      ->rules(['integer', 'min:0', 'max:3']),
+                      ->rules(['integer', 'min:1', 'max:3']),
                     Forms\Components\TextInput::make('contract_term')
                       ->label('Masa Kontrak')
                       ->integer()
-                      ->minValue(0)
+                      ->minValue(1)
                       ->maxValue(5)
-                      ->rules(['integer', 'min:0', 'max:5']),
+                      ->rules(['integer', 'min:1', 'max:5']),
                     Forms\Components\DatePicker::make('contract_start')
                       ->label('Tanggal Mulai'),
                     Forms\Components\DatePicker::make('contract_end')
@@ -429,7 +433,7 @@ class EmployeeResource extends Resource
                         if ($sex === 'male') {
                           // Generate options for male (e.g., 28 - 40 inches)
                           for ($i = 28; $i <= 45; $i += 1) {
-                            $options[$i] = "{$i} Inch           ";
+                            $options[$i] = "{$i} Inch";
                           }
                         } elseif ($sex === 'female') {
                           // Generate options for female (e.g., UK sizes 6 - 18)
@@ -443,7 +447,7 @@ class EmployeeResource extends Resource
                       ->reactive(),
                     Forms\Components\Select::make('shirt_size')
                       ->label('Ukuran Baju')
-                      ->options(['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL+'])
+                      ->options(['XS' => 'XS', 'S' => 'S', 'M' => 'M', 'L' => 'L', 'XL' => 'XL', 'XXL' => 'XXL', '3XL' => '3XL', '4XL' => '4XL', '5XL' => '5XL', '6XL+' => '6XL+'])
                       ->required(),
                   ])
               ]),
@@ -588,7 +592,24 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('pants_size')
           ->label('Ukuran Celana')
           ->getStateUsing(function ($record) {
-            return $record->pants_size;
+            // Check the sex of the record
+            if ($record->sex === 'male') {
+              // Define the male size scale (28 to 45 inches)
+              $maleSizes = [];
+              for ($i = 28; $i <= 45; $i++) {
+                $maleSizes[$i] = "{$i} Inch";
+              }
+              return $maleSizes[$record->pants_size] ?? 'Not Specified';
+            } elseif ($record->sex === 'female') {
+              // Define the female size scale (UK sizes 6 to 20)
+              $femaleSizes = [];
+              for ($i = 6; $i <= 20; $i++) {
+                $femaleSizes[$i] = "UK {$i}";
+              }
+              return $femaleSizes[$record->pants_size] ?? 'Not Specified';
+            }
+
+            return 'Not Specified'; // Default if sex is not defined
           })
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('shirt_size')
