@@ -151,6 +151,7 @@ class EmployeeResource extends Resource
                       ->required()
                       ->tel()
                       ->prefix('+62')
+                      ->placeholder('81234567891011')
                       // ->telRegex('/^[+]*[(]{0,2}[0-9]{2,4}[)]{0,1}[-\s\.\/0-9]*$/')
                       ->maxLength(13),
                     Forms\Components\Select::make('sex')
