@@ -111,10 +111,7 @@ class Employee extends Model
   {
     return $this->belongsTo(Recruitment::class);
   }
-  // public function user(): BelongsTo
-  // {
-  //   return $this->belongsTo(User::class);
-  // }
+
   public function area(): BelongsTo
   {
     return $this->belongsTo(Area::class);

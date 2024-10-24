@@ -85,7 +85,7 @@ return new class extends Migration
         ->constrained('recruitments')
         ->cascadeOnDelete();
 
-      $table->string('pants_size', 6);
+      $table->string('pants_size', 7);
       $table->string('shirt_size', 5);
 
       $table->timestamps();

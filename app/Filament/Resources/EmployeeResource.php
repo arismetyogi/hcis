@@ -498,6 +498,13 @@ class EmployeeResource extends Resource
           ->label('Alamat')
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
+        Tables\Columns\TextColumn::make('postcode_id')
+          ->label('post code')
+          ->getStateUsing(function ($record) {
+            return $record->postcode_id;
+          })
+          ->searchable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('nik')
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),

@@ -14,9 +14,15 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -88,12 +94,17 @@ class UserResource extends Resource
           ->searchable(),
         Tables\Columns\ToggleColumn::make('is_admin')
           ->sortable(),
-        Tables\Columns\TextColumn::make('department_id')
+        Tables\Columns\TextColumn::make('department.name')
+          ->label('Unit Kerja')
+          ->getStateUsing(function ($record) {
+            return $record->department->id . '-' . $record->department->name;
+          })
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('email_verified_at')
           ->dateTime()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
           ->sortable()
@@ -107,9 +118,12 @@ class UserResource extends Resource
         //
       ])
       ->actions([
-        Tables\Actions\ViewAction::make(),
-        Tables\Actions\EditAction::make(),
-      ])
+        ActionGroup::make([
+          ViewAction::make(),
+          EditAction::make(),
+          DeleteAction::make(),
+        ])->icon('heroicon-m-ellipsis-horizontal')->color('warning')
+      ], position: ActionsPosition::BeforeColumns)
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([
           Tables\Actions\DeleteBulkAction::make(),
@@ -129,7 +143,7 @@ class UserResource extends Resource
     return [
       'index' => Pages\ListUsers::route('/'),
       'create' => Pages\CreateUser::route('/create'),
-      'view' => Pages\ViewUser::route('/{record}'),
+      // 'view' => Pages\ViewUser::route('/{record}'),
       'edit' => Pages\EditUser::route('/{record}/edit'),
     ];
   }

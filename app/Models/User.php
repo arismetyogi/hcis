@@ -52,9 +52,9 @@ class User extends Authenticatable implements FilamentUser
   }
 
   // Relationships
-  public function departments(): BelongsTo
+  public function department(): BelongsTo
   {
-    return $this->belongsTo(Department::class, 'department_id');
+    return $this->belongsTo(Department::class);
   }
 
   public function isAdmin(): bool

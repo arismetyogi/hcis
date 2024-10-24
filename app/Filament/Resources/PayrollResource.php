@@ -11,8 +11,13 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ExportBulkAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -255,9 +260,12 @@ class PayrollResource extends Resource
         //
       ])
       ->actions([
-        Tables\Actions\ViewAction::make(),
-        Tables\Actions\EditAction::make(),
-      ])
+        ActionGroup::make([
+          ViewAction::make(),
+          EditAction::make(),
+          DeleteAction::make(),
+        ])->icon('heroicon-m-ellipsis-horizontal')->color('warning')
+      ], position: ActionsPosition::BeforeColumns)
       ->headerActions([
         ExportAction::make()
           ->exporter(PayrollResource::class)
@@ -285,7 +293,7 @@ class PayrollResource extends Resource
     return [
       'index' => Pages\ListPayrolls::route('/'),
       'create' => Pages\CreatePayroll::route('/create'),
-      'view' => Pages\ViewPayroll::route('/{record}'),
+      // 'view' => Pages\ViewPayroll::route('/{record}'),
       'edit' => Pages\EditPayroll::route('/{record}/edit'),
     ];
   }

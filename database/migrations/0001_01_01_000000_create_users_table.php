@@ -18,7 +18,7 @@ return new class extends Migration
       $table->timestamp('email_verified_at')->nullable();
       $table->string('password');
       $table->boolean('is_admin')->default(false);
-      $table->unsignedBigInteger('department_id')->nullable();
+      $table->foreignId('department_id');
       $table->rememberToken();
       $table->timestamps();
     });
