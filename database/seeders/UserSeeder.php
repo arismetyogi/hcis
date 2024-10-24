@@ -31,23 +31,6 @@ class UserSeeder extends Seeder
         'department_id' => $user['department_id'],
       ]);
       DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-    }
-    // User::insert([
-    //   [
-    //     'name' => 'Admin',
-    //     'email' => 'admin@admin.com',
-    //     'password' => Hash::make('123'),
-    //     'is_admin' => true,
-    //     'department_id' => 1,
-    //   ],
-    //   [
-    //     'name' => 'adm bandung',
-    //     'email' => 'adm.bandung@test.com',
-    //     'password' => Hash::make('123'),
-    //     'is_admin' => false,
-    //     'department_id' => 3103,
-    //   ]
-    // ]);
-    // User::factory()->count(9)->create();
+    };
   }
 }
