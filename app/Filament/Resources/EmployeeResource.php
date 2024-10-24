@@ -114,10 +114,12 @@ class EmployeeResource extends Resource
                     TextInput::make('first_name')
                       ->label('Nama Depan')
                       ->required()
+                      ->placeholder('John')
                       ->maxLength(255),
                     Forms\Components\TextInput::make('last_name')
                       ->label('Nama Belakang')
                       ->required()
+                      ->placeholder('Doe')
                       ->maxLength(255),
                     Forms\Components\TextInput::make('nik')
                       ->label('NIK')
@@ -151,7 +153,7 @@ class EmployeeResource extends Resource
                       ->required()
                       ->tel()
                       ->prefix('+62')
-                      ->placeholder('81234567891011')
+                      ->placeholder('81234567890')
                       // ->telRegex('/^[+]*[(]{0,2}[0-9]{2,4}[)]{0,1}[-\s\.\/0-9]*$/')
                       ->maxLength(13),
                     Forms\Components\Select::make('sex')
@@ -169,6 +171,7 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('address')
                       ->label('Alamat')
                       ->required()
+                      ->placeholder('Jl. Budi Utomo No. 1, Pasar Baru')
                       ->maxLength(255)
                       ->columnSpan(2),
                     Forms\Components\Select::make('postcode_id')
