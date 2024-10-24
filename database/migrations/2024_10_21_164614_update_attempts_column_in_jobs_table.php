@@ -11,9 +11,11 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::table('jobs', function (Blueprint $table) {
-      $table->unsignedSmallInteger('attempts')->change();
-    });
+    if (! Schema::hasTable('failed_import_rows')) {
+      Schema::table('jobs', function (Blueprint $table) {
+        $table->unsignedSmallInteger('attempts')->change();
+      });
+    }
   }
 
   /**
@@ -26,3 +28,4 @@ return new class extends Migration
     });
   }
 };
+//
