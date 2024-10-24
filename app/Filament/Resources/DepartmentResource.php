@@ -100,7 +100,10 @@ class DepartmentResource extends Resource
         Tables\Actions\BulkActionGroup::make([
           Tables\Actions\DeleteBulkAction::make(),
         ]),
-      ]);
+      ])
+      // ->disableDefaultAction()
+      // ->rowUrl(fn($record) => route('filament.admin.resources.employees-departments.view', $record))
+    ;
   }
 
   public static function getRelations(): array
@@ -115,7 +118,7 @@ class DepartmentResource extends Resource
     return [
       'index' => Pages\ListDepartments::route('/'),
       'create' => Pages\CreateDepartment::route('/create'),
-      'view' => Pages\ViewDepartment::route('/{record}'),
+      // 'view' => Pages\ViewDepartment::route('/{record}'),
       'edit' => Pages\EditDepartment::route('/{record}/edit'),
     ];
   }

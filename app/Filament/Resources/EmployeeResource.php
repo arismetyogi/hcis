@@ -207,7 +207,6 @@ class EmployeeResource extends Resource
                       ->label('Unit Kerja - UB')
                       ->relationship('department', 'name')
                       ->disabled(fn($livewire) => !Auth::user()->is_admin)
-                      //   // ->disabled(!Auth::user()->is_admin)
                       ->default(Auth::user()->department_id)
                       ->getSearchResultsUsing(function (string $search) {
                         return Department::query()
