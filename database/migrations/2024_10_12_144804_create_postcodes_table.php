@@ -11,20 +11,22 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::create('postcodes', function (Blueprint $table) {
-      $table->id();
-      $table->string('urban');
-      $table->string('subdistrict');
-      $table->string('city');
+    if (! Schema::hasTable('postcodes')) {
+      Schema::create('postcodes', function (Blueprint $table) {
+        $table->id();
+        $table->string('urban');
+        $table->string('subdistrict');
+        $table->string('city');
 
-      $table->string('province_code');
-      $table->foreign('province_code')
-        ->references('code')
-        ->on('provinces');
+        $table->string('province_code');
+        $table->foreign('province_code')
+          ->references('code')
+          ->on('provinces');
 
-      $table->integer('postal_code');
-      $table->timestamps();
-    });
+        $table->integer('postal_code');
+        $table->timestamps();
+      });
+    }
   }
 
   /**

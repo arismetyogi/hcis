@@ -11,23 +11,25 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::create('outlets', function (Blueprint $table) {
-      $table->id();
-      $table->unsignedBigInteger('department_id');
-      $table->foreign('department_id')
-        ->references('id')
-        ->on('departments');
-      $table->char('outlet_sap_id');
-      $table->string('name');
-      $table->string('store_type')->nullable();
-      $table->date('operational_date')->nullable();
-      $table->string('address')->nullable();
-      $table->foreignId('postcode_id')->nullable()->constrained('postcodes');
-      $table->float('latitude')->nullable();
-      $table->float('longitude')->nullable();
-      $table->char('phone')->nullable();
-      $table->timestamps();
-    });
+    if (! Schema::hasTable('outlets')) {
+      Schema::create('outlets', function (Blueprint $table) {
+        $table->id();
+        $table->unsignedBigInteger('department_id');
+        $table->foreign('department_id')
+          ->references('id')
+          ->on('departments');
+        $table->string('outlet_sap_id', 12);
+        $table->string('name');
+        $table->string('store_type')->nullable();
+        $table->date('operational_date')->nullable();
+        $table->string('address')->nullable();
+        $table->foreignId('postcode_id')->nullable()->constrained('postcodes');
+        $table->float('latitude')->nullable();
+        $table->float('longitude')->nullable();
+        $table->string('phone')->nullable();
+        $table->timestamps();
+      });
+    }
   }
 
   /**

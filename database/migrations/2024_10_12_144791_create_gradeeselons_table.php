@@ -11,12 +11,14 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::create('gradeeselons', function (Blueprint $table) {
-      $table->id();
-      $table->string('grade');
-      $table->string('eselon');
-      $table->timestamps();
-    });
+    if (! Schema::hasTable('gradeeselons')) {
+      Schema::create('gradeeselons', function (Blueprint $table) {
+        $table->id();
+        $table->string('grade');
+        $table->string('eselon');
+        $table->timestamps();
+      });
+    }
   }
 
   /**

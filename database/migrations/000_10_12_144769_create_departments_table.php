@@ -11,13 +11,15 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::create('departments', function (Blueprint $table) {
-      $table->id();
-      $table->string('name')->unique();
-      $table->string('branch_name')->nullable();
-      // $table->string('slug')->nullable();
-      $table->timestamps();
-    });
+    if (! Schema::hasTable('departments')) {
+      Schema::create('departments', function (Blueprint $table) {
+        $table->id();
+        $table->string('name')->unique();
+        $table->string('branch_name')->nullable();
+        // $table->string('slug')->nullable();
+        $table->timestamps();
+      });
+    }
   }
 
   /**
