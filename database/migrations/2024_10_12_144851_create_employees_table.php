@@ -22,7 +22,7 @@ return new class extends Migration
       $table->date('date_of_birth');
       $table->string('phone_no', 15);
       $table->string('sex', 9);
-      $table->string('address', 100);
+      $table->string('address', 200);
       $table->unsignedBigInteger('postcode_id')->nullable();
       $table->string('npwp', length: 16);
       $table->foreignId('employee_status_id')
@@ -50,8 +50,8 @@ return new class extends Migration
       $table->foreignId('emplevel_id')
         ->constrained('emplevels')
         ->cascadeOnDelete();
-      $table->string('saptitle_id', 15)->unique();
-      $table->string('saptitle_name', 50);
+      $table->string('saptitle_id', 50)->unique();
+      $table->string('saptitle_name', 100);
       $table->date('date_hired');
       $table->date('date_promoted');
       $table->date('date_last_mutated');

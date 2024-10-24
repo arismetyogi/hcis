@@ -17,6 +17,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class PayrollResource extends Resource
 {
@@ -49,7 +50,19 @@ class PayrollResource extends Resource
 
   public static function getNavigationBadge(): ?string
   {
-    return   static::getModel()::count();
+    $user = Auth::user();
+    // Get the current user's department ID
+    $userDepartmentId = $user->department_id;
+
+    if ($user->is_admin) {
+      // If the user is an admin, return the total count without filtering
+      return static::getModel()::count();
+    }
+
+    // Count the records filtered by the user's department
+    return static::getModel()::whereHas('employee', function ($subquery) {
+      $subquery->where('department_id', Auth::user()->department_id);
+    })->count();
   }
   public static function getNavigationBadgeColor(): string|array|null
   {

@@ -62,8 +62,13 @@ class User extends Authenticatable implements FilamentUser
     return $this->is_admin;
   }
 
+  public function isUser(): bool
+  {
+    return $this->exists();
+  }
+
   public function canAccessPanel(Panel $panel): bool
   {
-    return $this->isAdmin();
+    return str_ends_with($this->email, '@kfa.co.id') && $this->isUser();
   }
 }

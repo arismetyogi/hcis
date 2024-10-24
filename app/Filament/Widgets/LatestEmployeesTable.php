@@ -7,6 +7,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
+use Illuminate\Support\Facades\Auth;
 
 class LatestEmployeesTable extends BaseWidget
 {
@@ -16,6 +17,9 @@ class LatestEmployeesTable extends BaseWidget
     return $table
       ->query(
         Employee::query()
+          ->when(!Auth::user()->is_admin, function ($query) {
+            return $query->where('department_id', Auth::user()->department_id);
+          })
       )
       ->defaultSort('created_at', 'desc')
       ->columns([

@@ -22,7 +22,9 @@ class EmployeeStatsOverview extends BaseWidget
         ->count()),
       Stat::make('Payrolls filled', value: Payroll::query()
         ->when(!Auth::user()->is_admin, function ($query) {
-          return $query->where('department_id', Auth::user()->department_id);
+          return $query->whereHas('employee', function ($subquery) {
+            $subquery->where('department_id', Auth::user()->department_id);
+          });
         })->count()),
       Stat::make('Outlet Count', value: Outlet::query()
         ->when(!Auth::user()->is_admin, function ($query) {

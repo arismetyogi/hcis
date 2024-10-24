@@ -33,7 +33,7 @@ class AdminPanelProvider extends PanelProvider
         'info' => Color::Blue,
         'success' => Color::Emerald,
         'warning' => Color::Orange,
-        'primary' => Color::Cyan,
+        'primary' => Color::Purple,
       ])
       ->databaseNotifications()
       ->databaseNotificationsPolling('5s')

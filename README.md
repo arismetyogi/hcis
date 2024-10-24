@@ -47,7 +47,7 @@ sudo chown -R www-data:www-data /var/www/hcis/storage
 sudo chown -R www-data:www-data /var/www/hcis/bootstrap/cache
 
 sudo find . -type f -exec chmod 644 {} \;
-sudo find . -type d -exec chomd 755 {} \;
+sudo find . -type d -exec chmod 755 {} \;
 ```
 ### Run the required command
 ```
@@ -65,7 +65,7 @@ sudo php artisan optimize
 sudo php artisan migrate
 sudo php artisan db:seed
 
-sudo php artisan vendor:publish --force --tag=livewire:assets
+sudo php artisan vendor:publish --force --tag=livewire:assets --ansi
 sudo php artisan config:cache
 sudo php artisan route:cache
 sudo php artisan view:cache

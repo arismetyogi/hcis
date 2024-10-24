@@ -28,10 +28,12 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Set;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Enums\ActionsPosition;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -67,7 +69,11 @@ class EmployeeResource extends Resource
 
   public static function getNavigationBadge(): ?string
   {
-    return   static::getModel()::count();
+    // Get the current user's department ID
+    $userDepartmentId = Auth::user()->department_id;
+
+    // Count the records filtered by the user's department
+    return static::getModel()::where('department_id', $userDepartmentId)->count();
   }
   public static function getNavigationBadgeColor(): string|array|null
   {
@@ -109,7 +115,7 @@ class EmployeeResource extends Resource
                       ->maxLength(255),
                     Forms\Components\TextInput::make('nik')
                       ->label('NIK')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->required()
                       ->type('text')
                       ->maxLength(16)
@@ -122,7 +128,7 @@ class EmployeeResource extends Resource
                       }),
                     Forms\Components\TextInput::make('npwp')
                       ->label('NPWP')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->required()
                       ->type('text')
                       ->maxLength(16)
@@ -227,7 +233,7 @@ class EmployeeResource extends Resource
 
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->type('text')
                       ->maxLength(9)
                       ->placeholder('19990101A')
@@ -265,7 +271,7 @@ class EmployeeResource extends Resource
                       ->required(),
                     Forms\Components\TextInput::make('saptitle_id')
                       ->label('ID Jab SAP')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->type('text')
                       ->required(),
                     Forms\Components\TextInput::make('saptitle_name')
@@ -298,7 +304,7 @@ class EmployeeResource extends Resource
                   ->schema([
                     Forms\Components\TextInput::make('bpjs_id')
                       ->label('No BPJS')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->required()
                       ->type('text')
                       ->maxLength(16)
@@ -324,7 +330,7 @@ class EmployeeResource extends Resource
                       ->rules(['integer', 'min:0', 'max:3']),
                     Forms\Components\TextInput::make('bpjstk_id')
                       ->label('No BPJSTK')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->required()
                       ->type('text')
                       ->maxLength(16)
@@ -346,7 +352,7 @@ class EmployeeResource extends Resource
                   ->schema([
                     Forms\Components\TextInput::make('contract_document_id')
                       ->label('No Kontrak')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->maxLength(50),
                     Forms\Components\TextInput::make('contract_sequence_no')
                       ->label('Kontrak Ke-')
@@ -397,7 +403,7 @@ class EmployeeResource extends Resource
                       ->required(),
                     Forms\Components\TextInput::make('rekening_no')
                       ->label('No. Rekening Payroll')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->required()
                       ->type('text')
                       ->maxLength(16)
@@ -450,6 +456,7 @@ class EmployeeResource extends Resource
     return $table
       ->columns([
         Tables\Columns\TextColumn::make('npp')
+          ->label('NPP')
           ->searchable(),
         // Tables\Columns\TextColumn::make('first_name')
         //   ->searchable()
@@ -463,9 +470,11 @@ class EmployeeResource extends Resource
           })
           ->searchable(),
         Tables\Columns\TextColumn::make('date_of_birth')
+          ->label('Tanggal Lahir')
           ->date()
           ->sortable(),
         Tables\Columns\TextColumn::make('phone_no')
+          ->label('No Telp')
           ->getStateUsing(function ($record) {
             return '+62' . $record->phone_no; // Concatenate prefix with the phone number
           })
@@ -474,9 +483,12 @@ class EmployeeResource extends Resource
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('department.name')
+          ->label('Unit Kerja')
           ->searchable()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('sex')
+          ->label('Jenis Kelamin')
           ->searchable(),
         Tables\Columns\TextColumn::make('address')
           ->label('Alamat')
@@ -489,12 +501,16 @@ class EmployeeResource extends Resource
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('employee_status.name')
+          ->label('Status Pegawai')
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('title.name')
+          ->label('Jabatan')
           ->searchable()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('subtitle.name')
+          ->label('Subjabatan')
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('band.name')
@@ -507,53 +523,80 @@ class EmployeeResource extends Resource
           })
           ->sortable(),
         Tables\Columns\TextColumn::make('emplevel.name')
+          ->label('Level Pegawai')
           ->numeric()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('saptitle_name')
+          ->label('Nama Jab SAP')
           ->sortable(),
         Tables\Columns\TextColumn::make('date_hired')
+          ->label('Tanggal Direkrut')
           ->date()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('date_promoted')
+          ->label('Tanggal Diangkat')
           ->date()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('date_last_mutated')
+          ->label('Mutasi Terakhir')
           ->date()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('descstatus.name')
-          ->sortable(),
+          ->label('Deksripsi Status')
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('bpjs_id')
-          ->searchable(),
+          ->label('No BPJS')
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('insured_member_count')
           ->label('Jumlah Tanggungan')
           ->numeric()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('bpjs_class')
+          ->label('Kelas BPJS')
           ->numeric()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('bpjstk_id')
+          ->label('No BPJSTK')
           ->numeric()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('contract_document_id')
+          ->label('No Kontrak')
           ->searchable()
-          ->sortable(),
+          ->sortable()
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('rekening_no')
-          ->searchable(),
+          ->label('No Rekening')
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('rekening_name')
-          ->searchable(),
+          ->label('Nama Rekening')
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('bank.name')
-          ->numeric()
+          ->toggleable(isToggledHiddenByDefault: true)
           ->sortable(),
         Tables\Columns\TextColumn::make('recruitment.name')
-          ->numeric()
+          ->label('Ket Rekrutmen')
+          ->toggleable(isToggledHiddenByDefault: true)
           ->sortable(),
         Tables\Columns\TextColumn::make('pants_size')
+          ->label('Ukuran Celana')
           ->getStateUsing(function ($record) {
             return $record->pants_size;
           })
-          ->searchable(),
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('shirt_size')
-          ->searchable(),
+          ->label('Ukuran Baju')
+          ->getStateUsing(function ($record) {
+            return $record->shirt_size;
+          })
+          ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
           ->sortable()
@@ -573,10 +616,12 @@ class EmployeeResource extends Resource
           ->relationship('title', 'name'),
       ])
       ->actions([
-        ViewAction::make(),
-        EditAction::make(),
-        DeleteAction::make(),
-      ])
+        ActionGroup::make([
+          ViewAction::make(),
+          EditAction::make(),
+          DeleteAction::make(),
+        ])->icon('heroicon-m-ellipsis-horizontal')->color('warning')
+      ], position: ActionsPosition::BeforeColumns)
       ->headerActions([
         ExportAction::make()
           ->exporter(EmployeeExporter::class)
