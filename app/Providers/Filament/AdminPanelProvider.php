@@ -36,6 +36,7 @@ class AdminPanelProvider extends PanelProvider
         'warning' => Color::Orange,
         'primary' => Color::Purple,
       ])
+      // ->sidebarCollapsibleOnDesktop()
       ->databaseNotifications()
       ->databaseNotificationsPolling('5s')
       ->brandLogo(url('https://www.biofarma.co.id/media/image/originals/post/2023/07/06/kf.png'))
@@ -48,7 +49,7 @@ class AdminPanelProvider extends PanelProvider
       ])
       ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
       ->widgets([
-        Widgets\FilamentInfoWidget::class,
+        // Widgets\FilamentInfoWidget::class,
         Widgets\AccountWidget::class,
       ])
       ->middleware([
