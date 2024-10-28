@@ -428,6 +428,7 @@ class EmployeeResource extends Resource
                       ->required(),
                     Forms\Components\Select::make('pants_size')
                       ->label('Ukuran Celana')
+                      ->required()
                       ->options(function (callable $get) {
                         $sex = $get('sex');
 
@@ -470,12 +471,13 @@ class EmployeeResource extends Resource
         //   ->sortable(),
         // Tables\Columns\TextColumn::make('last_name')
         //   ->searchable(),
-        Tables\Columns\TextColumn::make('name')
+        Tables\Columns\TextColumn::make('first_name')
           ->label('Nama Lengkap')
           ->getStateUsing(function ($record) {
             return $record->first_name . ' ' . $record->last_name;
           })
-          ->searchable(),
+          ->searchable(['first_name', 'last_name'])
+          ->sortable(),
         Tables\Columns\TextColumn::make('date_of_birth')
           ->label('Tanggal Lahir')
           ->date()
