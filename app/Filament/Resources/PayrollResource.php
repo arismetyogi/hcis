@@ -82,10 +82,14 @@ class PayrollResource extends Resource
           ->placeholder('0824')
           ->maxLength(8),
         Forms\Components\Select::make('employee_id')
-          ->relationship('employee', 'id')
+          ->relationship(
+            'employee',
+            'id',
+            fn($query) => Auth::user()->is_admin ? $query : $query->where('department_id', Auth::user()->department_id)
+          )
           ->getOptionLabelFromRecordUsing(fn($record) => "{$record->npp} - {$record->first_name} {$record->last_name}")
-          ->searchable()
           ->preload()
+          ->searchable(['npp', 'first_name', 'last_name'])
           ->required(),
         Forms\Components\TextInput::make('1050_honorarium')
           ->label('1050 - Honorarium')

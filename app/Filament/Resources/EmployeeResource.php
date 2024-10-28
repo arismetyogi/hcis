@@ -114,12 +114,11 @@ class EmployeeResource extends Resource
                     TextInput::make('first_name')
                       ->label('Nama Depan')
                       ->required()
-                      ->placeholder('John')
+                      ->placeholder('Nama Depan Sesuai KTP')
                       ->maxLength(255),
                     Forms\Components\TextInput::make('last_name')
                       ->label('Nama Belakang')
-                      ->required()
-                      ->placeholder('Doe')
+                      ->placeholder('Nama Belakang Sesuai KTP')
                       ->maxLength(255),
                     Forms\Components\TextInput::make('nik')
                       ->label('NIK')
@@ -155,7 +154,7 @@ class EmployeeResource extends Resource
                       ->prefix('+62')
                       ->placeholder('81234567890')
                       // ->telRegex('/^[+]*[(]{0,2}[0-9]{2,4}[)]{0,1}[-\s\.\/0-9]*$/')
-                      ->maxLength(13),
+                      ->maxLength(14),
                     Forms\Components\Select::make('sex')
                       ->label('Jenis Kelamin')
                       ->options([
@@ -243,7 +242,7 @@ class EmployeeResource extends Resource
                       ->type('text')
                       ->maxLength(9)
                       ->placeholder('19990101A')
-                      ->rules(['regex:/^\d{8}[A-Z]$/'])
+                      ->rules(['regex:/^\d{8}[A-Z]{1,2}$/'])
                       ->required(),
                     Forms\Components\Select::make('employee_status_id')
                       ->label('Status Pegawai')
@@ -276,7 +275,7 @@ class EmployeeResource extends Resource
                       ->relationship('emplevel', 'name')
                       ->required(),
                     Forms\Components\TextInput::make('saptitle_id')
-                      ->label('ID Jab SAP')
+                      ->label('Kode Jab SAP')
                       ->unique(ignoreRecord: true)
                       ->type('text')
                       ->maxLength(50)
@@ -314,7 +313,7 @@ class EmployeeResource extends Resource
                       ->unique(ignoreRecord: true)
                       ->required()
                       ->type('text')
-                      ->maxLength(16)
+                      ->maxLength(13)
                       ->reactive()
                       ->afterStateUpdated(function (callable $set, $state) {
                         // Ensure only numeric values remain
@@ -326,7 +325,6 @@ class EmployeeResource extends Resource
                       ->minValue(0)
                       ->maxValue(4)
                       ->required()
-                      ->default(0)
                       ->rules(['integer', 'min:0', 'max:4']),
                     Forms\Components\TextInput::make('bpjs_class')
                       ->label('Kelas BPJS')
@@ -424,8 +422,7 @@ class EmployeeResource extends Resource
                       ->required()
                       ->maxLength(255),
                     Forms\Components\Select::make('recruitment_id')
-                      ->relationship('recruitment', 'name')
-                      ->required(),
+                      ->relationship('recruitment', 'name'),
                     Forms\Components\Select::make('pants_size')
                       ->label('Ukuran Celana')
                       ->required()
@@ -466,11 +463,6 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('npp')
           ->label('NPP')
           ->searchable(),
-        // Tables\Columns\TextColumn::make('first_name')
-        //   ->searchable()
-        //   ->sortable(),
-        // Tables\Columns\TextColumn::make('last_name')
-        //   ->searchable(),
         Tables\Columns\TextColumn::make('first_name')
           ->label('Nama Lengkap')
           ->getStateUsing(function ($record) {

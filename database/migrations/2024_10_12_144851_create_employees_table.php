@@ -19,7 +19,7 @@ return new class extends Migration
           ->cascadeOnDelete();
         $table->string('nik', length: 16)->unique();
         $table->string('first_name', 50);
-        $table->string('last_name', 50);
+        $table->string('last_name', 50)->nullable();
         $table->date('date_of_birth');
         $table->string('phone_no', 15);
         $table->string('sex', 9);
