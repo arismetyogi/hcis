@@ -55,6 +55,9 @@ class Employee extends Model
     "recruitment_id",
     "pants_size",
     "shirt_size",
+    "blood_type",
+    "religion",
+    "sap_id",
   ];
 
   public function department(): BelongsTo

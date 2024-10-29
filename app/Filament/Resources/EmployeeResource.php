@@ -167,6 +167,14 @@ class EmployeeResource extends Resource
                         // Reset the 'pants_size' field when 'sex' changes
                         $set('pants_size', null);
                       }),
+                    Forms\Components\Select::make('blood_type')
+                      ->label('Golongan Darah')
+                      ->options(['A' => 'A', 'B' => 'B', 'AB' => 'AB', 'O' => 'O'])
+                      ->required(),
+                    Forms\Components\Select::make('religion')
+                      ->label('Agama')
+                      ->options(['Islam' => 'Islam', 'Katolik' => 'Katolik', 'Protestan' => 'Protestan', 'Hindu' => 'Hindu', 'Buddha' => 'Buddha', 'Konghuchu' => 'Konghuchu', 'Lainnya' => 'Lainnya'])
+                      ->required(),
                     Forms\Components\TextInput::make('address')
                       ->label('Alamat')
                       ->required()
@@ -235,7 +243,15 @@ class EmployeeResource extends Resource
                       ->preload()
                       ->searchable()
                       ->required(),
-
+                    TextInput::make('sap_id')
+                      ->label('ID SAP')
+                      ->unique()
+                      ->type('text')
+                      ->afterStateUpdated(function (callable $set, $state) {
+                        // Ensure only numeric values remain
+                        $set('sap_id', preg_replace('/\D/', '', $state));
+                      })
+                      ->default(['required', 'regex:/^(\d{8}|\d{13})$/']),
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
                       ->unique(ignoreRecord: true)
@@ -463,6 +479,9 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('npp')
           ->label('NPP')
           ->searchable(),
+        Tables\Columns\TextColumn::make('sap_id')
+          ->label('ID SAP')
+          ->searchable(),
         Tables\Columns\TextColumn::make('first_name')
           ->label('Nama Lengkap')
           ->getStateUsing(function ($record) {
@@ -491,6 +510,18 @@ class EmployeeResource extends Resource
         Tables\Columns\TextColumn::make('sex')
           ->label('Jenis Kelamin')
           ->searchable(),
+        Tables\Columns\TextColumn::make('religion')
+          ->label('Agama')
+          ->getStateUsing(function ($record) {
+            return $record->religion;
+          })
+          ->searchable(),
+        Tables\Columns\TextColumn::make('blood_type')
+          ->label('Golongan Darah')
+          ->getStateUsing(function ($record) {
+            return $record->blood_type;
+          })
+          ->sortable(),
         Tables\Columns\TextColumn::make('address')
           ->label('Alamat')
           ->searchable()
