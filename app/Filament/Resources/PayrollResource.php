@@ -80,7 +80,7 @@ class PayrollResource extends Resource
           ->label('bulan-tahun')
           ->required()
           ->placeholder('0824')
-          ->maxLength(8),
+          ->maxLength(4),
         Forms\Components\Select::make('employee_id')
           ->relationship(
             'employee',
@@ -272,7 +272,7 @@ class PayrollResource extends Resource
       ], position: ActionsPosition::BeforeColumns)
       ->headerActions([
         ExportAction::make()
-          ->exporter(PayrollResource::class)
+          ->exporter(PayrollExporter::class)
           ->columnMapping(false)
       ])
       ->bulkActions([

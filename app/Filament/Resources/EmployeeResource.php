@@ -240,7 +240,7 @@ class EmployeeResource extends Resource
                       ->label('NPP')
                       ->unique(ignoreRecord: true)
                       ->type('text')
-                      ->maxLength(9)
+                      ->maxLength(10)
                       ->placeholder('19990101A')
                       ->rules(['regex:/^\d{8}[A-Z]{1,2}$/'])
                       ->required(),

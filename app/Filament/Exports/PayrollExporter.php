@@ -14,8 +14,6 @@ class PayrollExporter extends Exporter
   public static function getColumns(): array
   {
     return [
-      // ExportColumn::make('id')
-      //   ->label('ID'),
       ExportColumn::make('bln_thn'),
       ExportColumn::make('employee.npp'),
       ExportColumn::make('employee.first_name'),
@@ -41,8 +39,6 @@ class PayrollExporter extends Exporter
       ExportColumn::make('6751_pot_adm_bank_bri'),
       ExportColumn::make('6752_pot_adm_bank_bjb'),
       ExportColumn::make('6900_pot_lain'),
-      // ExportColumn::make('created_at'),
-      // ExportColumn::make('updated_at'),
     ];
   }
 

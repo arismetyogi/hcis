@@ -22,7 +22,7 @@ return new class extends Migration
         $table->string('last_name', 50)->nullable();
         $table->date('date_of_birth');
         $table->string('phone_no', 15);
-        $table->string('sex', 9);
+        $table->string('sex', 6);
         $table->string('address', 200);
         $table->unsignedBigInteger('postcode_id')->nullable();
         $table->string('npwp', length: 16);
@@ -41,7 +41,7 @@ return new class extends Migration
         $table->foreignId('outlet_id')
           ->constrained('outlets')
           ->cascadeOnDelete();
-        $table->string('npp', length: 9);
+        $table->string('npp', length: 10);
         $table->foreignId('gradeeselon_id')
           ->constrained('gradeeselons')
           ->cascadeOnDelete();
@@ -60,7 +60,7 @@ return new class extends Migration
           ->constrained('descstatuses')
           ->cascadeOnDelete();
 
-        $table->string('bpjs_id', 16)->unique();
+        $table->string('bpjs_id', 13)->unique();
         $table->integer('insured_member_count');
         $table->integer('bpjs_class');
         $table->string('bpjstk_id', 16);
@@ -82,9 +82,8 @@ return new class extends Migration
         $table->foreignId('bank_id')
           ->constrained('banks');
 
-        $table->foreignId('recruitment_id')
-          ->constrained('recruitments')
-          ->cascadeOnDelete();
+        $table->unsignedBigInteger('recruitment_id')
+          ->nullable();
 
         $table->string('pants_size', 7);
         $table->string('shirt_size', 5);

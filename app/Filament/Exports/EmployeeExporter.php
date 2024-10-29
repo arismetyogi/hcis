@@ -14,8 +14,6 @@ class EmployeeExporter extends Exporter
   public static function getColumns(): array
   {
     return [
-      // ExportColumn::make('id')
-      //     ->label('ID'),
       ExportColumn::make('npp'),
       ExportColumn::make('department_id')
         ->label('Kode BM'),
@@ -25,7 +23,7 @@ class EmployeeExporter extends Exporter
         ->label('Kode Outlet'),
       ExportColumn::make('outlet.name')
         ->label('Nama Outlet'),
-      ExportColumn::make('NIK'),
+      ExportColumn::make('nik'),
       ExportColumn::make('first_name'),
       ExportColumn::make('last_name'),
       ExportColumn::make('date_of_birth'),
@@ -65,8 +63,6 @@ class EmployeeExporter extends Exporter
       ExportColumn::make('recruitment.name'),
       ExportColumn::make('pants_size'),
       ExportColumn::make('shirt_size'),
-      // ExportColumn::make('created_at'),
-      // ExportColumn::make('updated_at'),
     ];
   }
 
