@@ -6,9 +6,16 @@ use App\Models\Payroll;
 use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\MaxAttemptsExceededException;
 
-class PayrollExporter extends Exporter
+class PayrollExporter extends Exporter implements ShouldQueue
 {
+  use Dispatchable, InteractsWithQueue, Queueable;
+  public $tries = 3;
   protected static ?string $model = Payroll::class;
 
   public static function getColumns(): array
@@ -51,5 +58,12 @@ class PayrollExporter extends Exporter
     }
 
     return $body;
+  }
+
+  // This method will be called when the job fails
+  public function failed(MaxAttemptsExceededException $exception)
+  {
+    // Cleanup action: delete the job if it reaches max attempts
+    $this->delete();
   }
 }
