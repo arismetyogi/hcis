@@ -14,6 +14,7 @@ class EmployeeExporter extends Exporter
   public static function getColumns(): array
   {
     return [
+      ExportColumn::make('sap_id'),
       ExportColumn::make('npp'),
       ExportColumn::make('department_id')
         ->label('Kode BM'),
@@ -29,6 +30,8 @@ class EmployeeExporter extends Exporter
       ExportColumn::make('date_of_birth'),
       ExportColumn::make('phone_no'),
       ExportColumn::make('sex'),
+      ExportColumn::make('religion'),
+      ExportColumn::make('blood_type'),
       ExportColumn::make('address'),
       ExportColumn::make('postcode.postal_code'),
       ExportColumn::make('npwp'),
