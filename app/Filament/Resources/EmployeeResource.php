@@ -245,7 +245,7 @@ class EmployeeResource extends Resource
                       ->required(),
                     TextInput::make('sap_id')
                       ->label('ID SAP')
-                      ->unique()
+                      ->unique(ignoreRecord: true)
                       ->type('text')
                       ->afterStateUpdated(function (callable $set, $state) {
                         // Ensure only numeric values remain
