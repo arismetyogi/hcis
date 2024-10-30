@@ -18,6 +18,7 @@ use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Enums\ActionsPosition;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -261,7 +262,12 @@ class PayrollResource extends Resource
           ->toggleable(isToggledHiddenByDefault: true),
       ])
       ->filters([
-        //
+        SelectFilter::make('Unit Kerja')
+          ->relationship('department', 'name')
+          ->searchable()
+          ->preload()
+          ->visible(fn($livewire) => Auth::user()->is_admin)
+          ->indicator('Unit Kerja'),
       ])
       ->actions([
         ActionGroup::make([

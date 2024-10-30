@@ -661,6 +661,7 @@ class EmployeeResource extends Resource
           ->relationship('department', 'name')
           ->searchable()
           ->preload()
+          ->visible(fn($livewire) => Auth::user()->is_admin)            
           ->indicator('Unit Kerja'),
         SelectFilter::make('Jabatan')
           ->relationship('title', 'name'),
