@@ -251,7 +251,7 @@ class EmployeeResource extends Resource
                         // Ensure only numeric values remain
                         $set('sap_id', preg_replace('/\D/', '', $state));
                       })
-                      ->default(['required', 'regex:/^(\d{8}|\d{13})$/']),
+                      ->rules(['required', 'regex:/^(\d{8}|\d{13})$/']),
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
                       ->unique(ignoreRecord: true)
