@@ -62,11 +62,6 @@ class EmployeeResource extends Resource
       'Outlet' => $record->outlet->outlet_sap_id . ' - ' . $record->outlet->name,
     ];
   }
-  // public static function getGlobalSearchEloquentQuery(): Builder
-  // {
-  //   return parent::getGlobalSearchEloquentQuery()->with(['outlet']);
-  // }
-
   public static function getNavigationBadge(): ?string
   {
     // Get the current user's department ID
@@ -153,8 +148,7 @@ class EmployeeResource extends Resource
                       ->tel()
                       ->prefix('+62')
                       ->placeholder('81234567890')
-                      // ->telRegex('/^[+]*[(]{0,2}[0-9]{2,4}[)]{0,1}[-\s\.\/0-9]*$/')
-                      ->maxLength(14),
+                      ->maxLength(13),
                     Forms\Components\Select::make('sex')
                       ->label('Jenis Kelamin')
                       ->options([

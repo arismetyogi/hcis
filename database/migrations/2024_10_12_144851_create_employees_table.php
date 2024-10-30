@@ -21,7 +21,7 @@ return new class extends Migration
         $table->string('first_name', 50);
         $table->string('last_name', 50)->nullable();
         $table->date('date_of_birth');
-        $table->string('phone_no', 15);
+        $table->string('phone_no', 16);
         $table->string('sex', 6);
         $table->string('address', 200);
         $table->unsignedBigInteger('postcode_id')->nullable();
