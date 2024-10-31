@@ -21,6 +21,7 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ExportBulkAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\Summarizers\Sum;
 use Filament\Tables\Enums\ActionsPosition;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -204,76 +205,113 @@ class PayrollResource extends Resource
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('1050_honorarium')
-          ->label('1050 - Honorarium')
+          ->label('1050-Honorarium')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('uang_saku_mb')
           ->label('Uang Saku MB')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('3000_lembur')
-          ->label('3000 - Lembur')
+          ->label('3000-Lembur')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('2580_tunj_lain')
-          ->label('2580 - Tunj Lain')
+          ->label('2580-Tunj Lain')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('ujp')
           ->label('UJP')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('4020_sumbangan_cuti_tahunan')
-          ->label('4020 - Sumb. Cuti Tahunan')
+          ->label('4020-Sumb. Cuti Tahunan')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6500_pot_wajib_koperasi')
+          ->label('6500-Pot Wajib Koperasi')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6540_pot_pinjaman_koperasi')
+          ->label('6540-Pot Pinjaman Koperasi')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6590_pot_ykkkf')
+          ->label('6590-Pot YKKKF')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6620_pot_keterlambatan')
+          ->label('6620-Pot Keterlambatan')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6630_pinjaman_karyawan')
+          ->label('6630-Pinjaman Karyawan')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6700_pot_bank_mandiri')
+          ->label('6700-Pot Bank Mandiri')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6701_pot_bank_bri')
+          ->label('6701-Pot Bank BRI')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6702_pot_bank_btn')
+          ->label('6702-Pot Bank BTN')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6703_pot_bank_danamon')
+          ->label('6703-Pot Bank Danamon')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6704_pot_bank_dki')
+          ->label('6704-Pot Bank DKI')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6705_pot_bank_bjb')
+          ->label('6705-Pot Bank BJB')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6750_pot_adm_bank_mandiri')
+          ->label('6750-Pot Adm Bank Mandiri')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6751_pot_adm_bank_bri')
+          ->label('6751-Pot Adm Bank BRI')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6752_pot_adm_bank_bjb')
+          ->label('6752-Pot Adm Bank BJB')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('6900_pot_lain')
+          ->label('6900-Pot Lainnya')
           ->numeric()
+          ->summarize(Sum::make())
           ->sortable(),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
+          ->summarize(Sum::make())
           ->sortable()
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('updated_at')
