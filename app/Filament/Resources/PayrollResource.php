@@ -186,8 +186,8 @@ class PayrollResource extends Resource
       ->columns([
 
         Tables\Columns\TextColumn::make('bln_thn')
-          ->label('Thn-Bln')
-          ->searchable(),
+          ->label('Tahun Bulan')
+          ->searchable(isIndividual: true),
         Tables\Columns\TextColumn::make('employee.npp')
           ->label('NPP Pegawai')
           ->searchable()
@@ -204,16 +204,15 @@ class PayrollResource extends Resource
           })
           ->searchable()
           ->sortable(),
-        Tables\Columns\TextColumn::make('outlet.name')
+        Tables\Columns\TextColumn::make('outlet.id')
           ->label('Unit Kerja')
           ->getStateUsing(fn($record) => "{$record->outlet->outlet_sap_id}-{$record->outlet->name}")
-          ->searchable()
+          ->searchable(['outlet_sap_id', 'name'])
           ->sortable(),
         Tables\Columns\TextColumn::make('department_id')
           ->label('Unit Bisnis')
           ->getStateUsing(fn($record) => "{$record->department->id}-{$record->department->name}")
-
-          ->searchable()
+          ->searchable(['id', 'name'])
           ->sortable(),
         Tables\Columns\TextColumn::make('1050_honorarium')
           ->label('1050-Honorarium')

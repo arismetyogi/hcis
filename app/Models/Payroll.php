@@ -35,10 +35,10 @@ class Payroll extends Model
     return $this->hasOneThrough(
       Outlet::class,
       Employee::class,
-      'id',
-      'id',
-      'employee_id',
-      'outlet_id'
+      'id',             // Foreign key on the Employee table
+      'id',            // Foreign key on the Outlet table
+      'employee_id',    // Local key on the Payroll table
+      'outlet_id' // Local key on the Employee table
     );
   }
 }
