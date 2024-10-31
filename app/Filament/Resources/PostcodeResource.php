@@ -29,9 +29,9 @@ class PostcodeResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
-  protected static ?string $navigationLabel = 'Post Code';
+  protected static ?string $navigationLabel = 'Kode Pos';
 
-  protected static ?string $modelLabel = 'Post Codes';
+  protected static ?string $modelLabel = 'Kode Pos';
 
   protected static ?string $navigationGroup = 'System Configs';
 

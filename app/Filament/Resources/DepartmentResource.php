@@ -27,9 +27,9 @@ class DepartmentResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
-  protected static ?string $navigationLabel = 'Unit Kerja';
+  protected static ?string $navigationLabel = 'Unit Bisnis';
 
-  protected static ?string $modelLabel = 'Unit Kerja';
+  protected static ?string $modelLabel = 'Unit Bisnis';
 
   protected static ?string $navigationGroup = 'System Configs';
 
@@ -50,12 +50,12 @@ class DepartmentResource extends Resource
     return $form
       ->schema([
         Forms\Components\TextInput::make('name')
-          ->label('Department')
+          ->label('Nama Unit Bisnis')
           ->unique(ignoreRecord: true)
           ->required()
           ->maxLength(255),
         Forms\Components\TextInput::make('id')
-          ->label('Kode BM')
+          ->label('Kode Unit Bisnis')
           ->unique(ignoreRecord: true)
           ->required(),
         Forms\Components\TextInput::make('branch_name')
@@ -68,18 +68,18 @@ class DepartmentResource extends Resource
   {
     return $table
       ->columns([
-        Tables\Columns\TextColumn::make('name')
-          ->label('Department')
-          ->sortable()
-          ->searchable(),
         Tables\Columns\TextColumn::make('id')
-          ->label('Kode BM')
+          ->label('Kode UB')
           ->sortable()
           ->searchable(),
-        Tables\Columns\TextColumn::make('branch_name')
-          ->label('Nama BM')
+        Tables\Columns\TextColumn::make('name')
+          ->label('Nama Unit Bisnis')
           ->sortable()
           ->searchable(),
+        // Tables\Columns\TextColumn::make('branch_name')
+        //   ->label('Nama BM')
+        //   ->sortable()
+        // ->searchable(),
         Tables\Columns\TextColumn::make('created_at')
           ->dateTime()
           ->sortable()

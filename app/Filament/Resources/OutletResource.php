@@ -129,26 +129,26 @@ class OutletResource extends Resource
       ->columns([
         Tables\Columns\TextColumn::make('outlet_sap_id')
           ->label('Kode SAP')
+          ->sortable()
           ->searchable(),
         Tables\Columns\TextColumn::make('name')
           ->label('Nama Outlet')
+          ->sortable()
           ->searchable(),
         Tables\Columns\TextColumn::make('department.name')
-          ->label('Nama Unit')
-          ->searchable(),
+          ->label('Nama Unit Bisnis')
+          ->sortable()
+          ->searchable(isIndividual: true),
         Tables\Columns\TextColumn::make('store_type')
           ->searchable(),
         Tables\Columns\TextColumn::make('operational_date')
           ->date()
-          ->searchable(),
-        Tables\Columns\TextColumn::make('address')
-          ->searchable(),
+          ->sortable(),
+        Tables\Columns\TextColumn::make('address'),
         Tables\Columns\TextColumn::make('postcode.postal_code')
           ->searchable(),
-        Tables\Columns\TextColumn::make('latitude')
-          ->searchable(),
-        Tables\Columns\TextColumn::make('longitude')
-          ->searchable(),
+        Tables\Columns\TextColumn::make('latitude'),
+        Tables\Columns\TextColumn::make('longitude'),
         Tables\Columns\TextColumn::make('phone')
           ->searchable(),
         Tables\Columns\TextColumn::make('created_at')
@@ -160,6 +160,8 @@ class OutletResource extends Resource
           ->sortable()
           ->toggleable(isToggledHiddenByDefault: true),
       ])
+      ->defaultSort('name', 'asc')
+      ->persistSortInSession()
       ->filters([
         //
       ])
