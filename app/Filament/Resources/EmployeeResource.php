@@ -251,6 +251,7 @@ class EmployeeResource extends Resource
                       ->label('ID SAP')
                       ->unique(ignoreRecord: true)
                       ->type('text')
+                      ->maxLength(13)
                       ->afterStateUpdated(function (callable $set, $state) {
                         // Ensure only numeric values remain
                         $set('sap_id', preg_replace('/\D/', '', $state));
