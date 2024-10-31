@@ -133,6 +133,7 @@ class EmployeeResource extends Resource
                       ->maxLength(16)
                       ->reactive()
                       ->placeholder('19001030102200001')
+                      ->rules('string|max:16|min:16')
                       ->afterStateUpdated(function (callable $set, $state) {
                         // Ensure only numeric values remain
                         $set('nik', preg_replace('/\D/', '', $state));
@@ -332,8 +333,9 @@ class EmployeeResource extends Resource
                       ->unique(ignoreRecord: true)
                       ->required()
                       ->type('text')
-                      ->maxLength(13)
                       ->reactive()
+                      ->maxLength(13)
+                      ->rules('string|max:13|min:13')
                       ->afterStateUpdated(function (callable $set, $state) {
                         // Ensure only numeric values remain
                         $set('bpjs_id', preg_replace('/\D/', '', $state));
