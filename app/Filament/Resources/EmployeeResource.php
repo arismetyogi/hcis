@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Models\Outlet;
 use App\Traits\FiltersByDepartment;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables;
@@ -24,6 +25,7 @@ use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
 use App\Models\Department;
+use Filament\Actions\Exports\Models\Export;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -295,7 +297,7 @@ class EmployeeResource extends Resource
                       ->required()
                       ->maxLength(255),
                     Forms\Components\DatePicker::make('date_hired')
-                      ->label('Tanggal Diterima')
+                      ->label('Tanggal Mulai Bekerja')
                       ->required(),
                     Forms\Components\DatePicker::make('date_promoted')
                       ->label('Tanggal Diangkat')
@@ -382,9 +384,9 @@ class EmployeeResource extends Resource
                       ->maxValue(5)
                       ->rules(['integer', 'min:1', 'max:5']),
                     Forms\Components\DatePicker::make('contract_start')
-                      ->label('Tanggal Mulai'),
+                      ->label('Mulai Kontrak'),
                     Forms\Components\DatePicker::make('contract_end')
-                      ->label('Tanggal Berakhir'),
+                      ->label('Berakhir Kontrak'),
 
                   ])
               ]),
@@ -432,6 +434,7 @@ class EmployeeResource extends Resource
                       ->required()
                       ->maxLength(255),
                     Forms\Components\Select::make('recruitment_id')
+                      ->label('Ket Rekrutmen')
                       ->relationship('recruitment', 'name'),
                     Forms\Components\Select::make('pants_size')
                       ->label('Ukuran Celana')
@@ -687,12 +690,20 @@ class EmployeeResource extends Resource
         ExportAction::make()
           ->exporter(EmployeeExporter::class)
           ->columnMapping(false)
+          ->formats([
+            ExportFormat::Xlsx,
+          ])
+          ->fileName(fn(Export $export): string => "data-pegawai-{$export->getKey()}")
       ])
       ->bulkActions([
         BulkActionGroup::make([
           ExportBulkAction::make()
             ->exporter(EmployeeExporter::class)
-            ->columnMapping(false),
+            ->columnMapping(false)
+            ->formats([
+              ExportFormat::Xlsx,
+            ])
+            ->fileName(fn(Export $export): string => "data-pegawai-{$export->getKey()}"),
           DeleteBulkAction::make(),
         ]),
       ]);

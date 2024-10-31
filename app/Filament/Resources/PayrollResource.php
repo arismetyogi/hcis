@@ -9,6 +9,8 @@ use App\Models\Employee;
 use App\Models\Outlet;
 use App\Models\Payroll;
 use Carbon\Carbon;
+use Filament\Actions\Exports\Enums\ExportFormat;
+use Filament\Actions\Exports\Models\Export;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -293,12 +295,20 @@ class PayrollResource extends Resource
         ExportAction::make()
           ->exporter(PayrollExporter::class)
           ->columnMapping(false)
+          ->formats([
+            ExportFormat::Xlsx,
+          ])
+          ->fileName(fn(Export $export): string => "payroll-{$export->getKey()}")
       ])
       ->bulkActions([
         Tables\Actions\BulkActionGroup::make([
           ExportBulkAction::make()
             ->exporter(PayrollExporter::class)
-            ->columnMapping(false),
+            ->columnMapping(false)
+            ->formats([
+              ExportFormat::Xlsx,
+            ])
+            ->fileName(fn(Export $export): string => "payroll-{$export->getKey()}"),
           Tables\Actions\DeleteBulkAction::make(),
         ]),
       ]);

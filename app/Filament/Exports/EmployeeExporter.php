@@ -11,6 +11,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\MaxAttemptsExceededException;
+use OpenSpout\Common\Entity\Style\CellAlignment;
+use OpenSpout\Common\Entity\Style\CellVerticalAlignment;
+use OpenSpout\Common\Entity\Style\Color;
+use OpenSpout\Common\Entity\Style\Style;
 
 class EmployeeExporter extends Exporter implements ShouldQueue
 {
@@ -22,8 +26,10 @@ class EmployeeExporter extends Exporter implements ShouldQueue
   public static function getColumns(): array
   {
     return [
-      ExportColumn::make('sap_id'),
-      ExportColumn::make('npp'),
+      ExportColumn::make('sap_id')
+        ->label('ID SAP'),
+      ExportColumn::make('npp')
+        ->label('NPP'),
       ExportColumn::make('department_id')
         ->label('Kode BM'),
       ExportColumn::make('department.name')
@@ -32,49 +38,124 @@ class EmployeeExporter extends Exporter implements ShouldQueue
         ->label('Kode Outlet'),
       ExportColumn::make('outlet.name')
         ->label('Nama Outlet'),
-      ExportColumn::make('nik'),
-      ExportColumn::make('first_name'),
-      ExportColumn::make('last_name'),
-      ExportColumn::make('date_of_birth'),
-      ExportColumn::make('phone_no'),
-      ExportColumn::make('sex'),
-      ExportColumn::make('religion'),
-      ExportColumn::make('blood_type'),
-      ExportColumn::make('address'),
-      ExportColumn::make('postcode.postal_code'),
-      ExportColumn::make('npwp'),
-      ExportColumn::make('employee_status.name'),
-      ExportColumn::make('title.name'),
-      ExportColumn::make('subtitle.name'),
-      ExportColumn::make('band.name'),
-      ExportColumn::make('gradeeselon.id'),
-      ExportColumn::make('area.name'),
-      ExportColumn::make('emplevel.name'),
-      ExportColumn::make('saptitle_id'),
-      ExportColumn::make('saptitle_name'),
-      ExportColumn::make('date_hired'),
-      ExportColumn::make('date_promoted'),
-      ExportColumn::make('date_last_mutated'),
-      ExportColumn::make('descstatus.name'),
-      ExportColumn::make('bpjs_id'),
-      ExportColumn::make('insured_member_count'),
-      ExportColumn::make('bpjs_class'),
-      ExportColumn::make('bpjstk_id'),
-      ExportColumn::make('contract_document_id'),
-      ExportColumn::make('contract_sequence_no'),
-      ExportColumn::make('contract_term'),
-      ExportColumn::make('contract_start'),
-      ExportColumn::make('contract_end'),
-      ExportColumn::make('status_pasangan'),
-      ExportColumn::make('jumlah_tanggungan'),
-      ExportColumn::make('pasangan_ditanggung_pajak'),
-      ExportColumn::make('rekening_no'),
-      ExportColumn::make('rekening_name'),
-      ExportColumn::make('bank.name'),
-      ExportColumn::make('recruitment.name'),
-      ExportColumn::make('pants_size'),
-      ExportColumn::make('shirt_size'),
+      ExportColumn::make('nik')
+        ->label('NIK'),
+      ExportColumn::make('name')
+        ->label('Nama Lengkap')
+        ->getStateUsing(function ($record) {
+          return $record->first_name . ' ' . $record->last_name;
+        }),
+      ExportColumn::make('date_of_birth')
+        ->label('Tanggal Lahir'),
+      ExportColumn::make('phone_no')
+        ->label('No Telp')
+        ->getStateUsing(function ($record) {
+          return '+62' . $record->phone_no; // Concatenate prefix with the phone number
+        }),
+      ExportColumn::make('sex')
+        ->label('Jenis Kelamin'),
+      ExportColumn::make('religion')
+        ->label('Agama')
+        ->getStateUsing(function ($record) {
+          return $record->religion;
+        }),
+      ExportColumn::make('blood_type')
+        ->label('Golongan Darah')
+        ->getStateUsing(function ($record) {
+          return $record->blood_type;
+        }),
+      ExportColumn::make('address')
+        ->label('Alamat'),
+      ExportColumn::make('postcode.postal_code')
+        ->label('Kode Pos'),
+      ExportColumn::make('npwp')
+        ->label('NPWP'),
+      ExportColumn::make('employee_status.name')
+        ->label('Status Pegawai'),
+      ExportColumn::make('title.name')
+        ->label('Jabatan'),
+      ExportColumn::make(name: 'subtitle.name')
+        ->label('Sub Jabatan'),
+      ExportColumn::make('band.name')
+        ->label('Band'),
+      ExportColumn::make('gradeeselon.id')
+        ->label('Grade Eselon')
+        ->getStateUsing(function ($record) {
+          return $record->gradeeselon->grade . '-' . $record->gradeeselon->eselon;
+        }),
+      ExportColumn::make('area.name')
+        ->label('Area'),
+      ExportColumn::make('emplevel.name')
+        ->label('Level Pegawai'),
+      ExportColumn::make('saptitle_id')
+        ->label('Kode Jab SAP'),
+      ExportColumn::make('saptitle_name')
+        ->label('Nama Jab SAP'),
+      ExportColumn::make('date_hired')
+        ->label('Tanggal Mulai Bekerja'),
+      ExportColumn::make('date_promoted')
+        ->label('Tanggal Diangkat'),
+      ExportColumn::make('date_last_mutated')
+        ->label('Tgl Mutasi Terakhir'),
+      ExportColumn::make('descstatus.name')
+        ->label('Deskripsi Status'),
+      ExportColumn::make('bpjs_id')
+        ->label('No BPJS'),
+      ExportColumn::make('insured_member_count')
+        ->label('Jml Tanggungan'),
+      ExportColumn::make('bpjs_class')
+        ->label('Kelas BPJS'),
+      ExportColumn::make('bpjstk_id')
+        ->label('No BPJSTK'),
+      ExportColumn::make('contract_document_id')
+        ->label('No Kontrak'),
+      ExportColumn::make('contract_sequence_no')
+        ->label('Kontrak Ke-'),
+      ExportColumn::make('contract_term')
+        ->label('Masa Kontrak'),
+      ExportColumn::make('contract_start')
+        ->label('Mulai Kontrak'),
+      ExportColumn::make('contract_end')
+        ->label('Berakhir Kontrak'),
+      ExportColumn::make('status_pasangan')
+        ->label('Status Pasangan'),
+      ExportColumn::make('jumlah_tanggungan')
+        ->label('Jumlah Tanggungan Pajak'),
+      ExportColumn::make('pasangan_ditanggung_pajak')
+        ->label('Pasangan Ditanggung Pajak'),
+      ExportColumn::make('rekening_no')
+        ->label('No Rekening Payroll'),
+      ExportColumn::make('rekening_name')
+        ->label('Nama Rekening'),
+      ExportColumn::make('bank.name')
+        ->label('Nama Bank'),
+      ExportColumn::make('recruitment.name')
+        ->label('Ket Rekrutmen'),
+      ExportColumn::make('pants_size')
+        ->label('Ukuran Celana'),
+      ExportColumn::make('shirt_size')
+        ->label('Ukuran Baju'),
     ];
+  }
+
+  public function getXlsxCellStyle(): ?Style
+  {
+    return (new Style())
+      ->setFontSize(12)
+      ->setFontName('Consolas');
+  }
+
+  public function getXlsxHeaderCellStyle(): ?Style
+  {
+    return (new Style())
+      ->setFontBold()
+      ->setFontItalic()
+      ->setFontSize(14)
+      ->setFontName('Consolas')
+      ->setFontColor(Color::rgb(255, 255, 77))
+      ->setBackgroundColor(Color::rgb(0, 0, 0))
+      ->setCellAlignment(CellAlignment::CENTER)
+      ->setCellVerticalAlignment(CellVerticalAlignment::CENTER);
   }
 
   public static function getCompletedNotificationBody(Export $export): string
