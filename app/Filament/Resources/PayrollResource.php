@@ -212,7 +212,6 @@ class PayrollResource extends Resource
         Tables\Columns\TextColumn::make('department_id')
           ->label('Unit Bisnis')
           ->getStateUsing(fn($record) => "{$record->department->id}-{$record->department->name}")
-          ->searchable(['id', 'name'])
           ->sortable(),
         Tables\Columns\TextColumn::make('1050_honorarium')
           ->label('1050-Honorarium')
