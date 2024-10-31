@@ -55,7 +55,7 @@ class EmployeeResource extends Resource
   }
   public static function getGloballySearchableAttributes(): array
   {
-    return ['npp', 'first_name', 'last_name'];
+    return ['npp', 'first_name', 'last_name', 'sap_id'];
   }
 
   public static function getGlobalSearchResultDetails(Model $record): array
@@ -80,7 +80,7 @@ class EmployeeResource extends Resource
   }
   public static function getNavigationBadgeColor(): string|array|null
   {
-    return 'warning';
+    return 'success';
   }
 
   public static function getEloquentQuery(): Builder
@@ -125,7 +125,6 @@ class EmployeeResource extends Resource
                       ->maxLength(16)
                       ->reactive()
                       ->placeholder('19001030102200001')
-                      // ->rules(['numeric', 'digits:16'])
                       ->afterStateUpdated(function (callable $set, $state) {
                         // Ensure only numeric values remain
                         $set('nik', preg_replace('/\D/', '', $state));
@@ -525,16 +524,18 @@ class EmployeeResource extends Resource
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('postcode_id')
-          ->label('post code')
+          ->label('Kode Pos')
           ->getStateUsing(function ($record) {
             return $record->postcode_id;
           })
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('nik')
+          ->label('NIK')
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('npwp')
+          ->label('NPWP')
           ->searchable()
           ->toggleable(isToggledHiddenByDefault: true),
         Tables\Columns\TextColumn::make('employee_status.name')
