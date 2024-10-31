@@ -29,4 +29,16 @@ class Payroll extends Model
       'department_id' // Local key on the Employee table
     );
   }
+
+  public function outlet()
+  {
+    return $this->hasOneThrough(
+      Outlet::class,
+      Employee::class,
+      'id',
+      'id',
+      'employee_id',
+      'outlet_id'
+    );
+  }
 }

@@ -657,12 +657,22 @@ class EmployeeResource extends Resource
           ->toggleable(isToggledHiddenByDefault: true),
       ])
       ->filters([
-        SelectFilter::make('Unit Kerja')
+        SelectFilter::make('department_id')
           ->relationship('department', 'name')
           ->searchable()
           ->preload()
-          ->visible(fn($livewire) => Auth::user()->is_admin)            
-          ->indicator('Unit Kerja'),
+          ->visible(fn($livewire) => Auth::user()->is_admin)
+          ->label('Unit Bisnis'),
+        SelectFilter::make('outlet_id')
+          ->relationship('outlet', 'name')
+          ->searchable()
+          ->preload()
+          ->label('Unit Kerja')
+          ->options(function (callable $get) {
+            $departmentId = $get('department_id');  // Retrieves selected department ID
+            return Outlet::where('department_id', $departmentId)
+              ->pluck('name', 'id');
+          }),
         SelectFilter::make('Jabatan')
           ->relationship('title', 'name'),
       ])

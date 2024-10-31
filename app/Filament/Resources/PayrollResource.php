@@ -6,7 +6,9 @@ use App\Filament\Exports\PayrollExporter;
 use App\Filament\Resources\PayrollResource\Pages;
 use App\Filament\Resources\PayrollResource\RelationManagers;
 use App\Models\Employee;
+use App\Models\Outlet;
 use App\Models\Payroll;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -77,11 +79,27 @@ class PayrollResource extends Resource
   {
     return $form
       ->schema([
-        Forms\Components\TextInput::make('bln_thn')
-          ->label('bulan-tahun')
+        Forms\Components\Select::make('bln_thn')
+          ->label('TahunBulan')
           ->required()
-          ->placeholder('0824')
-          ->maxLength(4),
+          ->options(function () {
+            // Get current month
+            $currentMonth = Carbon::now()->startOfMonth();
+
+            // Define options for -1, 0 (current), +1 month
+            return [
+              $currentMonth->copy()->subMonth()->format('ym') => $currentMonth->copy()->subMonth()->format('F Y'),
+              $currentMonth->format('Ym') => $currentMonth->format('F Y'),
+              $currentMonth->copy()->addMonth()->format('ym') => $currentMonth->copy()->addMonth()->format('F Y'),
+              $currentMonth->copy()->addMonth(2)->format('ym') => $currentMonth->copy()->addMonth(2)->format('F Y'),
+            ];
+          })
+          ->default(Carbon::now()->format('Ym')),
+        // Forms\Components\TextInput::make('bln_thn')
+        //   ->label('TahunBulan')
+        //   ->required()
+        //   ->placeholder('2410')
+        //   ->maxLength(4),
         Forms\Components\Select::make('employee_id')
           ->relationship(
             'employee',
@@ -165,7 +183,7 @@ class PayrollResource extends Resource
       ->columns([
 
         Tables\Columns\TextColumn::make('bln_thn')
-          ->label('Bln-Thn')
+          ->label('Thn-Bln')
           ->searchable(),
         Tables\Columns\TextColumn::make('employee.npp')
           ->label('NPP Pegawai')
@@ -262,12 +280,7 @@ class PayrollResource extends Resource
           ->toggleable(isToggledHiddenByDefault: true),
       ])
       ->filters([
-        SelectFilter::make('Unit Kerja')
-          ->relationship('department', 'name')
-          ->searchable()
-          ->preload()
-          ->visible(fn($livewire) => Auth::user()->is_admin)
-          ->indicator('Unit Kerja'),
+        //
       ])
       ->actions([
         ActionGroup::make([
