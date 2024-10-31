@@ -207,7 +207,7 @@ class EmployeeResource extends Resource
                   ])
                   ->schema([
                     Forms\Components\Select::make('department_id')
-                      ->label('Unit Kerja - UB')
+                      ->label('Unit Bisnis')
                       ->relationship('department', 'name')
                       ->disabled(fn($livewire) => !Auth::user()->is_admin)
                       ->default(Auth::user()->department_id)
@@ -229,7 +229,7 @@ class EmployeeResource extends Resource
                       ->afterStateUpdated(fn(Set $set) => $set('outlet_id', null))
                       ->required(),
                     Forms\Components\Select::make('outlet_id')
-                      ->label('Nama Outlet')
+                      ->label('Unit Kerja/Outlet')
                       ->options(
                         fn(Get $get) => Outlet::query()
                           ->where('department_id', $get('department_id'))
@@ -497,10 +497,11 @@ class EmployeeResource extends Resource
           })
           ->searchable(),
         Tables\Columns\TextColumn::make('outlet.name')
+          ->label('Unit Kerja')
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('department.name')
-          ->label('Unit Kerja')
+          ->label('Unit Bisnis')
           ->searchable()
           ->sortable()
           ->toggleable(isToggledHiddenByDefault: true),

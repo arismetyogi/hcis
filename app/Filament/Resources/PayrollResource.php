@@ -204,6 +204,17 @@ class PayrollResource extends Resource
           })
           ->searchable()
           ->sortable(),
+        Tables\Columns\TextColumn::make('outlet.name')
+          ->label('Unit Kerja')
+          ->getStateUsing(fn($record) => "{$record->outlet->outlet_sap_id}-{$record->outlet->name}")
+          ->searchable()
+          ->sortable(),
+        Tables\Columns\TextColumn::make('department_id')
+          ->label('Unit Bisnis')
+          ->getStateUsing(fn($record) => "{$record->department->id}-{$record->department->name}")
+
+          ->searchable()
+          ->sortable(),
         Tables\Columns\TextColumn::make('1050_honorarium')
           ->label('1050-Honorarium')
           ->numeric()
