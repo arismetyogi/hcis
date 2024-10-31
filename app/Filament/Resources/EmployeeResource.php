@@ -112,11 +112,19 @@ class EmployeeResource extends Resource
                       ->label('Nama Depan')
                       ->required()
                       ->placeholder('Nama Depan Sesuai KTP')
-                      ->maxLength(255),
+                      ->maxLength(255)
+                      ->dehydrateStateUsing(function ($state) {
+                        // Format the state to Proper Case
+                        return ucwords(strtolower($state));
+                      }),
                     Forms\Components\TextInput::make('last_name')
                       ->label('Nama Belakang')
                       ->placeholder('Nama Belakang Sesuai KTP')
-                      ->maxLength(255),
+                      ->maxLength(255)
+                      ->dehydrateStateUsing(function ($state) {
+                        // Format the state to Proper Case
+                        return ucwords(strtolower($state));
+                      }),
                     Forms\Components\TextInput::make('nik')
                       ->label('NIK')
                       ->unique(ignoreRecord: true)
@@ -431,7 +439,11 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('rekening_name')
                       ->label('Nama Pemilik Rekening')
                       ->required()
-                      ->maxLength(255),
+                      ->maxLength(255)
+                      ->dehydrateStateUsing(function ($state) {
+                        // Format the state to Proper Case
+                        return ucwords(strtolower($state));
+                      }),
                     Forms\Components\Select::make('recruitment_id')
                       ->label('Ket Rekrutmen')
                       ->relationship('recruitment', 'name'),
