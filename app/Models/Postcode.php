@@ -12,7 +12,7 @@ class Postcode extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['urban', 'subdsitrict', 'city', 'province_code', 'postal_code'];
+  protected $fillable = ['urban', 'subdistrict', 'city', 'province_code', 'postal_code'];
 
   public function province(): BelongsTo
   {

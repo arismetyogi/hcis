@@ -8,6 +8,8 @@ use App\Models\Postcode;
 use App\Policies\PostcodePolicy;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\ActionGroup;
@@ -53,17 +55,56 @@ class PostcodeResource extends Resource
     return $form
       ->schema([
         Forms\Components\Select::make('province_code')
+          ->label('Provinsi')
           ->relationship('province', 'name')
-          ->required()
+          ->getSearchResultsUsing(function (string $search) {
+            return Postcode::query()
+              ->where('province', 'like', "%{$search}%")
+              ->limit(10) // Limit the number of results to avoid performance issues
+              ->get()
+              ->mapWithKeys(function ($postcode) {
+                return [
+                  $postcode->id => "{$postcode->province}",
+                ];
+              });
+          })
           ->searchable()
-          ->preload(),
-        Forms\Components\TextInput::make('city')
-          ->required()
-          ->maxLength(255),
-        Forms\Components\TextInput::make('subdistrict')
-          ->required()
-          ->maxLength(255),
+          ->live()
+          ->preload()
+          ->afterStateUpdated(function (Set $set) {
+            $set('city', null);
+            $set('subdistrict', null);
+          })
+          ->required(),
+        Forms\Components\Select::make('city')
+          ->label('Kab/Kota')
+          ->live()
+          ->preload()
+          ->options(
+            fn(Get $get) => Postcode::query()
+              ->where('province_code', $get('province_code'))
+              ->pluck('city', 'city')
+          )
+          ->searchable()
+          ->afterStateUpdated(fn(Set $set) => $set('subdistrict', null))
+          ->required(),
+        Forms\Components\Select::make('subdistrict')
+          ->label('Kecamatan')
+          ->live()
+          ->preload()
+          ->options(
+            fn(Get $get) => Postcode::query()
+              ->where('city', $get('city'))
+              ->pluck('subdistrict', 'subdistrict')
+          )
+          ->searchable()
+          ->required(),
         Forms\Components\TextInput::make('urban')
+          ->label('Kelurahan')
+          ->required()
+          ->maxLength(255),
+        Forms\Components\TextInput::make('postal_code')
+          ->label('Kode Pos')
           ->required()
           ->maxLength(255),
       ])

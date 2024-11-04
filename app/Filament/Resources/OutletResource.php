@@ -84,9 +84,11 @@ class OutletResource extends Resource
           ->searchable()
           ->required(),
         Forms\Components\TextInput::make('outlet_sap_id')
+          ->label('Kode SAP')
           ->required()
           ->maxLength(255),
         Forms\Components\TextInput::make('name')
+          ->label('Nama Outlet')
           ->required()
           ->maxLength(255),
         Forms\Components\Select::make('store_type')
@@ -94,13 +96,17 @@ class OutletResource extends Resource
           ->options(StoreTypeEnums::options())
           ->required(),
         Forms\Components\DatePicker::make('operational_date')
+          ->label('Tanggal Operasional')
           ->date()
           ->required(),
-        Forms\Components\TextInput::make('address')
+        Forms\Components\TextInput::make('phone')
+          ->label('No Telp')
           ->required()
           ->maxLength(255),
-        Forms\Components\TextInput::make('phone')
+        Forms\Components\TextInput::make('address')
+          ->label('Alamat')
           ->required()
+          ->columnSpan(2)
           ->maxLength(255),
         Forms\Components\Select::make('postcode_id')
           ->label('Kode Pos')

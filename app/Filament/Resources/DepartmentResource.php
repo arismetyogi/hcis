@@ -58,14 +58,14 @@ class DepartmentResource extends Resource
           ->label('Kode Unit Bisnis')
           ->unique(ignoreRecord: true)
           ->required(),
-        Forms\Components\TextInput::make('branch_name')
-          ->label('Nama BM')
-          ->required(),
+        // Forms\Components\TextInput::make('branch_name')
+        //   ->label('Nama BM')
+        //   ->required(),
       ])
       ->columns([
-        'default' => 3,
+        'default' => 2,
         'md' => 2,
-        'lg' => 3
+        'lg' => 2
       ]);
   }
 
