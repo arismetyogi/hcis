@@ -25,6 +25,7 @@ use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
 use App\Models\Department;
+use Carbon\Carbon;
 use Filament\Actions\Exports\Models\Export;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
@@ -151,6 +152,10 @@ class EmployeeResource extends Resource
                       }),
                     Forms\Components\DatePicker::make('date_of_birth')
                       ->label('Tanggal Lahir')
+                      ->displayFormat('d/m/Y')
+                      ->reactive()
+                      ->afterStateUpdated(fn($state, $set) =>
+                      $set('npp', Carbon::parse($state)->format('Ymd')))
                       ->required(),
                     Forms\Components\TextInput::make('phone_no')
                       ->label('No Telp.')
@@ -260,6 +265,7 @@ class EmployeeResource extends Resource
                     Forms\Components\TextInput::make('npp')
                       ->label('NPP')
                       ->unique(ignoreRecord: true)
+                      ->live()
                       ->type('text')
                       ->maxLength(10)
                       ->placeholder('19990101A')
@@ -303,7 +309,9 @@ class EmployeeResource extends Resource
                       ->required(),
                     Forms\Components\TextInput::make('saptitle_name')
                       ->label('Nama Jab SAP')
+                      ->placeholder('PELAKSANA PENUNJANG LAYANAN FARMASI')
                       ->required()
+                      ->columnSpan(2)
                       ->maxLength(255),
                     Forms\Components\DatePicker::make('date_hired')
                       ->label('Tanggal Mulai Bekerja')
@@ -325,13 +333,14 @@ class EmployeeResource extends Resource
                 Forms\Components\Grid::make()
                   ->columns([
                     'default' => 2,
-                    'md' => 3,
+                    'md' => 2,
                     'lg' => 3,
                   ])
                   ->schema([
                     Forms\Components\TextInput::make('bpjs_id')
                       ->label('No BPJS')
                       ->unique(ignoreRecord: true)
+                      ->placeholder('0001234567890')
                       ->required()
                       ->type('text')
                       ->reactive()
@@ -341,13 +350,6 @@ class EmployeeResource extends Resource
                         // Ensure only numeric values remain
                         $set('bpjs_id', preg_replace('/\D/', '', $state));
                       }),
-                    Forms\Components\TextInput::make('insured_member_count')
-                      ->label('Jumlah Tanggungan')
-                      ->integer()
-                      ->minValue(0)
-                      ->maxValue(4)
-                      ->required()
-                      ->rules(['integer', 'min:0', 'max:4']),
                     Forms\Components\TextInput::make('bpjs_class')
                       ->label('Kelas BPJS')
                       ->integer()
@@ -355,9 +357,17 @@ class EmployeeResource extends Resource
                       ->maxValue(3)
                       ->required()
                       ->rules(['integer', 'min:1', 'max:3']),
+                    Forms\Components\TextInput::make('insured_member_count')
+                      ->label('Jumlah Tanggungan')
+                      ->integer()
+                      ->minValue(0)
+                      ->maxValue(4)
+                      ->required()
+                      ->rules(['integer', 'min:0', 'max:4']),
                     Forms\Components\TextInput::make('bpjstk_id')
                       ->label('No BPJSTK')
                       ->unique(ignoreRecord: true)
+                      ->placeholder('0001234567890')
                       ->required()
                       ->type('text')
                       ->maxLength(16)
@@ -369,6 +379,7 @@ class EmployeeResource extends Resource
                   ])
               ]),
             Forms\Components\Section::make('Contract Info')
+              ->description('Wajib diisi untuk Pegawai PKWTT')
               ->schema([
                 Forms\Components\Grid::make()
                   ->columns([
@@ -397,7 +408,6 @@ class EmployeeResource extends Resource
                       ->label('Mulai Kontrak'),
                     Forms\Components\DatePicker::make('contract_end')
                       ->label('Berakhir Kontrak'),
-
                   ])
               ]),
             Forms\Components\Section::make('Tax & Honorary Info')
@@ -512,6 +522,7 @@ class EmployeeResource extends Resource
           ->searchable(),
         Tables\Columns\TextColumn::make('outlet.name')
           ->label('Unit Kerja')
+          ->getStateUsing(fn($record) => $record->outlet->outlet_sap_id . ' - ' . $record->outlet->name)
           ->searchable()
           ->sortable(),
         Tables\Columns\TextColumn::make('department.name')
@@ -676,6 +687,7 @@ class EmployeeResource extends Resource
           ->sortable()
           ->toggleable(isToggledHiddenByDefault: true),
       ])
+      ->defaultSort('updated_at', 'desc')
       ->filters([
         SelectFilter::make('department_id')
           ->relationship('department', 'name')

@@ -64,6 +64,7 @@ class OutletResource extends Resource
     return $form
       ->schema([
         Forms\Components\Select::make('department_id')
+          ->label('Unit Bisnis')
           ->relationship('department', 'name')
           ->getSearchResultsUsing(function (string $search) {
             return Department::query()

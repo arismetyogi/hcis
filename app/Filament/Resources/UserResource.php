@@ -63,14 +63,17 @@ class UserResource extends Resource
       ->schema([
         Forms\Components\TextInput::make('name')
           ->label('Nama User')
+          ->placeholder('Nama User')
           ->required()
           ->maxLength(255),
         Forms\Components\TextInput::make('email')
           ->email()
+          ->placeholder('user@gmail.com')
           ->required()
           ->maxLength(255),
         Forms\Components\TextInput::make('password')
           ->password()
+          ->revealable()
           ->required()
           ->maxLength(255),
         Forms\Components\Select::make('department_id')
@@ -83,9 +86,9 @@ class UserResource extends Resource
         Forms\Components\Toggle::make('is_admin'),
       ])
       ->columns([
-        'default' => 3,
+        'default' => 2,
         'md' => 2,
-        'lg' => 3
+        'lg' => 2
       ]);
   }
 

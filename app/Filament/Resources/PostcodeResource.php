@@ -101,10 +101,16 @@ class PostcodeResource extends Resource
           ->required(),
         Forms\Components\TextInput::make('urban')
           ->label('Kelurahan')
+          ->placeholder('CONTOH')
           ->required()
+          ->dehydrateStateUsing(function ($state) {
+            // Format the state to Proper Case
+            return strtoupper($state);
+          })
           ->maxLength(255),
         Forms\Components\TextInput::make('postal_code')
           ->label('Kode Pos')
+          ->placeholder('26262')
           ->required()
           ->maxLength(255),
       ])
@@ -119,7 +125,6 @@ class PostcodeResource extends Resource
   {
     return $table
       ->columns([
-
         Tables\Columns\TextColumn::make('province.name_en')
           ->searchable()
           ->sortable(),
