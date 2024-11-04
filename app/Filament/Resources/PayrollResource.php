@@ -177,6 +177,11 @@ class PayrollResource extends Resource
         Forms\Components\TextInput::make('6900_pot_lain')
           ->label('6900 - Pot. Lainnya')
           ->numeric(),
+      ])
+      ->columns([
+        'default' => 3,
+        'md' => 2,
+        'lg' => 3
       ]);
   }
 
