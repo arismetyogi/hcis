@@ -66,6 +66,11 @@ class PostcodeResource extends Resource
         Forms\Components\TextInput::make('urban')
           ->required()
           ->maxLength(255),
+      ])
+      ->columns([
+        'default' => 3,
+        'md' => 2,
+        'lg' => 3
       ]);
   }
 

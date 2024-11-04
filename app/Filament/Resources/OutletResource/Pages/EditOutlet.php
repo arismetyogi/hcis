@@ -8,12 +8,17 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditOutlet extends EditRecord
 {
-    protected static string $resource = OutletResource::class;
+  protected static string $resource = OutletResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+  protected function getHeaderActions(): array
+  {
+    return [
+      // Actions\DeleteAction::make(),
+    ];
+  }
+
+  protected function getRedirectUrl(): string
+  {
+    return $this->getResource()::getUrl('index');
+  }
 }

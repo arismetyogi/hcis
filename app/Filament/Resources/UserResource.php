@@ -81,6 +81,11 @@ class UserResource extends Resource
           ->searchable()
           ->required(),
         Forms\Components\Toggle::make('is_admin'),
+      ])
+      ->columns([
+        'default' => 3,
+        'md' => 2,
+        'lg' => 3
       ]);
   }
 

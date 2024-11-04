@@ -8,5 +8,10 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateOutlet extends CreateRecord
 {
-    protected static string $resource = OutletResource::class;
+  protected static string $resource = OutletResource::class;
+
+  protected function getRedirectUrl(): string
+  {
+    return $this->getResource()::getUrl('index');
+  }
 }

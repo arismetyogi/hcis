@@ -61,6 +61,11 @@ class DepartmentResource extends Resource
         Forms\Components\TextInput::make('branch_name')
           ->label('Nama BM')
           ->required(),
+      ])
+      ->columns([
+        'default' => 3,
+        'md' => 2,
+        'lg' => 3
       ]);
   }
 

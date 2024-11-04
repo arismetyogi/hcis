@@ -8,5 +8,10 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreatePostcode extends CreateRecord
 {
-    protected static string $resource = PostcodeResource::class;
+  protected static string $resource = PostcodeResource::class;
+
+  protected function getRedirectUrl(): string
+  {
+    return $this->getResource()::getUrl('index');
+  }
 }

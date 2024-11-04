@@ -120,6 +120,11 @@ class OutletResource extends Resource
           })
           ->searchable()
           ->nullable(),
+      ])
+      ->columns([
+        'default' => 3,
+        'md' => 2,
+        'lg' => 3
       ]);
   }
 
