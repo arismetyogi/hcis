@@ -368,7 +368,12 @@ class PayrollResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        $user = auth()->user();
+        $user = Auth::user();
+
+        if ($user->is_admin) {
+            // If admin, count records across all departments
+            return parent::getEloquentQuery();
+        }
 
         return parent::getEloquentQuery()
             ->whereHas('employee', function ($subquery) {
