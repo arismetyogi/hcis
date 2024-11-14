@@ -250,17 +250,18 @@ class PayrollResource extends Resource
                         $query->orderBy('employee.first_name', $direction)
                             ->orderBy('employee.last_name', $direction);
                     })
-                    ->searchable()
+                    ->searchable([
+                        'employees.first_name',
+                        'employees.last_name'
+                    ])
                     ->sortable(),
                 Tables\Columns\TextColumn::make('outlet.id')
                     ->label('Unit Kerja')
                     ->getStateUsing(fn($record) => "{$record->outlet->outlet_sap_id}-{$record->outlet->name}")
-                    ->searchable(['outlet_sap_id', 'name'])
-                    ->sortable(),
+                    ->searchable(['outlet_sap_id', 'name']),
                 Tables\Columns\TextColumn::make('department_id')
                     ->label('Unit Bisnis')
-                    ->getStateUsing(fn($record) => "{$record->department->id}-{$record->department->name}")
-                    ->sortable(),
+                    ->getStateUsing(fn($record) => "{$record->department->id}-{$record->department->name}"),
                 Tables\Columns\TextColumn::make('1050_honorarium')
                     ->label('1050-Honorarium')
                     ->numeric()
@@ -382,7 +383,7 @@ class PayrollResource extends Resource
             ->actions([
                 ActionGroup::make([
                     ViewAction::make(),
-                    EditAction::make(),
+                    // EditAction::make(),
                     DeleteAction::make(),
                 ])->icon('heroicon-m-ellipsis-horizontal')->color('warning')
             ], position: ActionsPosition::BeforeColumns)
@@ -437,7 +438,7 @@ class PayrollResource extends Resource
             'index' => Pages\ListPayrolls::route('/'),
             'create' => Pages\CreatePayroll::route('/create'),
             // 'view' => Pages\ViewPayroll::route('/{record}'),
-            'edit' => Pages\EditPayroll::route('/{record}/edit'),
+            // 'edit' => Pages\EditPayroll::route('/{record}/edit'),
         ];
     }
 }
