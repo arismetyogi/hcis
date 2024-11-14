@@ -27,6 +27,7 @@ class Employee extends Model
     "subtitle_id",
     "band_id",
     "outlet_id",
+    "sap_id",
     "npp",
     "gradeeselon_id",
     "area_id",
