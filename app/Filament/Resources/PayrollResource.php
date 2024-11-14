@@ -92,24 +92,70 @@ class PayrollResource extends Resource
                     )
                     ->getOptionLabelFromRecordUsing(fn($record) => "{$record->npp} - {$record->first_name} {$record->last_name}")
                     ->preload()
+                    ->live()
+                    ->afterStateUpdated(function ($state, $set) {
+                        // Reset the bln_thn field when employee_id changes
+                        $set('bln_thn', null);
+                    })
                     ->searchable(['npp', 'first_name', 'last_name'])
                     ->required(),
+                // Forms\Components\Select::make('bln_thn')
+                //     ->label('TahunBulan')
+                //     ->required()
+                //     ->options(function () {
+                //         // Get current month
+                //         $currentMonth = Carbon::now()->startOfMonth();
+
+                //         // Define options for -1, 0 (current), +1 month
+                //         return [
+                //             $currentMonth->copy()->subMonth()->format('ym') => $currentMonth->copy()->subMonth()->format('F Y'),
+                //             $currentMonth->format('ym') => $currentMonth->format('F Y'),
+                //             $currentMonth->copy()->addMonth()->format('ym') => $currentMonth->copy()->addMonth()->format('F Y'),
+                //             $currentMonth->copy()->addMonth(2)->format('ym') => $currentMonth->copy()->addMonth(2)->format('F Y'),
+                //         ];
+                //     })
+                //     ->default(Carbon::now()->format('ym')),
                 Forms\Components\Select::make('bln_thn')
                     ->label('TahunBulan')
                     ->required()
-                    ->options(function () {
+                    ->options(function ($get) {
                         // Get current month
-                        $currentMonth = Carbon::now()->startOfMonth();
+                        $employeeId = $get('employee_id');
 
-                        // Define options for -1, 0 (current), +1 month
-                        return [
-                            $currentMonth->copy()->subMonth()->format('ym') => $currentMonth->copy()->subMonth()->format('F Y'),
-                            $currentMonth->format('ym') => $currentMonth->format('F Y'),
-                            $currentMonth->copy()->addMonth()->format('ym') => $currentMonth->copy()->addMonth()->format('F Y'),
-                            $currentMonth->copy()->addMonth(2)->format('ym') => $currentMonth->copy()->addMonth(2)->format('F Y'),
-                        ];
+                        // Check if employee_id exists
+                        if ($employeeId) {
+                            // Get current month
+                            $currentMonth = Carbon::now()->startOfMonth();
+
+                            // Define options for -1, 0 (current), +1 month
+                            $options = [
+                                $currentMonth->copy()->subMonth()->format('ym') => $currentMonth->copy()->subMonth()->format('F Y'),
+                                $currentMonth->format('ym') => $currentMonth->format('F Y'),
+                                $currentMonth->copy()->addMonth()->format('ym') => $currentMonth->copy()->addMonth()->format('F Y'),
+                                $currentMonth->copy()->addMonth(2)->format('ym') => $currentMonth->copy()->addMonth(2)->format('F Y'),
+                            ];
+
+                            // Get all existing months for this employee from the database
+                            $existingMonths = Payroll::where('employee_id', $employeeId)
+                                ->whereIn('bln_thn', array_keys($options))
+                                ->pluck('bln_thn')
+                                ->toArray();
+
+                            // Filter out the existing months
+                            $filteredOptions = array_filter($options, function ($key) use ($existingMonths) {
+                                return !in_array($key, $existingMonths);
+                            }, ARRAY_FILTER_USE_KEY);
+
+                            return $filteredOptions;
+                        }
+
+                        return [];
                     })
-                    ->default(Carbon::now()->format('ym')),
+                    ->default(Carbon::now()->format('ym'))
+                    ->reactive() // Optional: Make the component reactive if you need to update on change
+                    ->afterStateUpdated(function ($state) {
+                        // You can also add additional logic here if needed, e.g., for validation
+                    }),
                 Forms\Components\TextInput::make('1050_honorarium')
                     ->label('1050 - Honorarium')
                     ->required()
@@ -182,28 +228,6 @@ class PayrollResource extends Resource
             ]);
     }
 
-    protected function mutateFormDataBeforeCreate(array $data): array
-    {
-        try {
-            $exists = Payroll::where('employee_id', $data['employee_id'])
-                ->where('bln_thn', $data['bln_thn'])
-                ->exists();
-
-            if ($exists) {
-                // If a record exists, flash a custom message to the user and prevent save
-                session()->flash('error', 'This employee already has a payroll record for the selected month and year.');
-                throw new ValidationException('Duplicate payroll record');
-            }
-        } catch (QueryException $e) {
-            // Log the exception and throw a custom message
-            logger()->error($e);
-
-            session()->flash('error', 'An unexpected error occurred while saving the payroll.');
-            throw new \Exception('Error processing the payroll.');
-        }
-
-        return $data;
-    }
     public static function table(Table $table): Table
     {
         return $table
