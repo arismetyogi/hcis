@@ -27,7 +27,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class PayrollResource extends Resource
 {
@@ -82,27 +84,6 @@ class PayrollResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('bln_thn')
-                    ->label('TahunBulan')
-                    ->required()
-                    ->options(function () {
-                        // Get current month
-                        $currentMonth = Carbon::now()->startOfMonth();
-
-                        // Define options for -1, 0 (current), +1 month
-                        return [
-                            $currentMonth->copy()->subMonth()->format('ym') => $currentMonth->copy()->subMonth()->format('F Y'),
-                            $currentMonth->format('Ym') => $currentMonth->format('F Y'),
-                            $currentMonth->copy()->addMonth()->format('ym') => $currentMonth->copy()->addMonth()->format('F Y'),
-                            $currentMonth->copy()->addMonth(2)->format('ym') => $currentMonth->copy()->addMonth(2)->format('F Y'),
-                        ];
-                    })
-                    ->default(Carbon::now()->format('Ym')),
-                // Forms\Components\TextInput::make('bln_thn')
-                //   ->label('TahunBulan')
-                //   ->required()
-                //   ->placeholder('2410')
-                //   ->maxLength(4),
                 Forms\Components\Select::make('employee_id')
                     ->relationship(
                         'employee',
@@ -113,6 +94,22 @@ class PayrollResource extends Resource
                     ->preload()
                     ->searchable(['npp', 'first_name', 'last_name'])
                     ->required(),
+                Forms\Components\Select::make('bln_thn')
+                    ->label('TahunBulan')
+                    ->required()
+                    ->options(function () {
+                        // Get current month
+                        $currentMonth = Carbon::now()->startOfMonth();
+
+                        // Define options for -1, 0 (current), +1 month
+                        return [
+                            $currentMonth->copy()->subMonth()->format('ym') => $currentMonth->copy()->subMonth()->format('F Y'),
+                            $currentMonth->format('ym') => $currentMonth->format('F Y'),
+                            $currentMonth->copy()->addMonth()->format('ym') => $currentMonth->copy()->addMonth()->format('F Y'),
+                            $currentMonth->copy()->addMonth(2)->format('ym') => $currentMonth->copy()->addMonth(2)->format('F Y'),
+                        ];
+                    })
+                    ->default(Carbon::now()->format('ym')),
                 Forms\Components\TextInput::make('1050_honorarium')
                     ->label('1050 - Honorarium')
                     ->required()
@@ -185,6 +182,28 @@ class PayrollResource extends Resource
             ]);
     }
 
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        try {
+            $exists = Payroll::where('employee_id', $data['employee_id'])
+                ->where('bln_thn', $data['bln_thn'])
+                ->exists();
+
+            if ($exists) {
+                // If a record exists, flash a custom message to the user and prevent save
+                session()->flash('error', 'This employee already has a payroll record for the selected month and year.');
+                throw new ValidationException('Duplicate payroll record');
+            }
+        } catch (QueryException $e) {
+            // Log the exception and throw a custom message
+            logger()->error($e);
+
+            session()->flash('error', 'An unexpected error occurred while saving the payroll.');
+            throw new \Exception('Error processing the payroll.');
+        }
+
+        return $data;
+    }
     public static function table(Table $table): Table
     {
         return $table
