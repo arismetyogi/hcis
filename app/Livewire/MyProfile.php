@@ -41,7 +41,7 @@ class MyProfile extends MyProfileComponent
                     ->required(),
                 TextInput::make('email')
                 ->required(),
-            ])->columns(3)
+            ])->columns(2)
             ->statePath('data');
     }
 
