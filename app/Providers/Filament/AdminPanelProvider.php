@@ -70,13 +70,12 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->userMenuItems([
                 'profile' => MenuItem::make()
-                    ->label('Profile')
+                    ->label('My Profile')
                     ->url('/admin/my-profile')
                     ->icon('heroicon-o-cog-6-tooth'),
                 'logout' => MenuItem::make()
                     ->label('Logout')
             ])
-            ->authGuard('web')
             ->plugins([
                 BreezyCore::make() // Filament Breezy
                 ->myProfile(
@@ -84,7 +83,7 @@ class AdminPanelProvider extends PanelProvider
                     hasAvatars: true,
                 )
                 ->passwordUpdateRules(
-                    rules: [Password::default()->mixedCase()->uncompromised(3)]
+                    rules: [Password::default()->mixedCase()->numbers()->uncompromised(3)]
                 )
             ]);
     }

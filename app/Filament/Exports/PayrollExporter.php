@@ -19,7 +19,7 @@ use OpenSpout\Common\Entity\Style\Style;
 class PayrollExporter extends Exporter implements ShouldQueue
 {
   use Dispatchable, InteractsWithQueue, Queueable;
-  public $tries = 3;
+  public int $tries = 3;
   protected static ?string $model = Payroll::class;
 
   public static function getColumns(): array
@@ -82,7 +82,6 @@ class PayrollExporter extends Exporter implements ShouldQueue
   public function getXlsxCellStyle(): ?Style
   {
     return (new Style())
-      ->setFontSize(12)
       ->setFontName('Consolas');
   }
 
@@ -90,13 +89,7 @@ class PayrollExporter extends Exporter implements ShouldQueue
   {
     return (new Style())
       ->setFontBold()
-      ->setFontItalic()
-      ->setFontSize(14)
-      ->setFontName('Consolas')
-      ->setFontColor(Color::rgb(255, 255, 77))
-      ->setBackgroundColor(Color::rgb(0, 0, 0))
-      ->setCellAlignment(CellAlignment::CENTER)
-      ->setCellVerticalAlignment(CellVerticalAlignment::CENTER);
+      ->setFontName('Consolas');
   }
   public static function getCompletedNotificationBody(Export $export): string
   {
