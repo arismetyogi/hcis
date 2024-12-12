@@ -2,10 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Resources\UserResource;
 use Filament\Navigation\MenuItem;
-use Filament\Navigation\NavigationBuilder;
-use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\Widgets;
@@ -23,8 +20,6 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
-use Jeffgreco13\FilamentBreezy\Livewire\MyProfileComponent;
-use Jeffgreco13\FilamentBreezy\Pages\MyProfilePage;
 
 class AdminPanelProvider extends PanelProvider
 {
