@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\MyCustomProfilePage;
 use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
@@ -85,6 +86,7 @@ class AdminPanelProvider extends PanelProvider
                 ->passwordUpdateRules(
                     rules: [Password::default()->mixedCase()->numbers()->uncompromised(3)]
                 )
+                ->customMyProfilePage(MyCustomProfilePage::class)
             ]);
     }
 }
