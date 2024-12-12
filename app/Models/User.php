@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
+use Filament\Models\Contracts\HasAvatar;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
   /** @use HasFactory<\Database\Factories\UserFactory> */
   use HasFactory, Notifiable;
@@ -25,7 +27,8 @@ class User extends Authenticatable implements FilamentUser
     'email',
     'password',
     'is_admin',
-    'department_id'
+    'department_id',
+    'avatar_url',
   ];
 
   /**
@@ -60,6 +63,11 @@ class User extends Authenticatable implements FilamentUser
   public function isAdmin(): bool
   {
     return $this->is_admin;
+  }
+
+  public function getFilamentAvatarUrl(): ?string
+  {
+    return $this->avatar_url ? Storage::url($this->avatar_url) : null ;
   }
 
   public function canAccessPanel(Panel $panel): bool

@@ -21,17 +21,8 @@ class FilamentServiceProvider extends ServiceProvider
    */
   public function boot(): void
   {
-    // Filament::serving(function () {
-    //   $user = auth()->user();
-    //   $departmentName = $user ? $user->department->name : 'No Department'; // Get the department name
-
-    //   Filament::registerNavigationItems(
-    //     [
-    //       'label' => $departmentName,
-    //       'url' => '/admin', // Or specify a URL
-    //       'icon' => 'heroicon-o-office-building', // Change to an appropriate icon
-    //     ],
-    //   );
-    // });
+      Filament::serving(function () {
+          Filament::registerWidgets([]);
+      });
   }
 }

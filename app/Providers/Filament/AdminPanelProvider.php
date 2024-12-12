@@ -2,8 +2,10 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Widgets\EmployeeStatsOverview;
+use App\Filament\Resources\UserResource;
 use Filament\Navigation\MenuItem;
+use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\Widgets;
@@ -14,11 +16,15 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Jeffgreco13\FilamentBreezy\BreezyCore;
+use Jeffgreco13\FilamentBreezy\Livewire\MyProfileComponent;
+use Jeffgreco13\FilamentBreezy\Pages\MyProfilePage;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -70,10 +76,21 @@ class AdminPanelProvider extends PanelProvider
             ->userMenuItems([
                 'profile' => MenuItem::make()
                     ->label('Profile')
-                    ->url('')
+                    ->url('/admin/my-profile')
                     ->icon('heroicon-o-cog-6-tooth'),
                 'logout' => MenuItem::make()
                     ->label('Logout')
+            ])
+            ->authGuard('web')
+            ->plugins([
+                BreezyCore::make() // Filament Breezy
+                ->myProfile(
+                    shouldRegisterNavigation: true,
+                    hasAvatars: true,
+                )
+                ->passwordUpdateRules(
+                    rules: [Password::default()->mixedCase()->uncompromised(3)]
+                )
             ]);
     }
 }
