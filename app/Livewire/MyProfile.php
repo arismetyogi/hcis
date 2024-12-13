@@ -3,13 +3,17 @@
 namespace App\Livewire;
 
 use Filament\Facades\Filament;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
+use Filament\Support\Concerns\EvaluatesClosures;
 use Jeffgreco13\FilamentBreezy\Livewire\MyProfileComponent;
 
 class MyProfile extends MyProfileComponent
 {
+    use EvaluatesClosures;
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
     protected string $view = 'livewire.my-profile';
@@ -33,15 +37,32 @@ class MyProfile extends MyProfileComponent
         $this->form->fill($this->user->only($this->only));
     }
 
+    public function getAvatarUploadComponent()
+    {
+        $fileUpload = FileUpload::make('avatar_url')
+            ->label(__('filament-breezy::default.fields.avatar'))->avatar();
+
+        return is_null($this->avatarUploadComponent) ? $fileUpload : $this->evaluate($this->avatarUploadComponent, namedInjections: [
+            'fileUpload' => $fileUpload,
+        ]);
+    }
+
+    public function getProfileFormSchema(): array
+    {
+        $groupFields = Group::make([
+            TextInput::make('name')->required(),
+            TextInput::make('email')->required(),
+        ])->columnSpan(2);
+
+        return ($this->hasAvatars)
+            ? [filament('filament-breezy')->getAvatarUploadComponent(), $groupFields]
+            : [$groupFields] ;
+    }
+
     public function form(Form $form): Form
     {
         return $form
-            ->schema([
-                TextInput::make('name')
-                    ->required(),
-                TextInput::make('email')
-                ->required(),
-            ])->columns(2)
+            ->schema($this->getProfileFormSchema())->columns(4)
             ->statePath('data');
     }
 
