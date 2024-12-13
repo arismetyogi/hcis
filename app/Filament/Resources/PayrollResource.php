@@ -378,7 +378,11 @@ class PayrollResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+//                Tables\Filters\SelectFilter::make('bln_thn')
+//                    ->searchable()
+//                    ->preload()
+//                    ->options()
+//                    ->label('Tahun Bulan'),
             ])
             ->actions([
                 ActionGroup::make([
@@ -399,6 +403,7 @@ class PayrollResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     ExportBulkAction::make()
+                        ->label('Export Selected Payrolls')
                         ->exporter(PayrollExporter::class)
                         ->columnMapping(false)
                         ->formats([
@@ -424,13 +429,6 @@ class PayrollResource extends Resource
             ->whereHas('employee', function ($subquery) {
                 $subquery->where('department_id', Auth::user()->department_id);
             });
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array

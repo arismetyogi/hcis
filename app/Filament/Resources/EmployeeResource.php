@@ -727,6 +727,7 @@ class EmployeeResource extends Resource
             ->bulkActions([
                 BulkActionGroup::make([
                     ExportBulkAction::make()
+                        ->label('Export Selected Employees')
                         ->exporter(EmployeeExporter::class)
                         ->columnMapping(false)
                         ->formats([
