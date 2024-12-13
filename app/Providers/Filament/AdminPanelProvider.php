@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Livewire\MyPassword;
 use App\Livewire\MyProfile;
 use Filament\Navigation\MenuItem;
 use Filament\Pages;
@@ -79,8 +80,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 BreezyCore::make() // Filament Breezy
-                ->withoutMyProfileComponents(['personal_info'])
-                ->myProfileComponents([MyProfile::class])
+                ->withoutMyProfileComponents(['personal_info, update_password'])
+                ->myProfileComponents([
+                    'personal_info' => MyProfile::class,
+                    'update_password' => MyPassword::class,])
                 ->myProfile(
                     shouldRegisterNavigation: true,
                     hasAvatars: true,

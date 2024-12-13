@@ -1,4 +1,4 @@
-<x-filament-breezy::grid-section md=2 title="Profile Information" description="Update your profile information.">
+<x-filament-breezy::grid-section md=2 title="Password" description="Password must be minimum 8 characters long.">
     <x-filament::card>
         <form wire:submit.prevent="submit" class="space-y-6">
 

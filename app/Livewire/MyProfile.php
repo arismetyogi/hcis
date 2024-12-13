@@ -14,7 +14,6 @@ use Jeffgreco13\FilamentBreezy\Livewire\MyProfileComponent;
 class MyProfile extends MyProfileComponent
 {
     use EvaluatesClosures;
-    protected static ?string $navigationIcon = 'heroicon-o-user';
 
     protected string $view = 'livewire.my-profile';
 
@@ -62,7 +61,7 @@ class MyProfile extends MyProfileComponent
     public function form(Form $form): Form
     {
         return $form
-            ->schema($this->getProfileFormSchema())->columns(4)
+            ->schema($this->getProfileFormSchema())->columns(3)
             ->statePath('data');
     }
 
