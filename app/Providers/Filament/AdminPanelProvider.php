@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Livewire\MyPassword;
 use App\Livewire\MyProfile;
+use Carbon\Carbon;
 use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
@@ -22,6 +23,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
+use Niladam\FilamentAutoLogout\AutoLogoutPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -90,7 +92,12 @@ class AdminPanelProvider extends PanelProvider
                 )
                 ->passwordUpdateRules(
                     rules: [Password::default()->mixedCase()->numbers()->uncompromised(3)]
-                )
-            ]);
+                ),
+                AutoLogoutPlugin::make()
+                    ->color(Color::Amber)                   // Set the color. Defaults to Zinc
+                    //->disableIf(fn () => auth()->id() === 1)        // Disable the user with ID 1
+                    ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 15)   // Logout the user after 5 minutes
+                    ->timeLeftText('You\'ll be logged out in: ')      // Change the time left text
+        ]);
     }
 }
