@@ -407,7 +407,8 @@ class PayrollResource extends Resource
                         ->fileName(fn(Export $export): string => "payroll-{$export->getKey()}"),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->recordUrl('');
     }
 
     public static function getEloquentQuery(): Builder

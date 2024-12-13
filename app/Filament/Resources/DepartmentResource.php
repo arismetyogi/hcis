@@ -106,8 +106,7 @@ class DepartmentResource extends Resource
           Tables\Actions\DeleteBulkAction::make(),
         ]),
       ])
-      // ->disableDefaultAction()
-      // ->rowUrl(fn($record) => route('filament.admin.resources.employees-departments.view', $record))
+      ->recordUrl('')
     ;
   }
 

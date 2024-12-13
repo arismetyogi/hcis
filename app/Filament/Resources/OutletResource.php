@@ -188,7 +188,8 @@ class OutletResource extends Resource
         Tables\Actions\BulkActionGroup::make([
           Tables\Actions\DeleteBulkAction::make(),
         ]),
-      ]);
+      ])
+        ->recordUrl('');
   }
 
   public static function getRelations(): array

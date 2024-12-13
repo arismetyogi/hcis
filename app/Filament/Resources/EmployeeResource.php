@@ -735,7 +735,8 @@ class EmployeeResource extends Resource
                         ->fileName(fn(Export $export): string => "data-pegawai-{$export->getKey()}"),
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->recordUrl('');
     }
 
     public static function getRelations(): array
