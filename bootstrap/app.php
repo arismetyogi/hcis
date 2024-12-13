@@ -11,7 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        ['auth.timeout' => \JulioMotol\AuthTimeout\Middlewares\CheckAuthTimeout::class];
+//
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

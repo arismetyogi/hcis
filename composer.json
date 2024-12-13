@@ -13,7 +13,6 @@
     "filament/filament": "^3.2",
     "jeffgreco13/filament-breezy": "^2.4",
     "joaopaulolndev/filament-edit-profile": "^1.0",
-    "juliomotol/laravel-auth-timeout": "^4.1",
     "laravel/framework": "^11.9",
     "laravel/tinker": "^2.9"
   },
